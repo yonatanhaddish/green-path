@@ -40,7 +40,3 @@ a {
     color-scheme: dark;
   }
 }
-.root-body {
-  border: solid red 2px;
-  /* min-height: 100vh; */
-}
