@@ -33,7 +33,7 @@ const card = (
 
 export default function DriverStat() {
   return (
-    <Box sx={{ width: "30%" }}>
+    <Box>
       <Card variant="outlined">{card}</Card>
     </Box>
   );

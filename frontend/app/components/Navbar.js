@@ -19,17 +19,47 @@ const NavBar = () => {
           >
             Green Path
           </Typography>
-          <Button color="inherit" sx={{ color: "#000" }}>
+          <Button
+            color="inherit"
+            sx={{
+              color: "#000",
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "block",
+              },
+            }}
+          >
             <Link href="/operator-home" passHref>
               Home
             </Link>
           </Button>
-          <Button color="inherit" sx={{ color: "#000" }}>
+          <Button
+            color="inherit"
+            sx={{
+              color: "#000",
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "block",
+              },
+            }}
+          >
             <Link href="/operator-job-board" passHref>
               Job Board
             </Link>
           </Button>
-          <Button color="inherit" sx={{ color: "#000" }}>
+          <Button
+            color="inherit"
+            sx={{
+              color: "#000",
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "block",
+              },
+            }}
+          >
             <Link href="/operator-my-jobs" passHref>
               My Jobs
             </Link>
