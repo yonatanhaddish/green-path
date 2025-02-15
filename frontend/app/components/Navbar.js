@@ -20,17 +20,17 @@ const NavBar = () => {
             Green Path
           </Typography>
           <Button color="inherit" sx={{ color: "#000" }}>
-            <Link href="/" passHref>
+            <Link href="/operator-home" passHref>
               Home
             </Link>
           </Button>
           <Button color="inherit" sx={{ color: "#000" }}>
-            <Link href="/job-board" passHref>
+            <Link href="/operator-job-board" passHref>
               Job Board
             </Link>
           </Button>
           <Button color="inherit" sx={{ color: "#000" }}>
-            <Link href="/my-jobs" passHref>
+            <Link href="/operator-my-jobs" passHref>
               My Jobs
             </Link>
           </Button>
