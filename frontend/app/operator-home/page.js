@@ -48,7 +48,7 @@ const OpearatorHome = () => {
             <WeatherCard />
           </Grid>
           <Grid size={{ xs: 12, md: 6, lg: 2 }}>
-            <WeatherCard />
+            <DriverStat />
           </Grid>
           <Grid size={{ xs: 12, md: 6, lg: 8 }}>
             <WeatherCard />

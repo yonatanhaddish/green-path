@@ -6,6 +6,14 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+const styles = {
+  cardContent: {
+    // border: "solid green 1px",
+    display: "flex",
+    flexDirection: "column",
+  },
+};
+
 const bull = (
   <Box
     component="span"
@@ -17,17 +25,26 @@ const bull = (
 
 const card = (
   <React.Fragment>
-    <CardContent>
-      <Typography sx={{ fontWeight: "bold" }}>Weather</Typography>
-      <Typography>14-Feburary-2025</Typography>
-      <Typography>40°C</Typography>
-      <Typography>Toronto</Typography>
-      <Typography>Sunny</Typography>
+    <CardContent sx={styles.cardContent}>
+      <Typography sx={{ fontWeight: "bold" }}>Driver Statistics</Typography>
+      <br></br> <hr />
+      <Typography>
+        Total Trips Completed: <span>46</span>
+      </Typography>{" "}
+      <hr />
+      <Typography>
+        Total Distance Driven: <span>1200 Kms</span>
+      </Typography>
+      <hr />
+      <Typography>
+        Rating: <span>4.85 / 5</span>
+      </Typography>{" "}
+      <hr />
     </CardContent>
 
-    <CardActions>
+    {/* <CardActions>
       <Button size="small">Learn More</Button>
-    </CardActions>
+    </CardActions> */}
   </React.Fragment>
 );
 
