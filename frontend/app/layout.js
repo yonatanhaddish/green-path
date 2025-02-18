@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="root-body">
         <NavBar />
-        <Box sx={{ minHeight: "87vh" }}>{children}</Box>
+        <Box>{children}</Box>
         <Footer />
       </body>
     </html>
