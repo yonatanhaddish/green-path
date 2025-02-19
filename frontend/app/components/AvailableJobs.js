@@ -5,33 +5,25 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+import BasicButtons from "./Button";
 
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontWeight: "bold" }}>Weather</Typography>
-      <Typography>14-Feburary-2025</Typography>
-      <Typography>40°C</Typography>
-      <Typography>Toronto</Typography>
-      <Typography>Sunny</Typography>
+      <Typography sx={{ fontWeight: "bold" }}>Available Jobs</Typography>
+      <br />
+      <Typography fontWeight="bold" fontSize={30}>
+        15
+      </Typography>{" "}
+      <br />
+      <Box>
+        <BasicButtons message="View Job Board" />
+      </Box>
     </CardContent>
-
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
   </React.Fragment>
 );
 
-export default function AvailableJobs() {
+export default function AvailableJobs(props) {
   return (
     <Box>
       <Card variant="outlined">{card}</Card>

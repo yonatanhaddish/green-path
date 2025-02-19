@@ -44,9 +44,9 @@ const rows = [
 
 export default function RecentActivity() {
   return (
-    <TableContainer component={Paper}>
-      <Typography>Recent Activity</Typography>
-      <Table sx={{}} aria-label="customized table">
+    <TableContainer component={Paper} sx={{ marginBottom: "50px" }}>
+      <Typography fontWeight="bold">Recent Activity</Typography>
+      <Table sx={{ marginTop: "20px" }} aria-label="customized table">
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.calories}>

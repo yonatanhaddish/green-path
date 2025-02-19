@@ -13,7 +13,7 @@ import RecentActivity from "../components/RecentActivity";
 const OpearatorHome = () => {
   return (
     <>
-      <Box sx={{ border: "solid green 1px" }}>
+      <Box>
         <Typography
           sx={{
             fontSize: {
@@ -26,9 +26,21 @@ const OpearatorHome = () => {
               md: 5,
             },
             display: "flex",
+            fontWeight: "-",
           }}
         >
-          Good Afternoon, Yonatan Haddish
+          Good Afternoon,{" "}
+          <span
+            style={{
+              fontWeight: "bold",
+              background: "linear-gradient(to left, black, green)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              fontFamily: "Times New Roman",
+            }}
+          >
+            Yonatan Haddish
+          </span>
         </Typography>
         <Grid
           container
@@ -51,13 +63,13 @@ const OpearatorHome = () => {
             <DriverStat />
           </Grid>
           <Grid size={{ xs: 12, md: 6, lg: 8 }}>
-            <WeatherCard />
+            <AvailableJobs />
           </Grid>
           <Grid
             size={{ xs: 12 }}
             sx={{
               marginTop: {
-                xs: 8,
+                xs: 2,
               },
             }}
           >
