@@ -40,11 +40,15 @@ const rows = [
   createData("Started Delivery #1024", 160),
   createData("Completed Delivery #5498", 162),
   createData("Started Delivery #5498", 145),
+  createData("Completed Delivery #1024", 3),
+  createData("Started Delivery #1024", 44),
+  createData("Completed Delivery #5498", 1562),
+  createData("Started Delivery #5498", 1465),
 ];
 
 export default function RecentActivity() {
   return (
-    <TableContainer component={Paper} sx={{ marginBottom: "50px" }}>
+    <TableContainer component={Paper} sx={{ marginBottom: "40px" }}>
       <Typography fontWeight="bold">Recent Activity</Typography>
       <Table sx={{ marginTop: "20px" }} aria-label="customized table">
         <TableBody>

@@ -11,17 +11,9 @@ const styles = {
     // border: "solid green 1px",
     display: "flex",
     flexDirection: "column",
+    maxHeight: "170px",
   },
 };
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
 
 const card = (
   <React.Fragment>
@@ -41,16 +33,18 @@ const card = (
       </Typography>{" "}
       <hr />
     </CardContent>
-
-    {/* <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions> */}
   </React.Fragment>
 );
 
 export default function DriverStat() {
   return (
-    <Box>
+    <Box
+      sx={{
+        width: {
+          sm: "60%",
+        },
+      }}
+    >
       <Card variant="outlined">{card}</Card>
     </Box>
   );

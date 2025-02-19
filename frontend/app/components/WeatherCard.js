@@ -52,16 +52,18 @@ const card = (
         />
       </Box>
     </CardContent>
-
-    {/* <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions> */}
   </React.Fragment>
 );
 
 export default function WeatherCard() {
   return (
-    <Box sx={{ maxWidth: "400px" }}>
+    <Box
+      sx={{
+        width: {
+          sm: "60%",
+        },
+      }}
+    >
       <Card variant="outlined">{card}</Card>
     </Box>
   );

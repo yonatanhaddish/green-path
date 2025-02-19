@@ -18,7 +18,8 @@ const OpearatorHome = () => {
           sx={{
             fontSize: {
               xs: 18,
-              md: 50,
+              sm: 28,
+              md: 30,
             },
             marginTop: 5,
             marginLeft: {
@@ -26,7 +27,6 @@ const OpearatorHome = () => {
               md: 5,
             },
             display: "flex",
-            fontWeight: "-",
           }}
         >
           Good Afternoon,{" "}
@@ -48,25 +48,41 @@ const OpearatorHome = () => {
           sx={{
             width: {
               xs: "80%",
+              sm: "80%",
+              md: "100%",
+            },
+            display: "flex",
+            justifyTracks: {
+              sm: "center",
             },
             justifySelf: {
               xs: "center",
+              sm: "center",
             },
-            // border: "solid green 2px",
+
             marginTop: 3,
           }}
         >
-          <Grid size={{ xs: 12, md: 6, lg: 10 }}>
+          <Grid
+            size={{ xs: 12, sm: 12, md: 4 }}
+            sx={{ justifyItems: "center" }}
+          >
             <WeatherCard />
           </Grid>
-          <Grid size={{ xs: 12, md: 6, lg: 2 }}>
+          <Grid
+            size={{ xs: 12, sm: 12, md: 4 }}
+            sx={{ justifyItems: "center" }}
+          >
             <DriverStat />
           </Grid>
-          <Grid size={{ xs: 12, md: 6, lg: 8 }}>
+          <Grid
+            size={{ xs: 12, sm: 12, md: 4 }}
+            sx={{ justifyItems: "center" }}
+          >
             <AvailableJobs />
           </Grid>
           <Grid
-            size={{ xs: 12 }}
+            size={{ xs: 12, md: 12 }}
             sx={{
               marginTop: {
                 xs: 2,

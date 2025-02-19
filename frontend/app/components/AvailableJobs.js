@@ -9,14 +9,21 @@ import BasicButtons from "./Button";
 
 const card = (
   <React.Fragment>
-    <CardContent>
+    <CardContent sx={{ maxHeight: "170px" }}>
       <Typography sx={{ fontWeight: "bold" }}>Available Jobs</Typography>
       <br />
       <Typography fontWeight="bold" fontSize={30}>
         15
       </Typography>{" "}
       <br />
-      <Box>
+      <Box
+        sx={{
+          width: {
+            xs: "90%",
+            sm: "50%",
+          },
+        }}
+      >
         <BasicButtons message="View Job Board" />
       </Box>
     </CardContent>
@@ -25,7 +32,13 @@ const card = (
 
 export default function AvailableJobs(props) {
   return (
-    <Box>
+    <Box
+      sx={{
+        width: {
+          sm: "60%",
+        },
+      }}
+    >
       <Card variant="outlined">{card}</Card>
     </Box>
   );
