@@ -12,6 +12,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     maxHeight: "170px",
+    border: "0.1px solid",
   },
 };
 
@@ -41,8 +42,10 @@ export default function DriverStat() {
     <Box
       sx={{
         width: {
-          sm: "60%",
+          xs: "90%",
+          // sm: "60%",
         },
+        // border: "solid 1px blue",
       }}
     >
       <Card variant="outlined">{card}</Card>

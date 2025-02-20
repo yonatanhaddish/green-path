@@ -11,6 +11,9 @@ const Footer = () => {
           backgroundColor: "#000",
           color: "white",
           textAlign: "center",
+          alignContent: "center",
+          width: "100%",
+          height: "70px",
         }}
       >
         <Typography variant="body2">

@@ -47,8 +47,21 @@ const rows = [
 ];
 
 export default function RecentActivity() {
+  const styles = {
+    tableContainer: {
+      width: {
+        xs: "95%",
+      },
+      marginTop: {
+        xs: "25px",
+      },
+      marginBottom: {
+        xs: "100px",
+      },
+    },
+  };
   return (
-    <TableContainer component={Paper} sx={{ marginBottom: "40px" }}>
+    <TableContainer component={Paper} sx={styles.tableContainer}>
       <Typography fontWeight="bold">Recent Activity</Typography>
       <Table sx={{ marginTop: "20px" }} aria-label="customized table">
         <TableBody>

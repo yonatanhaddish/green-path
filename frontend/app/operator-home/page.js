@@ -1,6 +1,4 @@
 import React from "react";
-import "./operator-home.css";
-
 import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
@@ -10,14 +8,14 @@ import DriverStat from "../components/DriverStat";
 import AvailableJobs from "../components/AvailableJobs";
 import RecentActivity from "../components/RecentActivity";
 
-const OpearatorHome = () => {
+const OperatorHome = () => {
   return (
     <>
       <Box>
         <Typography
           sx={{
             fontSize: {
-              xs: 18,
+              xs: 20,
               sm: 28,
               md: 30,
             },
@@ -47,54 +45,77 @@ const OpearatorHome = () => {
           spacing={3}
           sx={{
             width: {
-              xs: "80%",
+              xs: "90%",
               sm: "80%",
-              md: "100%",
             },
             display: "flex",
-            justifyTracks: {
-              sm: "center",
-            },
-            justifySelf: {
-              xs: "center",
-              sm: "center",
-            },
-
+            justifyContent: "center", // Center the Grid container horizontally
+            margin: "0 auto", // Center the Grid container horizontally
             marginTop: 3,
+            border: {
+              xs: "none",
+              sm: "solid 2px green",
+              md: "solid 2px blue",
+            },
           }}
         >
           <Grid
-            size={{ xs: 12, sm: 12, md: 4 }}
-            sx={{ justifyItems: "center" }}
+            item="true"
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              // border: "solid 2px red",
+              width: "100%",
+            }}
           >
             <WeatherCard />
           </Grid>
           <Grid
-            size={{ xs: 12, sm: 12, md: 4 }}
-            sx={{ justifyItems: "center" }}
+            item="true"
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              // border: "solid 2px red",
+              width: "100%",
+            }}
           >
             <DriverStat />
           </Grid>
           <Grid
-            size={{ xs: 12, sm: 12, md: 4 }}
-            sx={{ justifyItems: "center" }}
+            item="true"
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              // border: "solid 2px red",
+              width: "100%",
+            }}
           >
             <AvailableJobs />
           </Grid>
-          <Grid
-            size={{ xs: 12, md: 12 }}
-            sx={{
-              marginTop: {
-                xs: 2,
-              },
-            }}
-          >
-            <RecentActivity />
-          </Grid>
         </Grid>
+        <Box
+          sx={{
+            marginTop: {
+              xs: 2,
+            },
+
+            width: {
+              sm: "100%",
+            },
+            display: "flex",
+            justifyContent: {
+              xs: "center",
+            },
+          }}
+        >
+          <RecentActivity />
+        </Box>
       </Box>
     </>
   );
 };
 
-export default OpearatorHome;
+export default OperatorHome;

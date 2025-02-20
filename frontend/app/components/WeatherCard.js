@@ -13,9 +13,10 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     background: "linear-gradient(to right, white,white, #FFF176)",
+    border: "0.1px solid",
   },
   boxDetail: {
-    width: "80%",
+    width: "100%",
     height: "100%",
   },
   boxIconImage: {
@@ -23,15 +24,6 @@ const styles = {
     alignContent: "center",
   },
 };
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
 
 const card = (
   <React.Fragment>
@@ -60,8 +52,10 @@ export default function WeatherCard() {
     <Box
       sx={{
         width: {
-          sm: "60%",
+          xs: "90%",
+          // sm: "60%",
         },
+        // border: "solid 1px blue",
       }}
     >
       <Card variant="outlined">{card}</Card>
