@@ -51,6 +51,7 @@ export default function RecentActivity() {
     tableContainer: {
       width: {
         xs: "95%",
+        lg: "80%",
       },
       marginTop: {
         xs: "25px",
@@ -62,7 +63,9 @@ export default function RecentActivity() {
   };
   return (
     <TableContainer component={Paper} sx={styles.tableContainer}>
-      <Typography fontWeight="bold">Recent Activity</Typography>
+      <Typography fontWeight="bold" sx={{ marginLeft: "20px" }}>
+        Recent Activity
+      </Typography>
       <Table sx={{ marginTop: "20px" }} aria-label="customized table">
         <TableBody>
           {rows.map((row) => (

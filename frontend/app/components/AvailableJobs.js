@@ -19,8 +19,8 @@ const card = (
       <Box
         sx={{
           width: {
-            // xs: "90%",
-            // sm: "50%",
+            xs: "90%",
+            sm: "60%",
           },
         }}
       >
@@ -36,7 +36,7 @@ export default function AvailableJobs(props) {
       sx={{
         width: {
           xs: "90%",
-          // sm: "100%",
+          sm: "80%",
         },
         // border: "solid 1px blue",
       }}

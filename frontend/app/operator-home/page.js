@@ -23,6 +23,7 @@ const OperatorHome = () => {
             marginLeft: {
               xs: 3,
               md: 5,
+              lg: 5,
             },
             display: "flex",
           }}
@@ -47,15 +48,18 @@ const OperatorHome = () => {
             width: {
               xs: "90%",
               sm: "80%",
+              lg: "90%",
             },
             display: "flex",
+
             justifyContent: "center", // Center the Grid container horizontally
             margin: "0 auto", // Center the Grid container horizontally
             marginTop: 3,
             border: {
               xs: "none",
-              sm: "solid 2px green",
-              md: "solid 2px blue",
+              sm: "none",
+              md: "none",
+              lg: "none",
             },
           }}
         >
@@ -66,7 +70,11 @@ const OperatorHome = () => {
               display: "flex",
               justifyContent: "center",
               // border: "solid 2px red",
-              width: "100%",
+              width: {
+                xs: "100%",
+                sm: "100%",
+                lg: "30%",
+              },
             }}
           >
             <WeatherCard />
@@ -78,7 +86,11 @@ const OperatorHome = () => {
               display: "flex",
               justifyContent: "center",
               // border: "solid 2px red",
-              width: "100%",
+              width: {
+                xs: "100%",
+                sm: "100%",
+                lg: "30%",
+              },
             }}
           >
             <DriverStat />
@@ -90,7 +102,12 @@ const OperatorHome = () => {
               display: "flex",
               justifyContent: "center",
               // border: "solid 2px red",
-              width: "100%",
+
+              width: {
+                xs: "100%",
+                sm: "100%",
+                lg: "30%",
+              },
             }}
           >
             <AvailableJobs />
@@ -104,10 +121,12 @@ const OperatorHome = () => {
 
             width: {
               sm: "100%",
+              lg: "100%",
             },
             display: "flex",
             justifyContent: {
               xs: "center",
+              lg: "center",
             },
           }}
         >

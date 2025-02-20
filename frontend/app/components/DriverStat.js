@@ -12,7 +12,6 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     maxHeight: "170px",
-    border: "0.1px solid",
   },
 };
 
@@ -43,7 +42,7 @@ export default function DriverStat() {
       sx={{
         width: {
           xs: "90%",
-          // sm: "60%",
+          sm: "80%",
         },
         // border: "solid 1px blue",
       }}
