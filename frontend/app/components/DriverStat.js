@@ -11,7 +11,7 @@ const styles = {
     // border: "solid green 1px",
     display: "flex",
     flexDirection: "column",
-    maxHeight: "170px",
+    minHeight: "175px",
   },
 };
 
@@ -39,13 +39,15 @@ const card = (
 export default function DriverStat() {
   return (
     <Box
-      sx={{
-        width: {
-          xs: "90%",
-          sm: "80%",
-        },
-        // border: "solid 1px blue",
-      }}
+      sx={
+        {
+          // width: {
+          //   xs: "90%",
+          //   sm: "80%",
+          // },
+          // border: "solid 1px blue",
+        }
+      }
     >
       <Card variant="outlined">{card}</Card>
     </Box>

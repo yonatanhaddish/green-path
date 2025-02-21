@@ -13,6 +13,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     background: "linear-gradient(to right, white,white, #FFF176)",
+    minHeight: "175px",
   },
   boxDetail: {
     width: "100%",
@@ -51,8 +52,8 @@ export default function WeatherCard() {
     <Box
       sx={{
         width: {
-          xs: "90%",
-          sm: "80%",
+          // xs: "90%",
+          // sm: "80%",
         },
         // border: "solid 1px blue",
       }}

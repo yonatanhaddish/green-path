@@ -9,7 +9,7 @@ import BasicButtons from "./Button";
 
 const card = (
   <React.Fragment>
-    <CardContent sx={{ width: "100%" }}>
+    <CardContent sx={{ width: "100%", minHeight: "100%" }}>
       <Typography sx={{ fontWeight: "bold" }}>Available Jobs</Typography>
       <br />
       <Typography fontWeight="bold" fontSize={30}>
@@ -19,8 +19,8 @@ const card = (
       <Box
         sx={{
           width: {
-            xs: "90%",
-            sm: "60%",
+            sm: "50%",
+            md: "70%",
           },
         }}
       >
@@ -33,13 +33,15 @@ const card = (
 export default function AvailableJobs(props) {
   return (
     <Box
-      sx={{
-        width: {
-          xs: "90%",
-          sm: "80%",
-        },
-        // border: "solid 1px blue",
-      }}
+      sx={
+        {
+          // width: {
+          //   xs: "90%",
+          //   sm: "80%",
+          // },
+          // border: "solid 1px blue",
+        }
+      }
     >
       <Card variant="outlined">{card}</Card>
     </Box>
