@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Box, { boxClasses } from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -12,7 +12,7 @@ const styles = {
   cardContent: {
     display: "flex",
     justifyContent: "space-between",
-    background: "linear-gradient(to right, white,white, #FFF176)",
+
     minHeight: "175px",
   },
   boxDetail: {
@@ -48,6 +48,21 @@ const card = (
 );
 
 export default function WeatherCard() {
+  const [temperatureStyle, setTemperatureStyle] = useState(30);
+  const [temperatureString, setTemperatureString] = useState("");
+
+  useEffect(() => {
+    if (temperatureStyle > 30) {
+      setTemperatureStyle("linear-gradient(to right, white,white, #FFF176)");
+    }
+    if (temperatureStyle <= 30) {
+      setTemperatureStyle(
+        "linear-gradient(to right, white,white,rgb(118, 166, 255))"
+      );
+    }
+  }, []);
+  console.log("test", temperatureStyle);
+
   return (
     <Box
       sx={{
@@ -55,10 +70,15 @@ export default function WeatherCard() {
           // xs: "90%",
           // sm: "80%",
         },
-        // border: "solid 1px blue",
+        // border: "solid 1px red",
       }}
     >
-      <Card variant="outlined">{card}</Card>
+      <Card
+        variant="outlined"
+        sx={{ background: temperatureStyle, border: "none" }}
+      >
+        {card}
+      </Card>
     </Box>
   );
 }
