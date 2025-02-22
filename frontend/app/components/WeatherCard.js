@@ -48,7 +48,7 @@ const card = (
 );
 
 export default function WeatherCard() {
-  const [temperatureStyle, setTemperatureStyle] = useState(30);
+  const [temperatureStyle, setTemperatureStyle] = useState(32);
   const [temperatureString, setTemperatureString] = useState("");
 
   useEffect(() => {
