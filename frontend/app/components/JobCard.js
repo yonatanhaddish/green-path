@@ -9,13 +9,15 @@ import BasicButtons from "./BasicButton";
 export default function JobCard() {
   const styles = {
     cardParent: {
-      border: "solid blue 2px",
-
+      // border: "solid blue 2px",
       width: {
-        // xs: "100%",
+        xs: "85%",
       },
       display: "flex",
       flexDirection: "column",
+      // alignItems: {
+      //   xs: "center",
+      // },
     },
     cardContent: {
       // border: "solid green 2px",
@@ -24,10 +26,7 @@ export default function JobCard() {
         // xs: "95%",
       },
     },
-    cardActions: {
-      border: "solid blue 2px",
-      width: "70%",
-    },
+
     typographyStyle01: {
       textAlign: "end",
     },
@@ -37,16 +36,25 @@ export default function JobCard() {
     typographyStyle03: {
       fontWeight: "bold",
     },
+    typographyStyle04: {
+      // border: "solid red 2px",
+      marginTop: "-10px",
+      width: "80%",
+      marginLeft: "10%",
+      paddingBottom: "20px",
+    },
   };
   return (
     <Card sx={styles.cardParent}>
       <CardContent sx={styles.cardContent}>
         <Typography
+          variant="subtitle2"
           sx={{ ...styles.typographyStyle01, ...styles.typographyStyle03 }}
         >
           06 - Feb - 2025
         </Typography>
         <Typography
+          variant="subtitle2"
           sx={{ ...styles.typographyStyle01, ...styles.typographyStyle03 }}
         >
           Job Id: #123123
@@ -76,7 +84,7 @@ export default function JobCard() {
           <span style={styles.typographyStyle03}>Delivery Time:</span> 12:00 PM
         </Typography>
       </CardContent>
-      <CardActions sx={styles.cardActions}>
+      <CardActions sx={styles.typographyStyle04}>
         <BasicButtons message="Accept Job"></BasicButtons>
       </CardActions>
     </Card>
