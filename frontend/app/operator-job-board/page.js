@@ -2,23 +2,45 @@
 
 import React from "react";
 import Search from "../components/Search";
-import { Box, Typography } from "@mui/material";
+import { useMediaQuery, Box, Typography } from "@mui/material";
 import Filter from "../components/Filter";
 import JobCard from "../components/JobCard";
 
 const JobBoard = () => {
+  const styles = {
+    parent_box: {
+      // border: "solid red 2px",
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+    },
+    cards_box: {
+      // border: "solid green 2px",
+      width: {
+        xs: "90%",
+        sm: "80%",
+      },
+      display: "flex",
+      flexDirection: "column",
+
+      gap: "30px",
+    },
+    card_single: {},
+  };
   return (
-    <Box>
+    <Box sx={styles.parent_box}>
       <Box>
         <Search />
         <Filter />
-        <Typography>Total Jobs: 100</Typography>
+        <Box>
+          <Typography>Total Jobs: 100</Typography>
+        </Box>
       </Box>
-      <Box>
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
+      <Box sx={styles.cards_box}>
+        <JobCard sx={styles.card_single} />
+        <JobCard sx={styles.card_single} />
+        <JobCard sx={styles.card_single} />
+        <JobCard sx={styles.card_single} />
       </Box>
     </Box>
   );

@@ -9,17 +9,20 @@ import BasicButtons from "./BasicButton";
 export default function JobCard() {
   const styles = {
     cardParent: {
-      border: "solid red 1px",
-      width: "35%",
+      //   border: "solid red 2px",
+      width: {
+        // xs: "100%",
+      },
     },
     cardContent: {
-      border: "solid green 2px",
-      width: "100%",
-      paddingLeft: "20px",
+      //   border: "solid green 2px",
+      width: {
+        // xs: "95%",
+      },
     },
     cardActions: {
-      border: "solid blue 2px",
-      width: "100%",
+      //   border: "solid blue 2px",
+      //   width: "85%",
     },
   };
   return (
@@ -36,10 +39,7 @@ export default function JobCard() {
         <Typography>Delivery Time: 12:00 PM</Typography>
       </CardContent>
       <CardActions sx={styles.cardActions}>
-        <BasicButtons
-          message="Accept Job"
-          sx={{ border: "solid red 10px" }}
-        ></BasicButtons>
+        <BasicButtons message="Accept Job"></BasicButtons>
       </CardActions>
     </Card>
   );
