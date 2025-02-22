@@ -16,6 +16,9 @@ const JobBoard = () => {
       </Box>
       <Box>
         <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
       </Box>
     </Box>
   );
