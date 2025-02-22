@@ -4,12 +4,13 @@ import Button from "@mui/material/Button";
 
 export default function BasicButtons({ message }) {
   return (
-    <Stack direction="row">
+    <Stack direction="row" sx={{ width: "100%" }}>
       <Button
         variant="contained"
         fullWidth
         sx={{
           backgroundColor: "#000",
+
           height: {
             md: "30px",
           },

@@ -9,20 +9,19 @@ import JobCard from "../components/JobCard";
 const JobBoard = () => {
   const styles = {
     parent_box: {
-      // border: "solid red 2px",
+      border: "solid red 2px",
       width: "100%",
       display: "flex",
       flexDirection: "column",
     },
     cards_box: {
-      // border: "solid green 2px",
+      border: "solid green 2px",
       width: {
         xs: "90%",
         sm: "80%",
       },
       display: "flex",
       flexDirection: "column",
-
       gap: "30px",
     },
     card_single: {},
@@ -37,10 +36,10 @@ const JobBoard = () => {
         </Box>
       </Box>
       <Box sx={styles.cards_box}>
-        <JobCard sx={styles.card_single} />
-        <JobCard sx={styles.card_single} />
-        <JobCard sx={styles.card_single} />
-        <JobCard sx={styles.card_single} />
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
       </Box>
     </Box>
   );
