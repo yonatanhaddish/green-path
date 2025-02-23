@@ -1,9 +1,13 @@
 import React from "react";
+import AcceptedJobs from "../components/AcceptedJobs";
 
 const MyJobs = () => {
   return (
     <>
-      <div>My Jobs</div>
+      <AcceptedJobs />
+      <AcceptedJobs />
+      <AcceptedJobs />
+      <AcceptedJobs />
     </>
   );
 };
