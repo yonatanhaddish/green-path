@@ -9,12 +9,13 @@ import BasicButtons from "./BasicButton";
 export default function JobCard() {
   const styles = {
     cardParent: {
-      // border: "solid blue 2px",
-      width: {
-        xs: "85%",
-      },
+      //   border: "solid blue 2px",
+      //   width: {
+      //     xs: "85%",
+      //   },
       display: "flex",
       flexDirection: "column",
+      //   flexWrap: "wrap",
       // alignItems: {
       //   xs: "center",
       // },

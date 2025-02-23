@@ -19,14 +19,17 @@ const JobBoard = () => {
     },
     cards_box: {
       // border: "solid green 2px",
-      width: {
-        xs: "100%",
-        sm: "80%",
-      },
+      // width: {
+      //   xs: "100%",
+      //   sm: "80%",
+      // },
+      width: "100%",
       display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      gap: "40px",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      // alignItems: "center",
+      justifyContent: "space-around",
+      gap: "60px",
       paddingBottom: "100px",
     },
     searchFilterJobs: {
@@ -64,6 +67,10 @@ const JobBoard = () => {
         </Box>
       </Box>
       <Box sx={styles.cards_box}>
+        <JobCard />
+        <JobCard />
+        <JobCard />
+        <JobCard />
         <JobCard />
         <JobCard />
         <JobCard />
