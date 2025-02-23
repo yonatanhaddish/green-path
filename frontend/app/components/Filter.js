@@ -1,5 +1,6 @@
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
+import { Box } from "@mui/material";
 
 export default function Filter() {
-  return <FilterAltOutlinedIcon />;
+  return <FilterAltOutlinedIcon sx={{ fontSize: "60px" }} />;
 }

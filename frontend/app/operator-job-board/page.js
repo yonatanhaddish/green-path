@@ -13,6 +13,9 @@ const JobBoard = () => {
       width: "100%",
       display: "flex",
       flexDirection: "column",
+      paddingTop: "30px",
+      gap: "20px",
+      background: "#F5F5F5",
     },
     cards_box: {
       // border: "solid green 2px",
@@ -24,13 +27,29 @@ const JobBoard = () => {
       flexDirection: "column",
       alignItems: "center",
       gap: "40px",
+      paddingBottom: "100px",
     },
     searchFilterJobs: {
       // border: "solid red 2px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "20px",
     },
     searchFilter: {
-      border: "solid green 2px",
+      // border: "solid green 2px",
+      width: "100%",
       display: "flex",
+      gap: "20px",
+    },
+    totalJobs: {
+      // border: "solid blue 2px",
+      width: "92%",
+      display: "flex",
+      justifyContent: "flex-end",
+      fontSize: "16px",
+      color: "blue",
+
+      // marginLeft: "20px",
     },
   };
   return (
@@ -41,7 +60,7 @@ const JobBoard = () => {
           <Filter />
         </Box>
         <Box>
-          <Typography>Total Jobs: 100</Typography>
+          <Typography sx={styles.totalJobs}>Total Jobs: 100</Typography>
         </Box>
       </Box>
       <Box sx={styles.cards_box}>

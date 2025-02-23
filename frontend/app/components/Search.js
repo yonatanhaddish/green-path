@@ -1,11 +1,19 @@
-import * as React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 
 export default function Search() {
+  const [bgColor, setBgColor] = useState(false);
   return (
-    <Stack spacing={2} sx={{}}>
+    <Stack
+      spacing={2}
+      sx={{
+        width: "70%",
+        marginLeft: "20px",
+        // border: "solid grey 2px",
+      }}
+    >
       <Autocomplete
         freeSolo
         id="free-solo-2-demo"
@@ -15,13 +23,14 @@ export default function Search() {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Search input"
+            label="Search"
             slotProps={{
               input: {
                 ...params.InputProps,
                 type: "search",
               },
             }}
+            color="grey"
           />
         )}
       />
