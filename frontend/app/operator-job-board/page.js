@@ -28,7 +28,7 @@ const JobBoard = () => {
       flexDirection: "row",
       flexWrap: "wrap",
       // alignItems: "center",
-      justifyContent: "space-around",
+      justifyContent: "space-evenly",
       gap: "60px",
       paddingBottom: "100px",
     },

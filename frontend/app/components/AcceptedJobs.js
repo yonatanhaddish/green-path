@@ -9,9 +9,10 @@ import BasicButtons from "./BasicButton";
 export default function AcceptedJobs() {
   const styles = {
     cardParent: {
-      //   border: "solid blue 2px",
-
+      // border: "solid green 2px",
+      // width: "30%",
       display: "flex",
+      flexWrap: "wrap",
       flexDirection: "column",
     },
     cardContent: {
@@ -44,7 +45,6 @@ export default function AcceptedJobs() {
         <Typography variant="subtitle2" sx={styles.typographyStyle03}>
           Job Accepted on: 20-March-2025
         </Typography>
-
         <Typography variant="subtitle2" sx={styles.typographyStyle02}>
           <span style={styles.typographyStyle03}>Pickup Address:</span> 123 Main
           Street W.
