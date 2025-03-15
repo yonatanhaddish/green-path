@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 
 export default function BasicButtons({ message }) {
   return (
-    <Stack direction="row" sx={{ width: "100%" }}>
+    <Stack direction="row" sx={{ width: "100%", height: "100%" }}>
       <Button
         variant="contained"
         fullWidth
