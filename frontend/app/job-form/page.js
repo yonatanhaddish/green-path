@@ -60,7 +60,7 @@ export default function JobForm() {
         "&:hover fieldset": { borderColor: "black" },
         "&.Mui-focused fieldset": {
           borderColor: "gray",
-          backgroundColor: "#e1fceb",
+          // backgroundColor: "#e1fceb",
         },
       },
     },
