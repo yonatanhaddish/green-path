@@ -205,8 +205,20 @@ export function RegisterUserForm({ onPageChange }) {
     </>
   );
 }
-export function RegisterVehicleForm() {
+export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const [buttonStateVehicle, setButtonStateVehicle] = useState("vehicle-page");
+
+  const handleNextButton = () => {
+    const newState = "submit-page";
+    setButtonStateVehicle(newState);
+    onPageChangeVehicle(newState);
+  };
+  const handleBackButton = () => {
+    const newState = "user-page";
+    setButtonStateVehicle(newState);
+    onPageChangeVehicle(newState);
+  };
+
   return (
     <>
       <Box sx={styles.textFieldBox}>
@@ -327,22 +339,29 @@ export function RegisterVehicleForm() {
           </Button>
         </Box>
         <Box sx={styles.boxButton}>
-          {buttonStateVehicle === "user-page" && (
-            <BasicButtons message="Next" />
-          )}
-          {buttonStateVehicle === "vehicle-page" && (
-            <Box sx={styles.buttonInVehicleClass}>
+          <Box sx={styles.buttonInVehicleClass}>
+            <Box onClick={handleBackButton}>
               <BasicButtons message="Back" />
+            </Box>
+            <Box onClick={handleNextButton}>
+              {" "}
               <BasicButtons message="Next" />
             </Box>
-          )}
+          </Box>
         </Box>
       </Box>
       ;
     </>
   );
 }
-export function GetUserVehicleInfo() {
+export function GetUserVehicleInfo({ onPageUpateButton }) {
+  const [submitButtonState, setSubmitButtonState] = useState("submit-page");
+
+  const handleUpdateFormButton = () => {
+    const newState = "user-page";
+    setSubmitButtonState(newState);
+    onPageUpateButton(newState);
+  };
   return (
     <Box sx={styles.boxGetUserVehicleInfo}>
       <Card sx={{ minWidth: 275, paddingBottom: "30px", paddingTop: "10px" }}>
@@ -412,7 +431,11 @@ export function GetUserVehicleInfo() {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" sx={styles.buttonEditSubmitForm}>
+          <Button
+            size="small"
+            sx={styles.buttonEditSubmitForm}
+            onClick={handleUpdateFormButton}
+          >
             Update
           </Button>
         </CardActions>

@@ -21,7 +21,7 @@ import {
   GetUserVehicleInfo,
 } from "../components/RegisterForm";
 
-function page({ sendButtonStateToParent }) {
+function page() {
   const [viewForm, setViewForm] = useState("user-page");
 
   const styles = {
@@ -92,6 +92,12 @@ function page({ sendButtonStateToParent }) {
   const handleUserPageChange = (data) => {
     setViewForm(data);
   };
+  const handleVehiclePageChange = (data) => {
+    setViewForm(data);
+  };
+  const handleEditPageChange = (data) => {
+    setViewForm(data);
+  };
   return (
     <>
       <Box
@@ -103,11 +109,15 @@ function page({ sendButtonStateToParent }) {
         <Box sx={styles.headingContent}>
           <Typography sx={styles.typoCompany}>Welcome to Green Path</Typography>
         </Box>
-        {viewForm === "vehicle-page" && <RegisterVehicleForm />}
+        {viewForm === "vehicle-page" && (
+          <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
+        )}
         {viewForm == "user-page" && (
           <RegisterUserForm onPageChange={handleUserPageChange} />
         )}
-        {viewForm == "submit-page" && <GetUserVehicleInfo />}
+        {viewForm == "submit-page" && (
+          <GetUserVehicleInfo onPageUpateButton={handleEditPageChange} />
+        )}
       </Box>
     </>
   );
