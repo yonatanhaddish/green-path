@@ -12,6 +12,7 @@ export default function BasicButtons({ message }) {
           backgroundColor: "#000",
 
           height: {
+            // sx: "40px",
             md: "30px",
           },
           fontSize: {
