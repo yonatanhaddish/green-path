@@ -26,66 +26,22 @@ function page() {
 
   const styles = {
     cardContent: {
-      // border: "solid #e1fceb 2px",
-      // borderTop: "solid green 2px",
-      //   paddingTop: "10px",
-      width: "100%",
+      //   border: "solid red 2px",
+      width: "90%",
       display: "flex",
       flexDirection: "column",
       gap: "10px",
       paddingBottom: "40px",
-      // marginLeft: "20px",
-      marginTop: "15px",
-      // backgroundImage:
-      //   "linear-gradient(to bottom, green, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff)",
+      marginTop: "30px",
+      justifySelf: "center",
     },
     headingContent: {
+      //   border: "solid red 2px",
       width: "90%",
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       alignSelf: "center",
-    },
-    textFieldBox: {
-      width: "90%",
-      display: "flex",
-      flexDirection: "column",
-      alignSelf: "center",
-      gap: "15px",
-    },
-    textField: {
-      // width: "90%",
-      display: "flex",
-      flexDirection: "column",
-      gap: "15px",
-    },
-    boxButton: {
-      // border: "solid red 2px",
-      marginTop: "10px",
-      height: "50px",
-    },
-    textField1: {
-      // backgroundColor: "#f5fff9",
-      "& .MuiInputLabel-root": { color: "black" },
-      "& .MuiInputLabel-root.Mui-focused": { color: "black" },
-      "& .MuiOutlinedInput-root": {
-        "& fieldset": { borderColor: "gray" },
-        "&:hover fieldset": { borderColor: "black" },
-        "&.Mui-focused fieldset": {
-          borderColor: "gray",
-          //   backgroundColor: "#e1fceb",
-        },
-      },
-    },
-    typoCompany: {
-      fontWeight: "bold",
-    },
-    job_id: {
-      borderBottom: "green solid 2px",
-    },
-    buttonUploadDL: {
-      //   border: "solid red 3px",
-      //   backgroundColor: "red",
     },
   };
 

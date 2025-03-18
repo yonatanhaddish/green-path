@@ -10,7 +10,6 @@ export default function BasicButtons({ message }) {
         fullWidth
         sx={{
           backgroundColor: "#000",
-
           height: {
             // sx: "40px",
             md: "30px",

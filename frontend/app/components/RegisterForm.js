@@ -14,6 +14,10 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const styles = {
   cardContent: {
@@ -51,9 +55,10 @@ const styles = {
     gap: "15px",
   },
   boxButton: {
-    // border: "solid red 2px",
     marginTop: "10px",
-    height: "50px",
+    display: "flex",
+    height: "45px",
+    gap: "40px",
   },
   textField1: {
     // backgroundColor: "#f5fff9",
@@ -63,7 +68,8 @@ const styles = {
       "& fieldset": { borderColor: "gray" },
       "&:hover fieldset": { borderColor: "black" },
       "&.Mui-focused fieldset": {
-        borderColor: "gray",
+        borderColor: "green",
+
         //   backgroundColor: "#e1fceb",
       },
     },
@@ -79,9 +85,10 @@ const styles = {
     //   backgroundColor: "red",
   },
   buttonInVehicleClass: {
-    // border: "solid red 2px",
+    border: "solid red 2px",
     display: "flex",
-    gap: "150px",
+    displayDirection: "column",
+    // justifyContent: "space-around",
   },
   buttonEditSubmitForm: {
     backgroundColor: "#000",
@@ -125,6 +132,7 @@ export function RegisterUserForm({ onPageChange }) {
             label="Full Name"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
           <TextField
             required
@@ -133,6 +141,7 @@ export function RegisterUserForm({ onPageChange }) {
             type="email"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
         </Box>
         <Box sx={styles.textField}>
@@ -142,6 +151,7 @@ export function RegisterUserForm({ onPageChange }) {
             type="number"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Box sx={styles.textField}>
@@ -150,6 +160,7 @@ export function RegisterUserForm({ onPageChange }) {
                   label="Date of birth"
                   fullWidth
                   sx={styles.textField1}
+                  size="small"
                 />
               </DemoContainer>
             </Box>
@@ -160,19 +171,20 @@ export function RegisterUserForm({ onPageChange }) {
             id="home-address"
             label="Home Address"
             fullWidth
+            size="small"
             sx={styles.textField1}
           />
           <TextField
             id="city"
             label="City"
-            //   type="date"
+            size="small"
             fullWidth
             sx={styles.textField1}
           />
           <TextField
             id="postal-code"
             label="Postal Code"
-            //   type="date"
+            size="small"
             fullWidth
             sx={styles.textField1}
           />
@@ -180,19 +192,8 @@ export function RegisterUserForm({ onPageChange }) {
         <Box sx={styles.buttonUploadDL}>
           <Button
             variant="contained"
-            fullWidth
             sx={{
               backgroundColor: "#5b665f",
-
-              // height: {
-              //   md: "30px",
-              // },
-              fontSize: {
-                md: "8px",
-              },
-              width: {
-                xs: "70%",
-              },
             }}
           >
             Upload Driving License Here{" "}
@@ -207,6 +208,24 @@ export function RegisterUserForm({ onPageChange }) {
 }
 export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const [buttonStateVehicle, setButtonStateVehicle] = useState("vehicle-page");
+  const [vehicleTypeValue, setVehicleTypeValue] = useState("");
+  const [vehicleMakeValue, setVehicleMakeValue] = useState("");
+  const [vehicleModelValue, setVehicleModelValue] = useState("");
+  const [vehicleYearValue, setVehicleYearValue] = useState("");
+  const [vehicleLicensePlateValue, setVehicleLicensePlateValue] = useState("");
+  const [vehicleColorValue, setVehicleColorValue] = useState("");
+  const [vehicleCargoSize, setVehicleCargoSize] = useState("");
+
+  const handleChangeVehicleType = (event) => {
+    setVehicleTypeValue(event.target.value);
+  };
+  const handleChangeVehicleMake = (evenet) => {
+    setVehicleMakeValue(evenet.target.value);
+  };
+  const handleChangeVehicleModel = (event) => {
+    setVehicleModelValue(event.target.value);
+  };
+  console.log({ vehicleTypeValue, vehicleMakeValue, vehicleModelValue });
 
   const handleNextButton = () => {
     const newState = "submit-page";
@@ -223,33 +242,68 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     <>
       <Box sx={styles.textFieldBox}>
         <Box sx={styles.textField}>
-          <TextField
-            required
-            id="vehicle-type"
-            label="Vehicle Type"
-            fullWidth
-            sx={styles.textField1}
-          />
-          <TextField
-            required
-            id="vehicle-make"
-            label="Make"
-            fullWidth
-            sx={styles.textField1}
-          />
-          <TextField
+          <FormControl fullWidth sx={styles.textField1} size="small">
+            <InputLabel id="vehicle-type-select-label">Vehicle Type</InputLabel>
+            <Select
+              labelId="vehicle-type-select-label"
+              id="vehicle-type"
+              value={vehicleTypeValue}
+              label="Vehicle Type"
+              onChange={handleChangeVehicleType}
+            >
+              <MenuItem value="van">Van</MenuItem>
+              <MenuItem value="mini-van">Mini Van</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl fullWidth sx={styles.textField1} size="small">
+            <InputLabel id="vehicle-make-select-label">Vehicle Make</InputLabel>
+            <Select
+              labelId="vehicle-make-select-label"
+              id="vehicle-make"
+              value={vehicleMakeValue}
+              label="Vehicle Make"
+              onChange={handleChangeVehicleMake}
+            >
+              <MenuItem value="GMC">GMC</MenuItem>
+              <MenuItem value="RAM">RAM</MenuItem>
+              <MenuItem value="Toyota">Toyota</MenuItem>
+              <MenuItem value="Honda">Honda</MenuItem>
+              <MenuItem value="Ford">Ford</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl fullWidth sx={styles.textField1} size="small">
+            <InputLabel id="vehicle-model-select-label">
+              Vehicle Model
+            </InputLabel>
+            <Select
+              labelId="vehicle-model-select-label"
+              id="vehicle-model"
+              value={vehicleModelValue}
+              label="Vehicle Model"
+              onChange={handleChangeVehicleModel}
+            >
+              <MenuItem value="GMC">GMC</MenuItem>
+              <MenuItem value="RAM">RAM</MenuItem>
+              <MenuItem value="Toyota">Toyota</MenuItem>
+              <MenuItem value="Honda">Honda</MenuItem>
+              <MenuItem value="Ford">Ford</MenuItem>
+            </Select>
+          </FormControl>
+          {/* <TextField
             required
             id="vehicle-model"
             label="Model"
             fullWidth
             sx={styles.textField1}
-          />
+            size="small"
+          /> */}
           <TextField
             required
             id="vehicle-year"
             label="Year"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
 
           <TextField
@@ -258,6 +312,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             label="License Plate Number"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
           <TextField
             required
@@ -265,6 +320,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             label="Color"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
           <TextField
             required
@@ -272,25 +328,14 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             label="Cargo Size (optional)"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
         </Box>
-
         <Box sx={styles.buttonUploadDL}>
           <Button
             variant="contained"
-            fullWidth
             sx={{
-              backgroundColor: "#000",
-
-              // height: {
-              //   md: "30px",
-              // },
-              fontSize: {
-                md: "8px",
-              },
-              width: {
-                xs: "80%",
-              },
+              backgroundColor: "#5b665f",
             }}
           >
             Upload Driver Abstract{" "}
@@ -299,19 +344,8 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
         <Box sx={styles.buttonUploadDL}>
           <Button
             variant="contained"
-            fullWidth
             sx={{
-              backgroundColor: "#000",
-
-              // height: {
-              //   md: "30px",
-              // },
-              fontSize: {
-                md: "8px",
-              },
-              width: {
-                xs: "80%",
-              },
+              backgroundColor: "#5b665f",
             }}
           >
             Upload Vehicle Insurance{" "}
@@ -320,33 +354,19 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
         <Box sx={styles.buttonUploadDL}>
           <Button
             variant="contained"
-            fullWidth
             sx={{
-              backgroundColor: "#000",
-
-              // height: {
-              //   md: "30px",
-              // },
-              fontSize: {
-                md: "8px",
-              },
-              width: {
-                xs: "80%",
-              },
+              backgroundColor: "#5b665f",
             }}
           >
             Upload Background check{" "}
           </Button>
         </Box>
         <Box sx={styles.boxButton}>
-          <Box sx={styles.buttonInVehicleClass}>
-            <Box onClick={handleBackButton}>
-              <BasicButtons message="Back" />
-            </Box>
-            <Box onClick={handleNextButton}>
-              {" "}
-              <BasicButtons message="Next" />
-            </Box>
+          <Box onClick={handleBackButton} sx={{ width: "100%" }}>
+            <BasicButtons message="Back" />
+          </Box>
+          <Box onClick={handleNextButton} sx={{ width: "100%" }}>
+            <BasicButtons message="Next" />
           </Box>
         </Box>
       </Box>
@@ -364,7 +384,13 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
   };
   return (
     <Box sx={styles.boxGetUserVehicleInfo}>
-      <Card sx={{ minWidth: 275, paddingBottom: "30px", paddingTop: "10px" }}>
+      <Card
+        sx={{
+          minWidth: 275,
+          paddingBottom: "30px",
+          paddingTop: "10px",
+        }}
+      >
         <CardContent>
           <Typography color="text.primary">
             Full Name: <span style={{ fontWeight: "bold" }}>Bruce Wills</span>
