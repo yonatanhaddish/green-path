@@ -58,7 +58,7 @@ const styles = {
     marginTop: "10px",
     display: "flex",
     height: "45px",
-    gap: "40px",
+    gap: "20px",
   },
   textField1: {
     // backgroundColor: "#f5fff9",
@@ -81,8 +81,7 @@ const styles = {
     borderBottom: "green solid 2px",
   },
   buttonUploadDL: {
-    //   border: "solid red 3px",
-    //   backgroundColor: "red",
+    width: "100%",
   },
   buttonInVehicleClass: {
     border: "solid red 2px",
@@ -93,13 +92,13 @@ const styles = {
   buttonEditSubmitForm: {
     backgroundColor: "#000",
     color: "white",
-    width: "120px",
+    width: "140px",
     height: "40px",
     fontSize: "15px",
   },
   boxGetUserVehicleInfo: {
     // border: "solid red 2px",
-    width: "80%",
+    width: "90%",
     display: "flex",
     flexDirection: "column",
     alignSelf: "center",
@@ -107,7 +106,7 @@ const styles = {
   },
   buttonSumbit: {
     // border: "solid red 2px",
-    width: "80%",
+    width: "100%",
     height: "45px",
     fontSize: "15px",
   },
@@ -115,6 +114,45 @@ const styles = {
 
 export function RegisterUserForm({ onPageChange }) {
   const [buttonState, setButtonState] = useState("user-page");
+  const [fullNameValue, setFullNameValue] = useState("");
+  const [emailAddressValue, setEmailAddressValue] = useState("");
+  const [phoneNumberValue, setPhoneNumberValue] = useState("");
+  const [dateOfBirthValue, setDateOfBirthValue] = useState("");
+  const [homeAddressValue, setHomeAddressValue] = useState("");
+  const [cityTownValue, setCityTownValue] = useState("");
+  const [postalCodeValue, setPostalCodeValue] = useState("");
+
+  const handleChangeFullName = (event) => {
+    setFullNameValue(event.target.value);
+  };
+  const handleChangeEmailValue = (event) => {
+    setEmailAddressValue(event.target.value);
+  };
+  const handleChangePhoneNumberValue = (event) => {
+    setPhoneNumberValue(event.target.value);
+  };
+  const handleChangeDOBValue = (event) => {
+    setDateOfBirthValue(event.format("MM/DD/YYYY"));
+  };
+  const handleChangeHomeAddressValue = (event) => {
+    setHomeAddressValue(event.target.value);
+  };
+  const handleChangeCityTownValue = (event) => {
+    setCityTownValue(event.target.value);
+  };
+  const handleChangePostalCodeValue = (event) => {
+    setPostalCodeValue(event.target.value);
+  };
+
+  console.log({
+    fullNameValue,
+    emailAddressValue,
+    phoneNumberValue,
+    dateOfBirthValue,
+    homeAddressValue,
+    cityTownValue,
+    postalCodeValue,
+  });
 
   const handleUserFormNext = () => {
     const newState = "vehicle-page";
@@ -133,6 +171,7 @@ export function RegisterUserForm({ onPageChange }) {
             fullWidth
             sx={styles.textField1}
             size="small"
+            onChange={handleChangeFullName}
           />
           <TextField
             required
@@ -142,6 +181,7 @@ export function RegisterUserForm({ onPageChange }) {
             fullWidth
             sx={styles.textField1}
             size="small"
+            onChange={handleChangeEmailValue}
           />
         </Box>
         <Box sx={styles.textField}>
@@ -152,15 +192,18 @@ export function RegisterUserForm({ onPageChange }) {
             fullWidth
             sx={styles.textField1}
             size="small"
+            onChange={handleChangePhoneNumberValue}
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Box sx={styles.textField}>
               <DemoContainer components={["DateField"]}>
                 <DateField
+                  id="date-of-birth"
                   label="Date of birth"
                   fullWidth
                   sx={styles.textField1}
                   size="small"
+                  onChange={handleChangeDOBValue}
                 />
               </DemoContainer>
             </Box>
@@ -173,6 +216,7 @@ export function RegisterUserForm({ onPageChange }) {
             fullWidth
             size="small"
             sx={styles.textField1}
+            onChange={handleChangeHomeAddressValue}
           />
           <TextField
             id="city"
@@ -180,6 +224,7 @@ export function RegisterUserForm({ onPageChange }) {
             size="small"
             fullWidth
             sx={styles.textField1}
+            onChange={handleChangeCityTownValue}
           />
           <TextField
             id="postal-code"
@@ -187,6 +232,7 @@ export function RegisterUserForm({ onPageChange }) {
             size="small"
             fullWidth
             sx={styles.textField1}
+            onChange={handleChangePostalCodeValue}
           />
         </Box>
         <Box sx={styles.buttonUploadDL}>
@@ -194,6 +240,7 @@ export function RegisterUserForm({ onPageChange }) {
             variant="contained"
             sx={{
               backgroundColor: "#5b665f",
+              width: "100%",
             }}
           >
             Upload Driving License Here{" "}
@@ -216,6 +263,14 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const [vehicleColorValue, setVehicleColorValue] = useState("");
   const [vehicleCargoSize, setVehicleCargoSize] = useState("");
 
+  const vehicleMakes = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
+  const vehicleYears = [];
+  const vehicleModels = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
+  const vehicleColors = ["Black", "Red", "Green", "Yellow", "Blue"];
+  for (let year = 2015; year <= 2025; year++) {
+    vehicleYears.push(year);
+  }
+
   const handleChangeVehicleType = (event) => {
     setVehicleTypeValue(event.target.value);
   };
@@ -225,7 +280,28 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const handleChangeVehicleModel = (event) => {
     setVehicleModelValue(event.target.value);
   };
-  console.log({ vehicleTypeValue, vehicleMakeValue, vehicleModelValue });
+  const handleChangeVehicleYear = (event) => {
+    setVehicleYearValue(event.target.value);
+  };
+  const handleLicensePlateNumber = (event) => {
+    setVehicleLicensePlateValue(event.target.value);
+  };
+  const handleChangeVehicleColor = (event) => {
+    setVehicleColorValue(event.target.value);
+  };
+  const handleChangeCargoSize = (event) => {
+    setVehicleCargoSize(event.target.value);
+  };
+
+  console.log({
+    vehicleTypeValue,
+    vehicleMakeValue,
+    vehicleModelValue,
+    vehicleYearValue,
+    vehicleLicensePlateValue,
+    vehicleColorValue,
+    vehicleCargoSize,
+  });
 
   const handleNextButton = () => {
     const newState = "submit-page";
@@ -264,11 +340,11 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
               label="Vehicle Make"
               onChange={handleChangeVehicleMake}
             >
-              <MenuItem value="GMC">GMC</MenuItem>
-              <MenuItem value="RAM">RAM</MenuItem>
-              <MenuItem value="Toyota">Toyota</MenuItem>
-              <MenuItem value="Honda">Honda</MenuItem>
-              <MenuItem value="Ford">Ford</MenuItem>
+              {vehicleMakes.map((item) => (
+                <MenuItem value={item} key={item}>
+                  {item}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
           <FormControl fullWidth sx={styles.textField1} size="small">
@@ -282,30 +358,29 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
               label="Vehicle Model"
               onChange={handleChangeVehicleModel}
             >
-              <MenuItem value="GMC">GMC</MenuItem>
-              <MenuItem value="RAM">RAM</MenuItem>
-              <MenuItem value="Toyota">Toyota</MenuItem>
-              <MenuItem value="Honda">Honda</MenuItem>
-              <MenuItem value="Ford">Ford</MenuItem>
+              {vehicleModels.map((item) => (
+                <MenuItem value={item} key={item}>
+                  {item}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
-          {/* <TextField
-            required
-            id="vehicle-model"
-            label="Model"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
-          /> */}
-          <TextField
-            required
-            id="vehicle-year"
-            label="Year"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
-          />
-
+          <FormControl fullWidth sx={styles.textField1} size="small">
+            <InputLabel id="vehicle-year-select-label">Vehicle Year</InputLabel>
+            <Select
+              labelId="vehicle-year-select-label"
+              id="vehicle-year"
+              value={vehicleYearValue}
+              label="Vehicle Year"
+              onChange={handleChangeVehicleYear}
+            >
+              {vehicleYears.map((item) => (
+                <MenuItem value={item} key={item}>
+                  {item}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <TextField
             required
             id="license-plate"
@@ -313,15 +388,26 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             fullWidth
             sx={styles.textField1}
             size="small"
+            onChange={handleLicensePlateNumber}
           />
-          <TextField
-            required
-            id="vehicle-color"
-            label="Color"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
-          />
+          <FormControl fullWidth sx={styles.textField1} size="small">
+            <InputLabel id="vehicle-color-select-label">
+              Vehicle Color
+            </InputLabel>
+            <Select
+              labelId="vehicle-color-select-label"
+              id="vehicle-color"
+              value={vehicleColorValue}
+              label="Vehicle Color"
+              onChange={handleChangeVehicleColor}
+            >
+              {vehicleColors.map((item) => (
+                <MenuItem value={item} key={item}>
+                  {item}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <TextField
             required
             id="vehicle-sizer"
@@ -329,6 +415,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             fullWidth
             sx={styles.textField1}
             size="small"
+            onChange={handleChangeCargoSize}
           />
         </Box>
         <Box sx={styles.buttonUploadDL}>
@@ -336,9 +423,10 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             variant="contained"
             sx={{
               backgroundColor: "#5b665f",
+              width: "100%",
             }}
           >
-            Upload Driver Abstract{" "}
+            Upload Driver Abstract Here{" "}
           </Button>
         </Box>
         <Box sx={styles.buttonUploadDL}>
@@ -346,9 +434,10 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             variant="contained"
             sx={{
               backgroundColor: "#5b665f",
+              width: "100%",
             }}
           >
-            Upload Vehicle Insurance{" "}
+            Upload Vehicle Insurance Here{" "}
           </Button>
         </Box>
         <Box sx={styles.buttonUploadDL}>
@@ -356,9 +445,10 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
             variant="contained"
             sx={{
               backgroundColor: "#5b665f",
+              width: "100%",
             }}
           >
-            Upload Background check{" "}
+            Upload Background check Here{" "}
           </Button>
         </Box>
         <Box sx={styles.boxButton}>
@@ -387,8 +477,8 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
       <Card
         sx={{
           minWidth: 275,
-          paddingBottom: "30px",
-          paddingTop: "10px",
+          //   paddingBottom: "30px",
+          // paddingTop: "10px",
         }}
       >
         <CardContent>
