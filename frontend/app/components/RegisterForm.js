@@ -562,3 +562,174 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
     </Box>
   );
 }
+export function RegisterEmployer() {
+  const [companyNameValue, setCompanyNameValue] = useState("");
+  const [companyAddressValue, setCompanyAddressValue] = useState("");
+  const [companyCityValue, setCompanyCityValue] = useState("");
+  const [companyPostalCodeValue, setCompanyPostalCodeValue] = useState("");
+  const [companyPhoneNumberValue, setCompanyPhoneNumberValue] = useState("");
+  const [companyEmailAddressValue, setCompanyEmailAddressValue] = useState("");
+  const [companyContactNameValue, setCompanyContactNameValue] = useState("");
+  const [companyContactJobTitleValue, setCompanyContactJobTitleValue] =
+    useState("");
+  const [companyContactPhoneNumberValue, setCompanyContactPhoneNumber] =
+    useState("");
+  const [companyContactEmailAddressValue, setCompanyContactEmailAddressValue] =
+    useState("");
+
+  const handleChangeCompanyName = (event) => {
+    setCompanyNameValue(event.target.value);
+  };
+  const handleChangeCompanyAddress = (event) => {
+    setCompanyAddressValue(event.target.value);
+  };
+  const handleChangeCompanyCity = (event) => {
+    setCompanyCityValue(event.target.value);
+  };
+  const handleChangeCompanyPostalCode = (event) => {
+    setCompanyPostalCodeValue(event.target.value);
+  };
+  const handleChangeCompanyPhoneNumber = (event) => {
+    setCompanyPhoneNumberValue(event.target.value);
+  };
+  const handleChangeCompanyEmail = (event) => {
+    setCompanyEmailAddressValue(event.target.value);
+  };
+  const handleChangeContactName = (event) => {
+    setCompanyContactNameValue(event.target.value);
+  };
+  const handleChangeContactJobTitle = (event) => {
+    setCompanyContactJobTitleValue(event.target.value);
+  };
+  const handleChangeContactPhoneNumber = (event) => {
+    setCompanyContactPhoneNumber(event.target.value);
+  };
+  const handleChangeContactEmailAddress = (event) => {
+    setCompanyContactEmailAddressValue(event.target.value);
+  };
+
+  console.log({
+    companyNameValue,
+    companyAddressValue,
+    companyCityValue,
+    companyPostalCodeValue,
+    companyPhoneNumberValue,
+    companyEmailAddressValue,
+    companyContactNameValue,
+    companyContactJobTitleValue,
+    companyContactPhoneNumberValue,
+    companyContactEmailAddressValue,
+  });
+
+  return (
+    <>
+      <Box sx={styles.textFieldBox}>
+        <Box sx={styles.textField}>
+          <TextField
+            required
+            id="company-name"
+            label="Company Name"
+            fullWidth
+            sx={styles.textField1}
+            size="small"
+            onChange={handleChangeCompanyName}
+          />
+          <TextField
+            required
+            id="company-address"
+            label="Company Address"
+            fullWidth
+            size="small"
+            sx={styles.textField1}
+            onChange={handleChangeCompanyAddress}
+          />
+          <TextField
+            required
+            id="city"
+            label="City"
+            size="small"
+            fullWidth
+            sx={styles.textField1}
+            onChange={handleChangeCompanyCity}
+          />
+          <TextField
+            required
+            id="postal-code"
+            label="Postal Code"
+            size="small"
+            fullWidth
+            sx={styles.textField1}
+            onChange={handleChangeCompanyPostalCode}
+          />
+        </Box>
+        <Box sx={styles.textField}>
+          <TextField
+            required
+            id="phone-number"
+            label="Phone Number"
+            type="number"
+            fullWidth
+            sx={styles.textField1}
+            size="small"
+            onChange={handleChangeCompanyPhoneNumber}
+          />
+          <TextField
+            required
+            id="email-address"
+            label="Email Address"
+            type="email"
+            fullWidth
+            sx={styles.textField1}
+            size="small"
+            onChange={handleChangeCompanyEmail}
+          />
+        </Box>
+        <Box sx={styles.textField}>
+          <TextField
+            required
+            id="contact-name"
+            label="Contact Full Name"
+            fullWidth
+            sx={styles.textField1}
+            size="small"
+            onChange={handleChangeContactName}
+          />
+          <TextField
+            required
+            id="contact-job-title"
+            label="Contact Job Title"
+            fullWidth
+            sx={styles.textField1}
+            size="small"
+            onChange={handleChangeContactJobTitle}
+          />
+          <TextField
+            required
+            id="contact-phone-number"
+            label="Contact Phone Number"
+            type="number"
+            fullWidth
+            sx={styles.textField1}
+            size="small"
+            onChange={handleChangeContactPhoneNumber}
+          />
+          <TextField
+            required
+            id="contact-email-address"
+            label="Contact Email Address"
+            type="email"
+            fullWidth
+            sx={styles.textField1}
+            size="small"
+            onChange={handleChangeContactEmailAddress}
+          />
+        </Box>
+        <Box>
+          <Box sx={styles.boxButton}>
+            <BasicButtons message="Submit" />
+          </Box>
+        </Box>
+      </Box>
+    </>
+  );
+}

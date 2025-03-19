@@ -12,8 +12,6 @@ import BasicButtons from "../components/BasicButton";
 import Button from "@mui/material/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-// import { RegisterUserForm } from "../components/RegisterForm";
-// import { RegisterVehicleForm } from "../components/RegisterForm";
 
 import {
   RegisterUserForm,
