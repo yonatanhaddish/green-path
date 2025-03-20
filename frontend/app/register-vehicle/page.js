@@ -64,14 +64,16 @@ function page() {
           <Typography sx={styles.typoCompany}>Welcome to Green Path</Typography>
         </Box>
         {viewForm === "vehicle-page" && (
-          <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
+          // <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
+          <h1>Test</h1>
         )}
+
         {viewForm == "user-page" && (
           <RegisterUserForm onPageChange={handleUserPageChange} />
         )}
-        {viewForm == "submit-page" && (
+        {/* {viewForm == "submit-page" && (
           <GetUserVehicleInfo onPageUpateButton={handleEditPageChange} />
-        )}
+        )} */}
       </Box>
     </>
   );

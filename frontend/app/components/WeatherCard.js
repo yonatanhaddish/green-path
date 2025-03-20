@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import Box, { boxClasses } from "@mui/material/Box";
 import Card from "@mui/material/Card";
