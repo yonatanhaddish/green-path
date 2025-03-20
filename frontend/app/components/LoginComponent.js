@@ -32,16 +32,52 @@ function LoginComponent() {
     event.preventDefault();
   };
 
+  const styles = {
+    cardContent: {
+      //   border: "solid green 2px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "50px",
+      paddingTop: "0px",
+    },
+    heading_box: {
+      //   border: "solid red 2px",
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "20px",
+      paddingTop: "30px",
+    },
+    heading_type: {
+      color: "#009737",
+      fontWeight: "bold",
+    },
+    login_style: {
+      fontSize: "20px",
+      fontWeight: "bold",
+    },
+    input_box: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "20px",
+    },
+    cardAction: {
+      //   border: "solid blue 1px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "10px",
+    },
+  };
+
   return (
     <>
       <Box>
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Box>
-              <Typography>LOGIN</Typography>
-              <Typography>Van Owner</Typography>
+        <Card>
+          <CardContent sx={styles.cardContent}>
+            <Box sx={styles.heading_box}>
+              <Typography sx={styles.login_style}>LOGIN</Typography>
+              <Typography sx={styles.heading_type}>Van Owner</Typography>
             </Box>
-            <Box>
+            <Box sx={styles.input_box}>
               <TextField
                 id="email-address"
                 label="Email Address"
@@ -80,7 +116,7 @@ function LoginComponent() {
               <BasicButtons message="Login" />
             </Box>
           </CardContent>
-          <CardActions>
+          <CardActions sx={styles.cardAction}>
             <Typography>Dont have an account? Register here</Typography>
             <Typography>Forgot Password?</Typography>
           </CardActions>
