@@ -215,7 +215,7 @@ export function LoginVanOwner() {
             </Box>
           </CardContent>
           <CardActions sx={styles.cardAction}>
-            <Typography>Dont have an account? Register here</Typography>
+            <Typography>Don't have an account? Register here</Typography>
             <Typography>Forgot Password?</Typography>
           </CardActions>
         </Card>

@@ -40,7 +40,6 @@ function page() {
 
   const styles = {
     box_tab: {
-      //   borderBottom: "solid green 2px",
       marginTop: "50px",
       "& .MuiTab-root": {
         backgroundColor: "#FAFAFA",
