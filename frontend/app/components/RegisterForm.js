@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import TextField, { textFieldClasses } from "@mui/material/TextField";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -22,7 +22,7 @@ import Select from "@mui/material/Select";
 
 const styles = {
   cardContent: {
-    // border: "solid #e1fceb 2px",
+    border: "solid red 10px",
     // borderTop: "solid green 2px",
     //   paddingTop: "10px",
     width: "100%",
@@ -263,7 +263,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const [vehicleLicensePlateValue, setVehicleLicensePlateValue] = useState("");
   const [vehicleColorValue, setVehicleColorValue] = useState("");
   const [vehicleCargoSize, setVehicleCargoSize] = useState("");
-
+  const [loading, setLoading] = useState(true);
   const vehicleMakes = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
   const vehicleYears = [];
   const vehicleModels = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
@@ -271,7 +271,13 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   for (let year = 2015; year <= 2025; year++) {
     vehicleYears.push(year);
   }
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
+  if (loading) {
+    return <div>Loading...</div>; // Display loading message or skeleton screen during SSR
+  }
   const handleChangeVehicleType = (event) => {
     setVehicleTypeValue(event.target.value);
   };

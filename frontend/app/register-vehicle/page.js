@@ -20,7 +20,7 @@ import {
 } from "../components/RegisterForm";
 
 function page() {
-  const [viewForm, setViewForm] = useState("user-page");
+  const [viewForm, setViewForm] = useState("vehicle-page");
 
   const styles = {
     cardContent: {
@@ -55,22 +55,21 @@ function page() {
   return (
     <>
       <Box
-        component="form"
-        noValidate
-        autoComplete="off"
+        // component="form"
+        // noValidate
+        // autoComplete="off"
         sx={styles.cardContent}
       >
-        <Box sx={styles.headingContent}>
+        {/* <Box sx={styles.headingContent}>
           <Typography sx={styles.typoCompany}>Welcome to Green Path</Typography>
-        </Box>
-        {viewForm === "vehicle-page" && (
-          // <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
-          <h1>Test</h1>
-        )}
-
-        {viewForm == "user-page" && (
+        </Box> */}
+        {/* {viewForm === "vehicle-page" && (
+          <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
+        )} */}
+        <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
+        {/* {viewForm == "user-page" && (
           <RegisterUserForm onPageChange={handleUserPageChange} />
-        )}
+        )} */}
         {/* {viewForm == "submit-page" && (
           <GetUserVehicleInfo onPageUpateButton={handleEditPageChange} />
         )} */}
