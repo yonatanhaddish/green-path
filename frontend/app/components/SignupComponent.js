@@ -60,10 +60,12 @@ const styles = {
   },
 };
 
-export function LoginLoadOwner() {
+export function SignupLoadOwner() {
   const [showPassword, setShowPassword] = useState(false);
-  const [loadOwnerEmailValue, setLoadOwnerEmail] = useState("");
-  const [loadOwnerPassword, setLoadOwnerPassword] = useState("");
+  const [signupOwnerEmailValue, setSignupOwnerEmail] = useState("");
+  const [signupOwnerPassword, setSignupOwnerPassword] = useState("");
+  const [signupOwnerPasswordConfirm, setSignupOwnerPasswordConfirm] =
+    useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -75,13 +77,20 @@ export function LoginLoadOwner() {
     event.preventDefault();
   };
 
-  const handleChangeLoadOwnerEmail = (event) => {
-    setLoadOwnerEmail(event.target.value);
+  const handleChangesignupLoadOwnerEmail = (event) => {
+    setSignupOwnerEmail(event.target.value);
   };
   const handleChangeLoadOwnerPassword = (event) => {
-    setLoadOwnerPassword(event.target.value);
+    setSignupOwnerPassword(event.target.value);
   };
-  console.log({ loadOwnerEmailValue, loadOwnerPassword });
+  const handleChangeLoadOwnerPasswordConfirm = (event) => {
+    setSignupOwnerPasswordConfirm(event.target.value);
+  };
+  console.log({
+    signupOwnerEmailValue,
+    signupOwnerPassword,
+    signupOwnerPasswordConfirm,
+  });
 
   return (
     <>
@@ -89,7 +98,7 @@ export function LoginLoadOwner() {
         <Card>
           <CardContent sx={styles.cardContent}>
             <Box sx={styles.heading_box}>
-              <Typography sx={styles.login_style}>LOGIN</Typography>
+              <Typography sx={styles.login_style}>SIGNUP</Typography>
               <Typography sx={styles.heading_type}>Load Owner</Typography>
             </Box>
             <Box sx={styles.input_box}>
@@ -98,7 +107,7 @@ export function LoginLoadOwner() {
                 id="email-address"
                 label="Email Address"
                 type="email"
-                onChange={handleChangeLoadOwnerEmail}
+                onChange={handleChangesignupLoadOwnerEmail}
               />
               <FormControl fullWidth variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
@@ -108,6 +117,33 @@ export function LoginLoadOwner() {
                   id="outlined-adornment-password"
                   type={showPassword ? "text" : "password"}
                   onChange={handleChangeLoadOwnerPassword}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={
+                          showPassword
+                            ? "hide the password"
+                            : "display the password"
+                        }
+                        onMouseDown={handleMouseDownPassword}
+                        onMouseUp={handleMouseUpPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </FormControl>
+              <FormControl fullWidth variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-confirm-password">
+                  Confirm Password
+                </InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-confirm-password"
+                  type={showPassword ? "text" : "password"}
+                  onChange={handleChangeLoadOwnerPasswordConfirm}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -130,13 +166,12 @@ export function LoginLoadOwner() {
               </FormControl>
             </Box>
             <Box>
-              <BasicButtons message="Login" />
+              <BasicButtons message="SignUp" />
             </Box>
           </CardContent>
           <CardActions sx={styles.cardAction}>
-            <Typography>Forgot Password?</Typography>
             <Typography>
-              Don't have an account? <Link href="/signup">Register here</Link>
+              Alerady have an account? <Link href="/login">Login here</Link>
             </Typography>
           </CardActions>
         </Card>
@@ -144,10 +179,11 @@ export function LoginLoadOwner() {
     </>
   );
 }
-export function LoginVanOwner() {
+export function SignupVanOwner() {
   const [showPassword, setShowPassword] = useState(false);
   const [vanOwnerEmailValue, setVanOwnerEmail] = useState("");
   const [vanOwnerPassword, setVanOwnerPassword] = useState("");
+  const [vanOwnerConfirmPassword, setVanOwnerConfirmPassword] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -165,7 +201,14 @@ export function LoginVanOwner() {
   const handleChangeVanOwnerPassword = (event) => {
     setVanOwnerPassword(event.target.value);
   };
-  console.log({ vanOwnerEmailValue, vanOwnerPassword });
+  const handleChangeVanOwnerconfirmPassword = (event) => {
+    setVanOwnerConfirmPassword(event.target.value);
+  };
+  console.log({
+    vanOwnerEmailValue,
+    vanOwnerPassword,
+    vanOwnerConfirmPassword,
+  });
 
   return (
     <>
@@ -173,7 +216,7 @@ export function LoginVanOwner() {
         <Card>
           <CardContent sx={styles.cardContent}>
             <Box sx={styles.heading_box}>
-              <Typography sx={styles.login_style}>LOGIN</Typography>
+              <Typography sx={styles.login_style}>SIGNUP</Typography>
               <Typography sx={styles.heading_type}>Van Owner</Typography>
             </Box>
             <Box sx={styles.input_box}>
@@ -212,15 +255,42 @@ export function LoginVanOwner() {
                   label="Password"
                 />
               </FormControl>
+              <FormControl fullWidth variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-confirm-password">
+                  Confirm Password
+                </InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-confirm-password"
+                  type={showPassword ? "text" : "password"}
+                  onChange={handleChangeVanOwnerconfirmPassword}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={
+                          showPassword
+                            ? "hide the password"
+                            : "display the password"
+                        }
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        onMouseUp={handleMouseUpPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </FormControl>
             </Box>
             <Box>
-              <BasicButtons message="Login" />
+              <BasicButtons message="SignUp" />
             </Box>
           </CardContent>
           <CardActions sx={styles.cardAction}>
-            <Typography>Forgot Password?</Typography>
             <Typography>
-              Don't have an account? <Link href="/signup">Register here</Link>
+              Alerady have an account? <Link href="/login">Login here</Link>
             </Typography>
           </CardActions>
         </Card>
