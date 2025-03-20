@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -19,8 +19,50 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import BasicButtons from "./BasicButton";
 
-function LoginComponent() {
-  const [showPassword, setShowPassword] = React.useState(false);
+const styles = {
+  cardContent: {
+    //   border: "solid #009737 2px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "50px",
+    paddingTop: "0px",
+  },
+  heading_box: {
+    //   border: "solid red 2px",
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "20px",
+    paddingTop: "30px",
+  },
+  heading_type: {
+    color: "#009737",
+    fontWeight: "500",
+    fontSize: "20px",
+    fontFamily: "Times, Times New Roman, serif",
+    borderBottom: "2px solid #009737",
+  },
+  login_style: {
+    fontSize: "20px",
+    fontWeight: "bold",
+  },
+  input_box: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  },
+  cardAction: {
+    //   border: "solid #009737 1px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    marginBottom: "30px",
+  },
+};
+
+export function LoginLoadOwner() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [loadOwnerEmailValue, setLoadOwnerEmail] = useState("");
+  const [loadOwnerPassword, setLoadOwnerPassword] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -32,41 +74,13 @@ function LoginComponent() {
     event.preventDefault();
   };
 
-  const styles = {
-    cardContent: {
-      //   border: "solid green 2px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "50px",
-      paddingTop: "0px",
-    },
-    heading_box: {
-      //   border: "solid red 2px",
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "20px",
-      paddingTop: "30px",
-    },
-    heading_type: {
-      color: "#009737",
-      fontWeight: "bold",
-    },
-    login_style: {
-      fontSize: "20px",
-      fontWeight: "bold",
-    },
-    input_box: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "20px",
-    },
-    cardAction: {
-      //   border: "solid blue 1px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "10px",
-    },
+  const handleChangeLoadOwnerEmail = (event) => {
+    setLoadOwnerEmail(event.target.value);
   };
+  const handleChangeLoadOwnerPassword = (event) => {
+    setLoadOwnerPassword(event.target.value);
+  };
+  console.log({ loadOwnerEmailValue, loadOwnerPassword });
 
   return (
     <>
@@ -75,14 +89,15 @@ function LoginComponent() {
           <CardContent sx={styles.cardContent}>
             <Box sx={styles.heading_box}>
               <Typography sx={styles.login_style}>LOGIN</Typography>
-              <Typography sx={styles.heading_type}>Van Owner</Typography>
+              <Typography sx={styles.heading_type}>Load Owner</Typography>
             </Box>
             <Box sx={styles.input_box}>
               <TextField
+                fullWidth
                 id="email-address"
                 label="Email Address"
                 type="email"
-                fullWidth
+                onChange={handleChangeLoadOwnerEmail}
               />
               <FormControl fullWidth variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
@@ -91,6 +106,7 @@ function LoginComponent() {
                 <OutlinedInput
                   id="outlined-adornment-password"
                   type={showPassword ? "text" : "password"}
+                  onChange={handleChangeLoadOwnerPassword}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -125,5 +141,85 @@ function LoginComponent() {
     </>
   );
 }
+export function LoginVanOwner() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [vanOwnerEmailValue, setVanOwnerEmail] = useState("");
+  const [vanOwnerPassword, setVanOwnerPassword] = useState("");
 
-export default LoginComponent;
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleMouseUpPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleChangeVanOwnerEmail = (event) => {
+    setVanOwnerEmail(event.target.value);
+  };
+  const handleChangeVanOwnerPassword = (event) => {
+    setVanOwnerPassword(event.target.value);
+  };
+  console.log({ vanOwnerEmailValue, vanOwnerPassword });
+
+  return (
+    <>
+      <Box>
+        <Card>
+          <CardContent sx={styles.cardContent}>
+            <Box sx={styles.heading_box}>
+              <Typography sx={styles.login_style}>LOGIN</Typography>
+              <Typography sx={styles.heading_type}>Van Owner</Typography>
+            </Box>
+            <Box sx={styles.input_box}>
+              <TextField
+                fullWidth
+                id="email-address"
+                label="Email Address"
+                type="email"
+                onChange={handleChangeVanOwnerEmail}
+              />
+              <FormControl fullWidth variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-password">
+                  Password
+                </InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  type={showPassword ? "text" : "password"}
+                  onChange={handleChangeVanOwnerPassword}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={
+                          showPassword
+                            ? "hide the password"
+                            : "display the password"
+                        }
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        onMouseUp={handleMouseUpPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </FormControl>
+            </Box>
+            <Box>
+              <BasicButtons message="Login" />
+            </Box>
+          </CardContent>
+          <CardActions sx={styles.cardAction}>
+            <Typography>Dont have an account? Register here</Typography>
+            <Typography>Forgot Password?</Typography>
+          </CardActions>
+        </Card>
+      </Box>
+    </>
+  );
+}
