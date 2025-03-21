@@ -12,9 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="root-body" style={{ backgroundColor: "#FAFAFA" }}>
+      <body className="root-body">
         <NavBar />
-        <Box>{children}</Box>
+        <Box sx={{ backgroundColor: "#F5F5F5", height: "100%" }}>
+          {children}
+        </Box>
         <Footer />
       </body>
     </html>

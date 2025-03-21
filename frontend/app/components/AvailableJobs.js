@@ -1,6 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import Link from "next/link";
 
 import CardContent from "@mui/material/CardContent";
 
@@ -16,17 +17,19 @@ const card = (
         15
       </Typography>{" "}
       <br />
-      <Box
+      <Link
+        href="/operator-job-board"
         sx={{
           width: {
-            sm: "50%",
-            md: "50%",
+            sm: "80%",
+            md: "80%",
             lg: "80%",
           },
         }}
+        onClick={() => console.log("test")}
       >
         <BasicButtons message="View Job Board" />
-      </Box>
+      </Link>
     </CardContent>
   </React.Fragment>
 );

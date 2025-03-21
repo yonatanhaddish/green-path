@@ -13,6 +13,12 @@ const OperatorHome = () => {
   const screenGreater_769LessThan1024 = useMediaQuery(
     "(min-width: 769px) and (max-width: 1024px)"
   );
+  const screenGreater_1024LessThan1280 = useMediaQuery(
+    "(min-width: 765px) and (max-width: 1280px)"
+  );
+  const screenGreater_1280LessThan1366 = useMediaQuery(
+    "(min-width: 1281px) and (max-width: 1441px)"
+  );
 
   useEffect(() => {
     setLoading(false);
@@ -25,49 +31,58 @@ const OperatorHome = () => {
   const styles = {
     parent_box: {
       height: "100%",
-      width: "100%",
+      width:
+        screenLessThan_768 ||
+        screenGreater_769LessThan1024 ||
+        screenGreater_1024LessThan1280
+          ? "100%"
+          : "70%",
       display: "flex",
       flexDirection: "column",
-      // alignItems: "center",
-      // justifySelf: "center",
-      // paddingTop: "30px",
+      justifySelf: "center",
 
       gap: "20px",
       background: "#F5F5F5",
-      // border: "solid red 2px",
     },
     cards_box: {
       display: "flex",
-      flexDirection: "column",
-      // flexDirection:
-      //   screnLessThan_768 || screenGreater_769LessThan1024 ? "column" : "row",
-      // justifyContent: "space-around",
-      // alignItems: "center",
+      flexDirection:
+        screenLessThan_768 || screenGreater_769LessThan1024 ? "column" : "row",
+      justifyContent: screenGreater_1024LessThan1280
+        ? "space-around"
+        : "center",
       gap: "20px",
-      width: screenLessThan_768 ? "80%" : "70%",
+      width: screenLessThan_768
+        ? "80%"
+        : screenGreater_769LessThan1024
+        ? "60%"
+        : screenGreater_1280LessThan1366
+        ? "100%"
+        : "80%",
       alignSelf: "center",
-      // border: "solid green 2px",
     },
 
     card_single: {
-      // width: screenLessThan_768 ? "85%" : "25%",
+      width: "100%",
     },
     recently_box: {
       width: "90%",
       display: "flex",
       alignSelf: "center",
-      // border: "solid red 2px",
+      justifyContent: "center",
     },
     heading_typography: {
-      // width: "90%",
       fontSize:
-        screenLessThan_768 || screenGreater_769LessThan1024 ? "22px" : "",
+        screenLessThan_768 || screenGreater_769LessThan1024
+          ? "22px"
+          : screenGreater_1024LessThan1280
+          ? "30px"
+          : "36px",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       backgroundImage: "linear-gradient(to right, #000, green)",
       marginLeft: "10px",
       marginTop: "30px",
-      // border: "solid red 2px",
     },
   };
   return (
