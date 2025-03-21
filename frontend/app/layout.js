@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="root-body" style={{ backgroundColor: "#FAFAFA" }}>
         <NavBar />
-        <Box sx={{ height: "calc(100vh - 230px)" }}>{children}</Box>
+        <Box>{children}</Box>
         <Footer />
       </body>
     </html>

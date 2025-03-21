@@ -63,7 +63,15 @@ export default function RecentActivity() {
   };
   return (
     <TableContainer component={Paper} sx={styles.tableContainer}>
-      <Typography fontWeight="bold" sx={{ marginLeft: "20px" }}>
+      <Typography
+        fontWeight="bold"
+        sx={{
+          fontSize: "18px",
+          // border: "solid red 2px",
+          paddingTop: "10px",
+          marginLeft: "10px",
+        }}
+      >
         Recent Activity
       </Typography>
       <Table sx={{ marginTop: "20px" }} aria-label="customized table">

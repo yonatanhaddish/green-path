@@ -55,24 +55,23 @@ function page() {
   return (
     <>
       <Box
-        // component="form"
-        // noValidate
-        // autoComplete="off"
+        component="form"
+        noValidate
+        autoComplete="off"
         sx={styles.cardContent}
       >
-        {/* <Box sx={styles.headingContent}>
+        <Box sx={styles.headingContent}>
           <Typography sx={styles.typoCompany}>Welcome to Green Path</Typography>
-        </Box> */}
-        {/* {viewForm === "vehicle-page" && (
+        </Box>
+        {viewForm === "vehicle-page" && (
           <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
-        )} */}
-        <RegisterVehicleForm onPageChangeVehicle={handleVehiclePageChange} />
-        {/* {viewForm == "user-page" && (
+        )}
+        {viewForm == "user-page" && (
           <RegisterUserForm onPageChange={handleUserPageChange} />
-        )} */}
-        {/* {viewForm == "submit-page" && (
+        )}
+        {viewForm == "submit-page" && (
           <GetUserVehicleInfo onPageUpateButton={handleEditPageChange} />
-        )} */}
+        )}
       </Box>
     </>
   );

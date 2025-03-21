@@ -263,7 +263,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const [vehicleLicensePlateValue, setVehicleLicensePlateValue] = useState("");
   const [vehicleColorValue, setVehicleColorValue] = useState("");
   const [vehicleCargoSize, setVehicleCargoSize] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const vehicleMakes = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
   const vehicleYears = [];
   const vehicleModels = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
@@ -271,13 +271,11 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   for (let year = 2015; year <= 2025; year++) {
     vehicleYears.push(year);
   }
-  useEffect(() => {
-    setLoading(false);
-  }, []);
 
-  if (loading) {
-    return <div>Loading...</div>; // Display loading message or skeleton screen during SSR
+  if (loading === null) {
+    return <div>Loading...</div>; // Only renders on client-side
   }
+
   const handleChangeVehicleType = (event) => {
     setVehicleTypeValue(event.target.value);
   };

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useMediaQuery, Typography, Box } from "@mui/material";
 
 import WeatherCard from "../components/WeatherCard";
@@ -8,48 +8,66 @@ import AvailableJobs from "../components/AvailableJobs";
 import RecentActivity from "../components/RecentActivity";
 
 const OperatorHome = () => {
-  const isLapTopSmallScreen = useMediaQuery("(max-width:1024px)");
+  const [loading, setLoading] = useState(undefined);
+  const screenLessThan_768 = useMediaQuery("(max-width:768px)");
+  const screenGreater_769LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
+  }
 
   const styles = {
     parent_box: {
-      // border: "solid red 2px",
       height: "100%",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       // alignItems: "center",
-      paddingTop: "30px",
+      // justifySelf: "center",
+      // paddingTop: "30px",
+
       gap: "20px",
       background: "#F5F5F5",
+      // border: "solid red 2px",
     },
     cards_box: {
       display: "flex",
-      flexDirection: isLapTopSmallScreen ? "column" : "row",
-      justifyContent: "space-around",
-      alignItems: "center",
+      flexDirection: "column",
+      // flexDirection:
+      //   screnLessThan_768 || screenGreater_769LessThan1024 ? "column" : "row",
+      // justifyContent: "space-around",
+      // alignItems: "center",
       gap: "20px",
-      // border: "solid blue 2px",
-      width: "100%",
+      width: screenLessThan_768 ? "80%" : "70%",
+      alignSelf: "center",
+      // border: "solid green 2px",
     },
 
     card_single: {
-      width: isLapTopSmallScreen ? "85%" : "25%",
-      // border: "solid green 2px",
+      // width: screenLessThan_768 ? "85%" : "25%",
     },
     recently_box: {
-      // border: "solid green 2px",
-      width: "95%",
+      width: "90%",
       display: "flex",
-      justifyContent: "center",
+      alignSelf: "center",
+      // border: "solid red 2px",
     },
     heading_typography: {
-      // border: "solid blue 2px",
-      width: "90%",
-      fontSize: "1.1rem",
+      // width: "90%",
+      fontSize:
+        screenLessThan_768 || screenGreater_769LessThan1024 ? "22px" : "",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       backgroundImage: "linear-gradient(to right, #000, green)",
-      marginLeft: "30px",
+      marginLeft: "10px",
+      marginTop: "30px",
+      // border: "solid red 2px",
     },
   };
   return (

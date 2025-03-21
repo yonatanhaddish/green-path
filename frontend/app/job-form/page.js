@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import TextField, { textFieldClasses } from "@mui/material/TextField";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -11,20 +11,25 @@ import { Typography } from "@mui/material";
 import BasicButtons from "../components/BasicButton";
 
 export default function JobForm() {
+  const [loading, setLoading] = useState(undefined);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
+  }
+
   const styles = {
     cardContent: {
-      // border: "solid #e1fceb 2px",
-      // borderTop: "solid green 2px",
       paddingTop: "10px",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       gap: "30px",
       paddingBottom: "40px",
-      // marginLeft: "20px",
       marginTop: "30px",
-      // backgroundImage:
-      //   "linear-gradient(to bottom, green, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff)",
     },
     headingContent: {
       width: "90%",
@@ -41,18 +46,15 @@ export default function JobForm() {
       gap: "15px",
     },
     textField: {
-      // width: "90%",
       display: "flex",
       flexDirection: "column",
       gap: "15px",
     },
     boxButton: {
-      // border: "solid red 2px",
       marginTop: "10px",
       height: "50px",
     },
     textField1: {
-      // backgroundColor: "#f5fff9",
       "& .MuiInputLabel-root": { color: "black" },
       "& .MuiInputLabel-root.Mui-focused": { color: "black" },
       "& .MuiOutlinedInput-root": {
@@ -60,7 +62,6 @@ export default function JobForm() {
         "&:hover fieldset": { borderColor: "black" },
         "&.Mui-focused fieldset": {
           borderColor: "gray",
-          // backgroundColor: "#e1fceb",
         },
       },
     },
