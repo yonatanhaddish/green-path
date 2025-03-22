@@ -1,12 +1,27 @@
-// "use client";
+"use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Search from "../components/Search";
 import { useMediaQuery, Box, Typography } from "@mui/material";
 import Filter from "../components/Filter";
 import JobCard from "../components/JobCard";
 
 const JobBoard = () => {
+  const [loading, setLoading] = useState(undefined);
+
+  const screenGreater_1024LessThan1280 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 900px)"
+  );
+  const screenGreaterThan_2560 = useMediaQuery("(max-width:1920px)");
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
+  }
+
   const styles = {
     parent_box: {
       // border: "solid red 2px",
@@ -14,22 +29,18 @@ const JobBoard = () => {
       display: "flex",
       flexDirection: "column",
       paddingTop: "30px",
-      gap: "20px",
+      gap: "50px",
       background: "#F5F5F5",
     },
     cards_box: {
-      // border: "solid green 2px",
-      // width: {
-      //   xs: "100%",
-      //   sm: "80%",
-      // },
-      width: "100%",
+      width: screenGreaterThan_2560 ? "90%" : "75%",
+      // width: "90%",
       display: "flex",
       flexDirection: "row",
       flexWrap: "wrap",
-      // alignItems: "center",
+      alignSelf: "center",
       justifyContent: "space-evenly",
-      gap: "60px",
+      gap: "30px",
       paddingBottom: "100px",
     },
     searchFilterJobs: {
@@ -40,9 +51,11 @@ const JobBoard = () => {
     },
     searchFilter: {
       // border: "solid green 2px",
-      width: "100%",
+      width: screenGreater_1024LessThan1280 ? "95%" : "40%",
       display: "flex",
+      alignSelf: "flex-end",
       gap: "20px",
+      marginRight: "20px",
     },
     totalJobs: {
       // border: "solid blue 2px",
@@ -55,6 +68,7 @@ const JobBoard = () => {
       // marginLeft: "20px",
     },
   };
+
   return (
     <Box sx={styles.parent_box}>
       <Box sx={styles.searchFilterJobs}>

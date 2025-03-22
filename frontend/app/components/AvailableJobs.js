@@ -26,7 +26,6 @@ const card = (
             lg: "80%",
           },
         }}
-        onClick={() => console.log("test")}
       >
         <BasicButtons message="View Job Board" />
       </Link>

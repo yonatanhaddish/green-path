@@ -10,7 +10,7 @@ export default function Search() {
     <Stack
       spacing={2}
       sx={{
-        width: "70%",
+        width: "100%",
         marginLeft: "20px",
         // border: "solid grey 2px",
       }}
@@ -32,6 +32,7 @@ export default function Search() {
               },
             }}
             color="grey"
+            size="small"
           />
         )}
       />
