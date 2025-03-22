@@ -31,7 +31,7 @@ const MyJobs = () => {
       fontSize: "16px",
     },
     cardAcceptedJobs: {
-      // border: "solid blue 2px",
+      border: "solid blue 2px",
       width: screenGreaterThan_2560 ? "85%" : "100%",
       display: "flex",
       flexDirection: "row",

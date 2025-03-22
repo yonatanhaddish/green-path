@@ -7,11 +7,18 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DateField } from "@mui/x-date-pickers/DateField";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import BasicButtons from "../components/BasicButton";
 
 export default function JobForm() {
   const [loading, setLoading] = useState(undefined);
+
+  const screenLessThan430 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 430px)"
+  );
+  const screenGreaterThan4318LessThan834 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 834px)"
+  );
 
   useEffect(() => {
     setLoading(false);
@@ -23,13 +30,18 @@ export default function JobForm() {
 
   const styles = {
     cardContent: {
-      paddingTop: "10px",
-      width: "100%",
+      paddingTop: "34px",
+      width: screenLessThan430
+        ? "90%"
+        : screenGreaterThan4318LessThan834
+        ? "80%"
+        : "40%",
       display: "flex",
       flexDirection: "column",
       gap: "30px",
       paddingBottom: "40px",
-      marginTop: "30px",
+      justifySelf: "center",
+      // border: screenLessThan768 ? "solid red 2px" : "solid blue 3px",
     },
     headingContent: {
       width: "90%",
@@ -86,6 +98,7 @@ export default function JobForm() {
             label="Pickup Location"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
           <TextField
             required
@@ -93,6 +106,7 @@ export default function JobForm() {
             label="Dropoff Location"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
         </Box>
         <Box sx={styles.textField}>
@@ -102,6 +116,7 @@ export default function JobForm() {
             type="number"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
           <TextField
             id="weight"
@@ -109,6 +124,7 @@ export default function JobForm() {
             type="number"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
         </Box>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -118,6 +134,7 @@ export default function JobForm() {
                 label="Delivery Date"
                 fullWidth
                 sx={styles.textField1}
+                size="small"
               />
             </DemoContainer>
           </Box>
@@ -127,6 +144,7 @@ export default function JobForm() {
                 label="Delivery Date"
                 fullWidth
                 sx={styles.textField1}
+                size="small"
               />
             </DemoContainer>
           </Box>
@@ -138,6 +156,7 @@ export default function JobForm() {
             type="number"
             fullWidth
             sx={styles.textField1}
+            size="small"
           />
         </Box>
         <Box sx={styles.boxButton}>
