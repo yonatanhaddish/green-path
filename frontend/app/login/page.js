@@ -56,7 +56,7 @@ function page() {
 
   const styles = {
     box_tab: {
-      paddingTop: "30px",
+      paddingTop: "25px",
       "& .MuiTab-root": {
         backgroundColor: "#FAFAFA",
         color: "black",

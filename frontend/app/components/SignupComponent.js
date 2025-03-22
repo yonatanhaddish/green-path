@@ -26,7 +26,7 @@ const styles = {
     //   border: "solid #009737 2px",
     display: "flex",
     flexDirection: "column",
-    gap: "50px",
+    gap: "30px",
     paddingTop: "0px",
   },
   heading_box: {
@@ -34,7 +34,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     gap: "20px",
-    paddingTop: "30px",
+    paddingTop: "20px",
   },
   heading_type: {
     color: "#009737",
@@ -104,13 +104,14 @@ export function SignupLoadOwner() {
             </Box>
             <Box sx={styles.input_box}>
               <TextField
+                size="small"
                 fullWidth
                 id="email-address"
                 label="Email Address"
                 type="email"
                 onChange={handleChangesignupLoadOwnerEmail}
               />
-              <FormControl fullWidth variant="outlined">
+              <FormControl fullWidth variant="outlined" size="small">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Password
                 </InputLabel>
@@ -137,7 +138,7 @@ export function SignupLoadOwner() {
                   label="Password"
                 />
               </FormControl>
-              <FormControl fullWidth variant="outlined">
+              <FormControl fullWidth variant="outlined" size="small">
                 <InputLabel htmlFor="outlined-adornment-confirm-password">
                   Confirm Password
                 </InputLabel>
@@ -222,13 +223,14 @@ export function SignupVanOwner() {
             </Box>
             <Box sx={styles.input_box}>
               <TextField
+                size="small"
                 fullWidth
                 id="email-address"
                 label="Email Address"
                 type="email"
                 onChange={handleChangeVanOwnerEmail}
               />
-              <FormControl fullWidth variant="outlined">
+              <FormControl fullWidth variant="outlined" size="small">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Password
                 </InputLabel>
@@ -256,7 +258,7 @@ export function SignupVanOwner() {
                   label="Password"
                 />
               </FormControl>
-              <FormControl fullWidth variant="outlined">
+              <FormControl fullWidth variant="outlined" size="small">
                 <InputLabel htmlFor="outlined-adornment-confirm-password">
                   Confirm Password
                 </InputLabel>
