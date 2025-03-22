@@ -27,7 +27,7 @@ const styles = {
     //   border: "solid #009737 2px",
     display: "flex",
     flexDirection: "column",
-    gap: "50px",
+    gap: "30px",
     paddingTop: "0px",
   },
   heading_box: {
@@ -97,12 +97,13 @@ export function LoginLoadOwner() {
             <Box sx={styles.input_box}>
               <TextField
                 fullWidth
+                size="small"
                 id="email-address"
                 label="Email Address"
                 type="email"
                 onChange={handleChangeLoadOwnerEmail}
               />
-              <FormControl fullWidth variant="outlined">
+              <FormControl fullWidth variant="outlined" size="small">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Password
                 </InputLabel>
@@ -180,13 +181,14 @@ export function LoginVanOwner() {
             </Box>
             <Box sx={styles.input_box}>
               <TextField
+                size="small"
                 fullWidth
                 id="email-address"
                 label="Email Address"
                 type="email"
                 onChange={handleChangeVanOwnerEmail}
               />
-              <FormControl fullWidth variant="outlined">
+              <FormControl fullWidth variant="outlined" size="small">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Password
                 </InputLabel>
