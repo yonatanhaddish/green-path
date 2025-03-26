@@ -122,6 +122,15 @@ export function RegisterUserForm({ onPageChange }) {
   const [homeAddressValue, setHomeAddressValue] = useState("");
   const [cityTownValue, setCityTownValue] = useState("");
   const [postalCodeValue, setPostalCodeValue] = useState("");
+  const [loading, setLoading] = useState(undefined);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
+  }
 
   const handleChangeFullName = (event) => {
     setFullNameValue(event.target.value);
@@ -585,6 +594,14 @@ export function RegisterEmployer() {
     useState("");
   const [companyContactEmailAddressValue, setCompanyContactEmailAddressValue] =
     useState("");
+  const [loading, setLoading] = useState(undefined);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
+  }
 
   const handleChangeCompanyName = (event) => {
     setCompanyNameValue(event.target.value);
