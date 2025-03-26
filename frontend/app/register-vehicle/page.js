@@ -7,7 +7,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DateField } from "@mui/x-date-pickers/DateField";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import BasicButtons from "../components/BasicButton";
 import Button from "@mui/material/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,16 +22,33 @@ import {
 function page() {
   const [viewForm, setViewForm] = useState("vehicle-page");
 
+  const screenLessThan430 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 430px)"
+  );
+  const screenGreaterThan430LessThan1280 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 1280px)"
+  );
+  const screenGreaterThan1280LessThan1440 = useMediaQuery(
+    "(min-width: 1280px) and (max-width: 1440px)"
+  );
+
   const styles = {
     cardContent: {
-      //   border: "solid red 2px",
-      width: "90%",
+      // border: "solid blue 2px",
+      width: screenLessThan430
+        ? "96%"
+        : screenGreaterThan430LessThan1280
+        ? "60%"
+        : screenGreaterThan1280LessThan1440
+        ? "40%"
+        : "40%",
       display: "flex",
       flexDirection: "column",
       gap: "10px",
       paddingBottom: "40px",
-      marginTop: "30px",
-      justifySelf: "center",
+      paddingTop: "30px",
+      // justifySelf: "center",
+      margin: "0 auto",
     },
     headingContent: {
       //   border: "solid red 2px",

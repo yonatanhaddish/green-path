@@ -7,7 +7,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DateField } from "@mui/x-date-pickers/DateField";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import BasicButtons from "../components/BasicButton";
 import Button from "@mui/material/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +22,7 @@ import Select from "@mui/material/Select";
 
 const styles = {
   cardContent: {
-    border: "solid red 10px",
+    // border: "solid blue 10px",
     // borderTop: "solid green 2px",
     //   paddingTop: "10px",
     width: "100%",
@@ -32,8 +32,7 @@ const styles = {
     paddingBottom: "40px",
     // marginLeft: "20px",
     marginTop: "15px",
-    // backgroundImage:
-    //   "linear-gradient(to bottom, green, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff)",
+    border: "solid green 2px",
   },
   headingContent: {
     width: "90%",
@@ -48,6 +47,7 @@ const styles = {
     flexDirection: "column",
     alignSelf: "center",
     gap: "15px",
+    // border: "solid red 2px",
   },
   textField: {
     // width: "90%",
@@ -263,7 +263,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const [vehicleLicensePlateValue, setVehicleLicensePlateValue] = useState("");
   const [vehicleColorValue, setVehicleColorValue] = useState("");
   const [vehicleCargoSize, setVehicleCargoSize] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(undefined);
   const vehicleMakes = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
   const vehicleYears = [];
   const vehicleModels = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
@@ -272,8 +272,12 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     vehicleYears.push(year);
   }
 
-  if (loading === null) {
-    return <div>Loading...</div>; // Only renders on client-side
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
   }
 
   const handleChangeVehicleType = (event) => {
