@@ -1,20 +1,36 @@
 "use client";
 
 import React from "react";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, useMediaQuery } from "@mui/material";
 import { RegisterEmployer } from "../components/RegisterForm";
 
 function page() {
+  const screenLessThan430 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 430px)"
+  );
+  const screenGreaterThan430LessThan1280 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 1280px)"
+  );
+  const screenGreaterThan1280LessThan1440 = useMediaQuery(
+    "(min-width: 1280px) and (max-width: 1440px)"
+  );
   const styles = {
     cardContent: {
-      //   border: "solid red 2px",
-      width: "90%",
+      // border: "solid blue 2px",
+      width: screenLessThan430
+        ? "96%"
+        : screenGreaterThan430LessThan1280
+        ? "60%"
+        : screenGreaterThan1280LessThan1440
+        ? "40%"
+        : "40%",
       display: "flex",
       flexDirection: "column",
       gap: "10px",
       paddingBottom: "40px",
-      marginTop: "30px",
-      justifySelf: "center",
+      paddingTop: "30px",
+      // justifySelf: "center",
+      margin: "0 auto",
     },
     headingContent: {
       //   border: "solid red 2px",

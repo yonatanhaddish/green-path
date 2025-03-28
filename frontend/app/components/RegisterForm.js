@@ -7,7 +7,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DateField } from "@mui/x-date-pickers/DateField";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import BasicButtons from "../components/BasicButton";
 import Button from "@mui/material/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +22,7 @@ import Select from "@mui/material/Select";
 
 const styles = {
   cardContent: {
-    border: "solid red 10px",
+    // border: "solid blue 10px",
     // borderTop: "solid green 2px",
     //   paddingTop: "10px",
     width: "100%",
@@ -32,8 +32,7 @@ const styles = {
     paddingBottom: "40px",
     // marginLeft: "20px",
     marginTop: "15px",
-    // backgroundImage:
-    //   "linear-gradient(to bottom, green, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff)",
+    border: "solid green 2px",
   },
   headingContent: {
     width: "90%",
@@ -48,7 +47,11 @@ const styles = {
     flexDirection: "column",
     alignSelf: "center",
     gap: "15px",
+<<<<<<< HEAD
     border: "solid red 2px",
+=======
+    // border: "solid red 2px",
+>>>>>>> ffe65fb37d36a0a239df5d8026973fd093055066
   },
   textField: {
     // width: "90%",
@@ -123,6 +126,15 @@ export function RegisterUserForm({ onPageChange }) {
   const [homeAddressValue, setHomeAddressValue] = useState("");
   const [cityTownValue, setCityTownValue] = useState("");
   const [postalCodeValue, setPostalCodeValue] = useState("");
+  const [loading, setLoading] = useState(undefined);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
+  }
 
   const handleChangeFullName = (event) => {
     setFullNameValue(event.target.value);
@@ -586,6 +598,14 @@ export function RegisterEmployer() {
     useState("");
   const [companyContactEmailAddressValue, setCompanyContactEmailAddressValue] =
     useState("");
+  const [loading, setLoading] = useState(undefined);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
+  }
 
   const handleChangeCompanyName = (event) => {
     setCompanyNameValue(event.target.value);
