@@ -47,7 +47,8 @@ const styles = {
     flexDirection: "column",
     alignSelf: "center",
     gap: "15px",
-    // border: "solid red 2px",
+    border: "solid red 2px",
+    margin: "0 auto",
   },
   textField: {
     // width: "90%",
@@ -114,7 +115,7 @@ const styles = {
 };
 
 export function RegisterUserForm({ onPageChange }) {
-  const [buttonState, setButtonState] = useState("user-page");
+  const [buttonState, setButtonState] = useState("vechicle-page");
   const [fullNameValue, setFullNameValue] = useState("");
   const [emailAddressValue, setEmailAddressValue] = useState("");
   const [phoneNumberValue, setPhoneNumberValue] = useState("");

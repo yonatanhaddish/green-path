@@ -16,7 +16,7 @@ function page() {
   );
   const styles = {
     cardContent: {
-      // border: "solid blue 2px",
+      border: "solid blue 2px",
       width: screenLessThan430
         ? "96%"
         : screenGreaterThan430LessThan1280
