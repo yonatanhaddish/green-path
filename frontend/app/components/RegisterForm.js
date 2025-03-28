@@ -48,6 +48,7 @@ const styles = {
     flexDirection: "column",
     alignSelf: "center",
     gap: "15px",
+    border: "solid red 2px",
   },
   textField: {
     // width: "90%",
@@ -263,7 +264,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   const [vehicleLicensePlateValue, setVehicleLicensePlateValue] = useState("");
   const [vehicleColorValue, setVehicleColorValue] = useState("");
   const [vehicleCargoSize, setVehicleCargoSize] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(undefined);
   const vehicleMakes = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
   const vehicleYears = [];
   const vehicleModels = ["GMC", "RAM", "Toyota", "Honda", "Ford"];
@@ -272,8 +273,12 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     vehicleYears.push(year);
   }
 
-  if (loading === null) {
-    return <div>Loading...</div>; // Only renders on client-side
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading === undefined) {
+    return <div>Loading...</div>;
   }
 
   const handleChangeVehicleType = (event) => {
@@ -298,15 +303,15 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     setVehicleCargoSize(event.target.value);
   };
 
-  console.log({
-    vehicleTypeValue,
-    vehicleMakeValue,
-    vehicleModelValue,
-    vehicleYearValue,
-    vehicleLicensePlateValue,
-    vehicleColorValue,
-    vehicleCargoSize,
-  });
+  // console.log({
+  //   vehicleTypeValue,
+  //   vehicleMakeValue,
+  //   vehicleModelValue,
+  //   vehicleYearValue,
+  //   vehicleLicensePlateValue,
+  //   vehicleColorValue,
+  //   vehicleCargoSize,
+  // });
 
   const handleNextButton = () => {
     const newState = "submit-page";
