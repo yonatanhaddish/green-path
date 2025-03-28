@@ -32,7 +32,7 @@ const styles = {
     paddingBottom: "40px",
     // marginLeft: "20px",
     marginTop: "15px",
-    border: "solid green 2px",
+    // border: "solid green 2px",
   },
   headingContent: {
     width: "90%",
@@ -47,8 +47,7 @@ const styles = {
     flexDirection: "column",
     alignSelf: "center",
     gap: "15px",
-    border: "solid red 2px",
-    margin: "0 auto",
+    // border: "solid red 2px",
   },
   textField: {
     // width: "90%",
@@ -312,15 +311,15 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     setVehicleCargoSize(event.target.value);
   };
 
-  console.log({
-    vehicleTypeValue,
-    vehicleMakeValue,
-    vehicleModelValue,
-    vehicleYearValue,
-    vehicleLicensePlateValue,
-    vehicleColorValue,
-    vehicleCargoSize,
-  });
+  // console.log({
+  //   vehicleTypeValue,
+  //   vehicleMakeValue,
+  //   vehicleModelValue,
+  //   vehicleYearValue,
+  //   vehicleLicensePlateValue,
+  //   vehicleColorValue,
+  //   vehicleCargoSize,
+  // });
 
   const handleNextButton = () => {
     const newState = "submit-page";

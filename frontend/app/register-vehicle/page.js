@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
 import TextField, { textFieldClasses } from "@mui/material/TextField";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DateField } from "@mui/x-date-pickers/DateField";
-import { Typography, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import BasicButtons from "../components/BasicButton";
 import Button from "@mui/material/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,42 +20,52 @@ import {
 
 function page() {
   const [viewForm, setViewForm] = useState("vehicle-page");
-
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
   );
-  const screenGreaterThan430LessThan1280 = useMediaQuery(
-    "(min-width: 431px) and (max-width: 1280px)"
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
   );
-  const screenGreaterThan1280LessThan1440 = useMediaQuery(
-    "(min-width: 1280px) and (max-width: 1440px)"
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
   );
+  const screenGreaterThan1024LessThan1366 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1920 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920 = useMediaQuery("(min-width: 1921px)");
 
   const styles = {
     cardContent: {
       // border: "solid blue 2px",
       width: screenLessThan430
-        ? "96%"
-        : screenGreaterThan430LessThan1280
+        ? "100%"
+        : screenGreaterThan430LessThan768
         ? "60%"
-        : screenGreaterThan1280LessThan1440
-        ? "40%"
-        : "40%",
+        : screenGreaterThan768LessThan1024
+        ? "55%"
+        : screenGreaterThan1024LessThan1366
+        ? "30%"
+        : screenGreaterThan1366LessThan1920
+        ? "25%"
+        : screenGreaterThan1920
+        ? "25%"
+        : "",
+      margin: "0 auto",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
-      paddingBottom: "40px",
-      paddingTop: "30px",
-      // justifySelf: "center",
-      margin: "0 auto",
+      gap: "15px",
     },
     headingContent: {
-      //   border: "solid red 2px",
-      width: "90%",
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-between",
+      width: "100%",
       alignSelf: "center",
+      // border: "solid green 1px",
+    },
+    typoCompany: {
+      fontSize: "18px",
+      fontWeight: "bold",
     },
   };
 
