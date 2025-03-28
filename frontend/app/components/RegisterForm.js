@@ -32,7 +32,7 @@ const styles = {
     paddingBottom: "40px",
     // marginLeft: "20px",
     marginTop: "15px",
-    border: "solid green 2px",
+    // border: "solid green 2px",
   },
   headingContent: {
     width: "90%",
@@ -47,11 +47,8 @@ const styles = {
     flexDirection: "column",
     alignSelf: "center",
     gap: "15px",
-<<<<<<< HEAD
-    border: "solid red 2px",
-=======
-    // border: "solid red 2px",
->>>>>>> ffe65fb37d36a0a239df5d8026973fd093055066
+    // border: "solid green 2px",
+    margin: "0 auto",
   },
   textField: {
     // width: "90%",
