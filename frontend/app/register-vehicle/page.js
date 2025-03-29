@@ -19,7 +19,7 @@ import {
 } from "../components/RegisterForm";
 
 function page() {
-  const [viewForm, setViewForm] = useState("vehicle-page");
+  const [viewForm, setViewForm] = useState("submit-page");
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
   );
@@ -32,10 +32,7 @@ function page() {
   const screenGreaterThan1024LessThan1366 = useMediaQuery(
     "(min-width: 1025px) and (max-width: 1366px)"
   );
-  const screenGreaterThan1366LessThan1920 = useMediaQuery(
-    "(min-width: 1367px) and (max-width: 1920px)"
-  );
-  const screenGreaterThan1920 = useMediaQuery("(min-width: 1921px)");
+  const screenGreaterThan1366 = useMediaQuery("(min-width: 1366px)");
 
   const styles = {
     cardContent: {
@@ -48,20 +45,18 @@ function page() {
         ? "55%"
         : screenGreaterThan1024LessThan1366
         ? "30%"
-        : screenGreaterThan1366LessThan1920
-        ? "25%"
-        : screenGreaterThan1920
+        : screenGreaterThan1366
         ? "25%"
         : "",
       margin: "0 auto",
       display: "flex",
       flexDirection: "column",
       gap: "15px",
+      paddingTop: "40px",
     },
     headingContent: {
-      width: "100%",
+      width: "90%",
       alignSelf: "center",
-      // border: "solid green 1px",
     },
     typoCompany: {
       fontSize: "18px",

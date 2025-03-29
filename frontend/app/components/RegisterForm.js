@@ -45,9 +45,9 @@ const styles = {
     width: "90%",
     display: "flex",
     flexDirection: "column",
-    alignSelf: "center",
     gap: "15px",
     // border: "solid red 2px",
+    margin: "0 auto",
   },
   textField: {
     // width: "90%",
@@ -93,22 +93,22 @@ const styles = {
   buttonEditSubmitForm: {
     backgroundColor: "#000",
     color: "white",
-    width: "140px",
-    height: "40px",
-    fontSize: "15px",
+    width: "120px",
+    height: "30px",
+    fontSize: "12px",
   },
   boxGetUserVehicleInfo: {
     // border: "solid red 2px",
-    width: "90%",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     alignSelf: "center",
-    gap: "40px",
+    gap: "20px",
   },
   buttonSumbit: {
     // border: "solid red 2px",
     width: "100%",
-    height: "45px",
+    height: "40px",
     fontSize: "15px",
   },
 };
@@ -154,15 +154,15 @@ export function RegisterUserForm({ onPageChange }) {
     setPostalCodeValue(event.target.value);
   };
 
-  console.log({
-    fullNameValue,
-    emailAddressValue,
-    phoneNumberValue,
-    dateOfBirthValue,
-    homeAddressValue,
-    cityTownValue,
-    postalCodeValue,
-  });
+  // console.log({
+  //   fullNameValue,
+  //   emailAddressValue,
+  //   phoneNumberValue,
+  //   dateOfBirthValue,
+  //   homeAddressValue,
+  //   cityTownValue,
+  //   postalCodeValue,
+  // });
 
   const handleUserFormNext = () => {
     const newState = "vehicle-page";
@@ -281,13 +281,13 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     vehicleYears.push(year);
   }
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  // useEffect(() => {
+  //   setLoading(false);
+  // }, []);
 
-  if (loading === undefined) {
-    return <div>Loading...</div>;
-  }
+  // if (loading === undefined) {
+  //   return <div>Loading...</div>;
+  // }
 
   const handleChangeVehicleType = (event) => {
     setVehicleTypeValue(event.target.value);
@@ -485,18 +485,50 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
 export function GetUserVehicleInfo({ onPageUpateButton }) {
   const [submitButtonState, setSubmitButtonState] = useState("submit-page");
 
+  const screenLessThan430 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 430px)"
+  );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1366 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1400 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1400px)"
+  );
+  const screenGreaterThan1400 = useMediaQuery("(min-width: 1401px)");
+
+  const styles_2 = {
+    headingContent: {
+      width: screenLessThan430
+        ? "90%"
+        : screenGreaterThan430LessThan768
+        ? "80%"
+        : screenGreaterThan768LessThan1024
+        ? "70%"
+        : screenGreaterThan1024LessThan1366
+        ? "90%"
+        : screenGreaterThan1400
+        ? "90%"
+        : "",
+    },
+  };
   const handleUpdateFormButton = () => {
     const newState = "user-page";
     setSubmitButtonState(newState);
     onPageUpateButton(newState);
   };
+
   return (
-    <Box sx={styles.boxGetUserVehicleInfo}>
+    <Box sx={[styles.boxGetUserVehicleInfo, styles_2.headingContent]}>
       <Card
         sx={{
-          minWidth: 275,
-          //   paddingBottom: "30px",
-          // paddingTop: "10px",
+          width: "100%",
+          margin: "0 auto",
         }}
       >
         <CardContent>
@@ -634,18 +666,18 @@ export function RegisterEmployer() {
     setCompanyContactEmailAddressValue(event.target.value);
   };
 
-  console.log({
-    companyNameValue,
-    companyAddressValue,
-    companyCityValue,
-    companyPostalCodeValue,
-    companyPhoneNumberValue,
-    companyEmailAddressValue,
-    companyContactNameValue,
-    companyContactJobTitleValue,
-    companyContactPhoneNumberValue,
-    companyContactEmailAddressValue,
-  });
+  // console.log({
+  //   companyNameValue,
+  //   companyAddressValue,
+  //   companyCityValue,
+  //   companyPostalCodeValue,
+  //   companyPhoneNumberValue,
+  //   companyEmailAddressValue,
+  //   companyContactNameValue,
+  //   companyContactJobTitleValue,
+  //   companyContactPhoneNumberValue,
+  //   companyContactEmailAddressValue,
+  // });
 
   return (
     <>

@@ -21,7 +21,7 @@ function page() {
 
   const styles = {
     cardContent: {
-      border: "solid blue 2px",
+      // border: "solid blue 2px",
       width: screenLessThan430
         ? "100%"
         : screenGreaterThan430LessThan768
@@ -34,10 +34,10 @@ function page() {
         ? "25%"
         : "",
       margin: "0 auto",
-
       display: "flex",
       flexDirection: "column",
       gap: "15px",
+      paddingTop: "40px",
     },
     headingContent: {
       width: "90%",
