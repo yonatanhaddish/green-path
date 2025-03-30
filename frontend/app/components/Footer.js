@@ -13,7 +13,7 @@ const Footer = () => {
           textAlign: "center",
           alignContent: "center",
           width: "100%",
-          height: "70px",
+          // height: "20px",
         }}
       >
         <Typography variant="body2">

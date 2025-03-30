@@ -13,11 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="root-body">
-        <NavBar />
-        <Box sx={{ backgroundColor: "#F5F5F5", height: "100%" }}>
-          {children}
-        </Box>
-        <Footer />
+        <div className="layout">
+          <NavBar />
+          <Box sx={{ flex: 1, backgroundColor: "#F5F5F5" }}>{children}</Box>
+          <Footer />
+        </div>
       </body>
     </html>
   );
