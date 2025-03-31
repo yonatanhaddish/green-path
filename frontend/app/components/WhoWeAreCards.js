@@ -17,7 +17,8 @@ export function WhoWeAreCard() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid #000 1px",
+      border: "solid green 1px",
+      boxShadow: "0 0 10px green",
       height: "500px",
       width: "100%",
       margin: "0 auto",
@@ -68,7 +69,8 @@ export function OurMission() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid #000 1px",
+      border: "solid green 1px",
+      boxShadow: "0 0 10px green",
       height: "500px",
       width: "100%",
       margin: "0 auto",
@@ -119,7 +121,8 @@ export function GreenCommitment() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid #000 1px",
+      border: "solid green 1px",
+      boxShadow: "0 0 10px green",
       height: "500px",
       //   width: "100%",
       margin: "0 auto",
@@ -203,7 +206,8 @@ export function WhyChooseUs() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid #000 1px",
+      border: "solid green 1px",
+      boxShadow: "0 0 10px green",
       height: "500px",
       //   width: "100%",
       margin: "0 auto",
