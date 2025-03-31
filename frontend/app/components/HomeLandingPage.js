@@ -11,13 +11,12 @@ function HomeLandingPage() {
 
   const styles = {
     landing_page_parent: {
-      // border: "solid red 2px",
+      //   border: "solid red 2px",
       display: "flex",
       flexDirection: screenLessThan430 ? "column" : "row",
       width: screenLessThan430 ? "100%" : "100%",
-      height: screenLessThan430 ? "88vh" : "100vh",
+      height: screenLessThan430 ? "87vh" : "100vh",
       margin: "0 auto",
-      //   background: `linear-gradient(to bottom,#000,#000,#fff)`,
       backgroundColor: "#F5F5F5",
     },
     text_box: {
@@ -56,15 +55,19 @@ function HomeLandingPage() {
       fontSize: screenLessThan430 ? "45px" : "10px",
       margin: "0 auto",
     },
-    button_box: {
+    button: {
       //   border: "solid white 1px",
       backgroundColor: "#009737",
       color: "#000",
       fontSize: "16px",
       fontWeight: "bold",
       width: "200px",
-      marginBottom: "50px",
+      //   marginBottom: "50px",
       marginLeft: "20px",
+    },
+    button_box: {
+      //   border: "solid blue 2px",
+      //   marginBottom: "150px",
     },
     child_box: {
       margin: "0 auto",
@@ -72,6 +75,7 @@ function HomeLandingPage() {
       flexDirection: "column",
       gap: "20px",
       width: "100%",
+      height: "35%",
       //   border: "solid blue 1px",
       backgroundColor: "#000",
     },
@@ -90,7 +94,9 @@ function HomeLandingPage() {
               We provide reliable and efficient road transportation services,
               ensuring seamless logistics and timely deliveries. 🚛
             </Typography>
-            <Button sx={styles.button_box}>Our Service</Button>
+            <Box sx={styles.button_box}>
+              <Button sx={styles.button}>Our Service</Button>
+            </Box>
           </Box>
         </Box>
       ) : (
