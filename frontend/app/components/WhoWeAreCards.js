@@ -175,7 +175,6 @@ export function GreenCommitment() {
         <Box sx={styles.typo_box}>
           <Typography sx={styles.typo_heading}>Our Green Commitment</Typography>
         </Box>
-
         <List sx={styles.list_box}>
           <Typography sx={styles.typo_expain}>
             We are actively working towards going fully green in the near future
@@ -242,7 +241,7 @@ export function WhyChooseUs() {
       //   border: "solid green 2px",
       display: "flex",
       flexDirection: "column",
-      //   gap: "20px",
+      gap: "10px",
     },
     typo_heading: {
       fontSize: "20px",
@@ -275,6 +274,11 @@ export function WhyChooseUs() {
           <ListItem>
             <ListItemText primary="✅ Transparency and efficiency in every step" />
           </ListItem>
+          <Typography sx={styles.typo_expain}>
+            We believe the future of logistics is green, efficient, and
+            responsible—and we are on the path to making that a reality. Join us
+            in creating a smarter, eco-friendly transportation industry!
+          </Typography>
         </List>
       </Box>
     </>
