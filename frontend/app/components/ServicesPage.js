@@ -21,7 +21,6 @@ function ServicesPage() {
       fontWeight: "bold",
       display: "flex",
       justifySelf: "center",
-      //   marginTop: "30px",
       backgroundColor: "green",
       paddingLeft: "20px",
       paddingRight: "20px",
