@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Box, Button, Typography, useMediaQuery } from "@mui/material";
-
 export function ServicesCardLoadOwnwer() {
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"

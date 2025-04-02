@@ -32,19 +32,21 @@ function ContactUsSection() {
       fontWeight: "bold",
       display: "flex",
       justifySelf: "center",
-      // backgroundColor: "green",
+      backgroundColor: "#000",
+      color: "#fff",
       paddingLeft: "20px",
       paddingRight: "20px",
       margin: "0 auto",
     },
     box_parent: {
-      border: "solid black 2px",
+      border: "solid black 1px",
+      boxShadow: "0 0 10px green",
       display: "flex",
       flexDirection: "column",
       gap: "50px",
       paddingBottom: "20px",
       paddingTop: "30px",
-      width: "90%",
+      width: "80%",
       margin: "0 auto",
       marginBottom: "100px",
     },
@@ -57,16 +59,41 @@ function ContactUsSection() {
       margin: "0 auto",
     },
     box_button: {
-      border: "solid black 2px",
+      border: "solid black 1px",
       width: "160px",
       margin: "0 auto",
       color: "#000",
+      backgroundColor: "#009737",
+      fontWeight: "bold",
     },
     message_box: {
-      border: "solid red 2px",
+      // border: "solid red 2px",
       height: "200px",
       fontSize: "16px",
       fontWeight: "bold",
+    },
+    input_field: {
+      "& .MuiOutlinedInput-root": {
+        "& fieldset": {
+          borderColor: "black",
+          boxShadow: "0 0 5px black",
+        },
+        "&:hover fieldset": {
+          borderColor: "green",
+        },
+        "&.Mui-focused fieldset": {
+          borderColor: "green",
+        },
+      },
+      "& .MuiInputLabel-root": {
+        color: "gray",
+      },
+      "& .MuiInputLabel-root.Mui-focused": {
+        color: "green",
+      },
+    },
+    typo_desc: {
+      fontFamily: "italic",
     },
   };
   return (
@@ -74,12 +101,17 @@ function ContactUsSection() {
       <Box sx={styles.box_parent}>
         <Typography sx={styles.typo_heading}>Contact Us</Typography>
         <Box
-          component="form"
           sx={styles.input_box_parent}
+          component="form"
           noValidate
           autoComplete="off"
         >
+          <Typography sx={styles.typo_desc}>
+            Feel free to contact us any time. We will get back to your as soon
+            as we can!
+          </Typography>
           <TextField
+            sx={styles.input_field}
             id="full-name"
             label="Full Name"
             variant="outlined"
@@ -87,13 +119,14 @@ function ContactUsSection() {
             fullWidth
           />
           <TextField
+            sx={styles.input_field}
             id="email"
             label="Email"
             variant="outlined"
             size="small"
             fullWidth
           />
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={styles.input_field}>
             <InputLabel id="demo-simple-select-label">
               Choose Service Type
             </InputLabel>
@@ -103,7 +136,6 @@ function ContactUsSection() {
               id="demo-simple-select"
               value="load_owner"
               label="Select One"
-
               //   onChange={handleChange}
             >
               <MenuItem value="load_owner">Load Owner</MenuItem>
@@ -111,6 +143,7 @@ function ContactUsSection() {
             </Select>
           </FormControl>
           <TextField
+            sx={styles.input_field}
             id="message"
             label="Message"
             variant="outlined"
@@ -124,7 +157,7 @@ function ContactUsSection() {
           {/* <Box sx={styles.box_button}>
            
           </Box> */}
-          <Button sx={styles.box_button}>Submit</Button>
+          <Button sx={styles.box_button}>Send Message</Button>
         </Box>
       </Box>
     </>
