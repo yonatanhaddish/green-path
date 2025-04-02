@@ -17,11 +17,12 @@ export function WhoWeAreCard() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid green 1px",
-      boxShadow: "0 0 10px green",
+      border: "solid black 1px",
+      boxShadow: "0 0 10px black",
       height: "500px",
       width: "100%",
       margin: "0 auto",
+      backgroundColor: "#009737",
     },
     image_box_whoarewe: {
       backgroundImage: `url("/images/landing-page.jpeg")`,
@@ -69,11 +70,12 @@ export function OurMission() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid green 1px",
-      boxShadow: "0 0 10px green",
+      border: "solid black 1px",
+      boxShadow: "0 0 10px black",
       height: "500px",
       width: "100%",
       margin: "0 auto",
+      backgroundColor: "#009737",
     },
     image_box_whoarewe: {
       backgroundImage: `url("/images/landing-page.jpeg")`,
@@ -121,11 +123,12 @@ export function GreenCommitment() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid green 1px",
-      boxShadow: "0 0 10px green",
+      border: "solid black 1px",
+      boxShadow: "0 0 10px black",
       height: "500px",
       //   width: "100%",
       margin: "0 auto",
+      backgroundColor: "#009737",
     },
     image_box_whoarewe: {
       backgroundImage: `url("/images/landing-page.jpeg")`,
@@ -157,19 +160,25 @@ export function GreenCommitment() {
       //   height: "10%",
     },
     list_box: {
-      //   border: "solid green 2px",
-      paddingTop: "20px",
+      // border: "solid white 2px",
+      marginBottom: "25px",
     },
     typo_heading: {
       fontSize: "20px",
-      color: "green",
+      color: "white",
       fontWeight: "bold",
       paddingTop: "15px",
       marginLeft: "20px",
       textDecoration: "underline",
+      textShadow: "0 0 10px white",
     },
     typo_expain: {
       marginLeft: "10px",
+      // border: "solid 2px white",
+      width: "90%",
+      margin: "0 auto",
+      textAlign: "center",
+      fontWeight: "bold",
     },
   };
   return (
@@ -179,23 +188,23 @@ export function GreenCommitment() {
           <Typography sx={styles.typo_heading}>Our Green Commitment</Typography>
         </Box>
         <List sx={styles.list_box}>
-          <Typography sx={styles.typo_expain}>
-            We are actively working towards going fully green in the near future
-            by:
-          </Typography>
           <ListItem>
-            <ListItemText primary="✅ Integrating fuel-efficient and electric vehicles into our fleet" />
+            <ListItemText primary="⚫️ Integrating fuel-efficient and electric vehicles into our fleet" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="✅ Optimizing routes to reduce emissions and waste" />
+            <ListItemText primary="⚫️ Optimizing routes to reduce emissions and waste" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="✅ Partnering with eco-conscious businesses" />
+            <ListItemText primary="⚫️ Partnering with eco-conscious businesses" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="✅ Implementing advanced tracking and logistics solutions to improve sustainability" />
+            <ListItemText primary="⚫️ Implementing advanced tracking and logistics solutions to improve sustainability" />
           </ListItem>
         </List>
+        <Typography sx={styles.typo_expain}>
+          We are actively working towards going fully green in the near future
+          by
+        </Typography>
       </Box>
     </>
   );
@@ -206,11 +215,12 @@ export function WhyChooseUs() {
   );
   const styles = {
     who_we_are_box: {
-      border: "solid green 1px",
-      boxShadow: "0 0 10px green",
+      border: "solid black 1px",
+      boxShadow: "0 0 10px black",
       height: "500px",
       //   width: "100%",
       margin: "0 auto",
+      backgroundColor: "#009737",
     },
     image_box_whoarewe: {
       backgroundImage: `url("/images/landing-page.jpeg")`,
@@ -221,7 +231,7 @@ export function WhyChooseUs() {
       //   border: "solid green 2px",
     },
     typo_description: {
-      //   border: "solid blue 2px",
+      // border: "solid blue 2px",
       width: "90%",
       fontSize: "16px",
       fontWeight: "bold",
@@ -242,21 +252,27 @@ export function WhyChooseUs() {
       //   height: "10%",
     },
     list_box: {
-      //   border: "solid green 2px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "10px",
+      // border: "solid white 2px",
+      marginBottom: "25px",
+      // display: "flex",
+      // flexDirection: "column",
     },
     typo_heading: {
       fontSize: "20px",
-      color: "green",
+      color: "white",
       fontWeight: "bold",
       paddingTop: "15px",
       marginLeft: "20px",
       textDecoration: "underline",
+      textShadow: "0 0 10px white",
     },
     typo_expain: {
       marginLeft: "10px",
+      fontWeight: "bold",
+      // border: "solid red 2px",
+      width: "90%",
+      textAlign: "center",
+      margin: "0 auto",
     },
   };
   return (
@@ -267,23 +283,23 @@ export function WhyChooseUs() {
         </Box>
         <List sx={styles.list_box}>
           <ListItem>
-            <ListItemText primary="✅ Reliable and on-time deliveries" />
+            <ListItemText primary="⚫️ Reliable and on-time deliveries" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="✅ A strong commitment to sustainability" />
+            <ListItemText primary="⚫️ A strong commitment to sustainability" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="✅ Innovative, customer-focused solutions" />
+            <ListItemText primary="⚫️ Innovative, customer-focused solutions" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="✅ Transparency and efficiency in every step" />
+            <ListItemText primary="⚫️ Transparency and efficiency in every step" />
           </ListItem>
-          <Typography sx={styles.typo_expain}>
-            We believe the future of logistics is green, efficient, and
-            responsible—and we are on the path to making that a reality. Join us
-            in creating a smarter, eco-friendly transportation industry!
-          </Typography>
         </List>
+        <Typography sx={styles.typo_expain}>
+          We believe the future of logistics is green, efficient, and
+          responsible—and we are on the path to making that a reality. Join us
+          in creating a smarter, eco-friendly transportation industry!
+        </Typography>
       </Box>
     </>
   );

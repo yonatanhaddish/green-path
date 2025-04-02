@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+
 export function ServicesCardLoadOwnwer() {
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
@@ -16,20 +17,20 @@ export function ServicesCardLoadOwnwer() {
       display: "flex",
       flexDirection: "column",
       //   gap: "20px",
+      backgroundColor: "green",
     },
     title_image_box: {
       //   border: "solid 2px green",
       height: "60%",
     },
     desc_button_box: {
-      //   border: "solid 2px blue",
-      height: "35%",
+      // border: "solid 2px blue",
+      height: "40%",
       width: "90%",
       margin: "0 auto",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between",
-      //   gap: "20px",
+      justifyContent: "space-around",
     },
     image_box: {
       //   border: "solid red 2px",
@@ -45,8 +46,8 @@ export function ServicesCardLoadOwnwer() {
       fontSize: "20px",
       fontWeight: "bold",
       paddingLeft: "10px",
-      backgroundColor: "#000",
-      color: "green",
+      // backgroundColor: "#000",
+      // color: "green",
     },
     typo_description: {
       //   border: "solid red 2px",
@@ -57,17 +58,11 @@ export function ServicesCardLoadOwnwer() {
       textAlign: "center",
     },
     button: {
-      //   border: "solid white 1px",
-      backgroundColor: "#009737",
-      //   backgroundColor: "#000",
-      color: "#000",
-      //   color: "#fff",
-      fontSize: "16px",
+      border: "solid black 2px",
+      backgroundColor: "#000",
+      color: "#fff",
+      fontSize: "14px",
       fontWeight: "bold",
-      width: "200px",
-      //   marginBottom: "50px",
-      marginLeft: "20px",
-      margin: "0 auto",
     },
   };
   return (
@@ -103,20 +98,20 @@ export function ServicesCardVanOwner() {
       display: "flex",
       flexDirection: "column",
       //   gap: "20px",
+      backgroundColor: "green",
     },
     title_image_box: {
       //   border: "solid 2px green",
       height: "60%",
     },
     desc_button_box: {
-      //   border: "solid 2px blue",
-      height: "35%",
+      // border: "solid 2px blue",
+      height: "40%",
       width: "90%",
       margin: "0 auto",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between",
-      //   gap: "20px",
+      justifyContent: "space-around",
     },
     image_box: {
       //   border: "solid red 2px",
@@ -132,8 +127,8 @@ export function ServicesCardVanOwner() {
       fontSize: "20px",
       fontWeight: "bold",
       paddingLeft: "10px",
-      backgroundColor: "#000",
-      color: "green",
+      // backgroundColor: "#000",
+      // color: "green",
     },
     typo_description: {
       //   border: "solid red 2px",
@@ -144,17 +139,11 @@ export function ServicesCardVanOwner() {
       textAlign: "center",
     },
     button: {
-      //   border: "solid white 1px",
-      backgroundColor: "#009737",
-      //   backgroundColor: "#000",
-      color: "#000",
-      //   color: "#fff",
-      fontSize: "16px",
+      border: "solid black 2px",
+      backgroundColor: "#000",
+      color: "#fff",
+      fontSize: "14px",
       fontWeight: "bold",
-      width: "200px",
-      //   marginBottom: "50px",
-      marginLeft: "20px",
-      margin: "0 auto",
     },
   };
   return (

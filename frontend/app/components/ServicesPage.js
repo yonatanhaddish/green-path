@@ -8,20 +8,21 @@ import {
 function ServicesPage() {
   const styles = {
     box_parent: {
-      //   border: "solid red 2px",
+      // border: "solid red 2px",
       display: "flex",
       flexDirection: "column",
       gap: "20px",
       paddingBottom: "50px",
       paddingTop: "50px",
+      // backgroundColor: "#48524c",
     },
     typo_heading: {
-      //   border: "solid red 2px",
+      border: "solid black 2px",
       fontSize: "22px",
       fontWeight: "bold",
       display: "flex",
       justifySelf: "center",
-      backgroundColor: "green",
+      // backgroundColor: "green",
       paddingLeft: "20px",
       paddingRight: "20px",
     },
