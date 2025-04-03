@@ -15,39 +15,100 @@ export function WhoWeAreCard() {
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
   );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1280 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1280px)"
+  );
+  const screenGreaterThan1280LessThan1366 = useMediaQuery(
+    "(min-width: 1281px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan2560 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 2560px)"
+  );
   const styles = {
     who_we_are_box: {
       border: "solid black 1px",
       boxShadow: "0 0 10px black",
-      height: "500px",
-      width: "100%",
+      height: screenLessThan430
+        ? "500px"
+        : screenGreaterThan430LessThan768
+        ? "350px"
+        : screenGreaterThan768LessThan1024
+        ? "300px"
+        : screenGreaterThan1024LessThan1280
+        ? "250px"
+        : screenGreaterThan1280LessThan1366
+        ? "200px"
+        : screenGreaterThan1366LessThan1440
+        ? "200px"
+        : screenGreaterThan1440LessThan1920
+        ? "250px"
+        : screenGreaterThan1920LessThan2560
+        ? "300px"
+        : "700px",
+      width: screenGreaterThan1920LessThan2560 ? "50%" : "100%",
       margin: "0 auto",
       backgroundColor: "#009737",
+      display: "flex",
+      flexDirection: screenGreaterThan1280LessThan1366
+        ? "row"
+        : screenGreaterThan1366LessThan1440
+        ? "row"
+        : screenGreaterThan1440LessThan1920
+        ? "row"
+        : screenGreaterThan1920LessThan2560
+        ? "row"
+        : "column",
     },
     image_box_whoarewe: {
       backgroundImage: `url("/images/landing-page.jpeg")`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
+      height: screenGreaterThan1024LessThan1280
+        ? "70%"
+        : screenGreaterThan1280LessThan1366
+        ? "100%"
+        : screenGreaterThan1366LessThan1440
+        ? "100%"
+        : screenGreaterThan1440LessThan1920
+        ? "100%"
+        : screenGreaterThan1920LessThan2560
+        ? "100%"
+        : "60%",
+      width: screenGreaterThan1280LessThan1366
+        ? "50%"
+        : screenGreaterThan1366LessThan1440
+        ? "50%"
+        : screenGreaterThan1440LessThan1920
+        ? "50%"
+        : "100%",
+      // border: "solid white 2px",
     },
     typo_description: {
-      //   border: "solid blue 2px",
+      // border: "solid white 2px",
       width: "90%",
       fontSize: "16px",
       fontWeight: "bold",
       textAlign: "center",
       margin: "0 auto",
       paddingTop: "15px",
-    },
-    image_box_mission: {
-      backgroundImage: `url("/images/landing-page-02.png")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
+      height: screenGreaterThan1024LessThan1280
+        ? "30%"
+        : screenGreaterThan1280LessThan1366
+        ? "40%"
+        : "40%",
+      alignSelf: "center",
     },
   };
   return (
@@ -68,39 +129,100 @@ export function OurMission() {
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
   );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1280 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1280px)"
+  );
+  const screenGreaterThan1280LessThan1366 = useMediaQuery(
+    "(min-width: 1281px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan2560 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 2560px)"
+  );
   const styles = {
     who_we_are_box: {
       border: "solid black 1px",
       boxShadow: "0 0 10px black",
-      height: "500px",
-      width: "100%",
+      height: screenLessThan430
+        ? "500px"
+        : screenGreaterThan430LessThan768
+        ? "350px"
+        : screenGreaterThan768LessThan1024
+        ? "300px"
+        : screenGreaterThan1024LessThan1280
+        ? "250px"
+        : screenGreaterThan1280LessThan1366
+        ? "200px"
+        : screenGreaterThan1366LessThan1440
+        ? "200px"
+        : screenGreaterThan1440LessThan1920
+        ? "250px"
+        : screenGreaterThan1920LessThan2560
+        ? "300px"
+        : "700px",
+      width: screenGreaterThan1920LessThan2560 ? "50%" : "100%",
       margin: "0 auto",
       backgroundColor: "#009737",
-    },
-    image_box_whoarewe: {
-      backgroundImage: `url("/images/landing-page.jpeg")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
+      display: "flex",
+      flexDirection: screenGreaterThan1280LessThan1366
+        ? "row-reverse"
+        : screenGreaterThan1366LessThan1440
+        ? "row-reverse"
+        : screenGreaterThan1440LessThan1920
+        ? "row-reverse"
+        : screenGreaterThan1920LessThan2560
+        ? "row-reverse"
+        : "column",
     },
     typo_description: {
-      //   border: "solid blue 2px",
+      // border: "solid blue 2px",
       width: "90%",
       fontSize: "16px",
       fontWeight: "bold",
       textAlign: "center",
       margin: "0 auto",
       paddingTop: "15px",
+      height: screenGreaterThan1024LessThan1280
+        ? "30%"
+        : screenGreaterThan1280LessThan1366
+        ? "40%"
+        : "40%",
+      alignSelf: "center",
     },
     image_box_mission: {
       backgroundImage: `url("/images/landing-page-02.png")`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
+      height: screenGreaterThan1024LessThan1280
+        ? "70%"
+        : screenGreaterThan1280LessThan1366
+        ? "100%"
+        : screenGreaterThan1366LessThan1440
+        ? "100%"
+        : screenGreaterThan1440LessThan1920
+        ? "100%"
+        : screenGreaterThan1920LessThan2560
+        ? "100%"
+        : "60%",
+      width: screenGreaterThan1280LessThan1366
+        ? "50%"
+        : screenGreaterThan1366LessThan1440
+        ? "50%"
+        : screenGreaterThan1440LessThan1920
+        ? "50%"
+        : "100%",
+      // border: "solid green 2px",
     },
   };
   return (
@@ -121,47 +243,61 @@ export function GreenCommitment() {
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
   );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1280 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1280px)"
+  );
+  const screenGreaterThan1280LessThan1366 = useMediaQuery(
+    "(min-width: 1281px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan2560 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 2560px)"
+  );
   const styles = {
     who_we_are_box: {
       border: "solid black 1px",
       boxShadow: "0 0 10px black",
-      height: "500px",
-      //   width: "100%",
+      height: screenLessThan430
+        ? "500px"
+        : screenGreaterThan430LessThan768
+        ? "350px"
+        : screenGreaterThan768LessThan1024
+        ? "300px"
+        : screenGreaterThan1024LessThan1280
+        ? "400px"
+        : screenGreaterThan1280LessThan1366
+        ? "400px"
+        : screenGreaterThan1366LessThan1440
+        ? "400px"
+        : screenGreaterThan1440LessThan1920
+        ? "400px"
+        : screenGreaterThan1920LessThan2560
+        ? "400px"
+        : "1000px",
+      width: screenGreaterThan1024LessThan1280
+        ? "40%"
+        : screenGreaterThan1280LessThan1366
+        ? "40%"
+        : screenGreaterThan1366LessThan1440
+        ? "40%"
+        : screenGreaterThan1440LessThan1920
+        ? "40%"
+        : screenGreaterThan1920LessThan2560
+        ? "40%"
+        : "100%",
       margin: "0 auto",
       backgroundColor: "#009737",
-    },
-    image_box_whoarewe: {
-      backgroundImage: `url("/images/landing-page.jpeg")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
-    },
-    typo_description: {
-      //   border: "solid blue 2px",
-      width: "90%",
-      fontSize: "16px",
-      fontWeight: "bold",
-      textAlign: "center",
-      margin: "0 auto",
-      paddingTop: "15px",
-    },
-    image_box_mission: {
-      backgroundImage: `url("/images/landing-page-02.png")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
-    },
-    typo_box: {
-      //   border: "solid red 2px",
-      //   height: "10%",
-    },
-    list_box: {
-      // border: "solid white 2px",
-      marginBottom: "25px",
     },
     typo_heading: {
       fontSize: "20px",
@@ -213,49 +349,61 @@ export function WhyChooseUs() {
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
   );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1280 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1280px)"
+  );
+  const screenGreaterThan1280LessThan1366 = useMediaQuery(
+    "(min-width: 1281px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan2560 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 2560px)"
+  );
   const styles = {
     who_we_are_box: {
       border: "solid black 1px",
       boxShadow: "0 0 10px black",
-      height: "500px",
-      //   width: "100%",
+      height: screenLessThan430
+        ? "500px"
+        : screenGreaterThan430LessThan768
+        ? "350px"
+        : screenGreaterThan768LessThan1024
+        ? "350px"
+        : screenGreaterThan1024LessThan1280
+        ? "400px"
+        : screenGreaterThan1280LessThan1366
+        ? "400px"
+        : screenGreaterThan1366LessThan1440
+        ? "400px"
+        : screenGreaterThan1440LessThan1920
+        ? "400px"
+        : screenGreaterThan1920LessThan2560
+        ? "400px"
+        : "1000px",
+      width: screenGreaterThan1024LessThan1280
+        ? "40%"
+        : screenGreaterThan1280LessThan1366
+        ? "40%"
+        : screenGreaterThan1366LessThan1440
+        ? "40%"
+        : screenGreaterThan1440LessThan1920
+        ? "40%"
+        : screenGreaterThan1920LessThan2560
+        ? "40%"
+        : "100%",
       margin: "0 auto",
       backgroundColor: "#009737",
-    },
-    image_box_whoarewe: {
-      backgroundImage: `url("/images/landing-page.jpeg")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
-    },
-    typo_description: {
-      // border: "solid blue 2px",
-      width: "90%",
-      fontSize: "16px",
-      fontWeight: "bold",
-      textAlign: "center",
-      margin: "0 auto",
-      paddingTop: "15px",
-    },
-    image_box_mission: {
-      backgroundImage: `url("/images/landing-page-02.png")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "60%",
-      width: "100%",
-      //   border: "solid green 2px",
-    },
-    typo_box: {
-      //   border: "solid red 2px",
-      //   height: "10%",
-    },
-    list_box: {
-      // border: "solid white 2px",
-      marginBottom: "25px",
-      // display: "flex",
-      // flexDirection: "column",
     },
     typo_heading: {
       fontSize: "20px",

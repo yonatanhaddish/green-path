@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import {
@@ -8,6 +10,21 @@ import {
 } from "../components/WhoWeAreCards";
 
 function AboutUs() {
+  const screenGreaterThan1024LessThan1280 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1280px)"
+  );
+  const screenGreaterThan1280LessThan1366 = useMediaQuery(
+    "(min-width: 1281px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan2560 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 2560px)"
+  );
   const styles = {
     box_parent: {
       //   border: "solid red 2px",
@@ -36,6 +53,28 @@ function AboutUs() {
       flexDirection: "column",
       gap: "30px",
     },
+    commitment_chooseus: {
+      // border: screenGreaterThan1024LessThan1280 ? "solid red 2px" : "",
+      display: "flex",
+      flexDirection: screenGreaterThan1024LessThan1280
+        ? "row"
+        : screenGreaterThan1280LessThan1366
+        ? "row"
+        : screenGreaterThan1366LessThan1440
+        ? "row"
+        : screenGreaterThan1440LessThan1920
+        ? "row"
+        : screenGreaterThan1920LessThan2560
+        ? "row"
+        : "column",
+      justifyContent: "flex-end",
+      gap: screenGreaterThan1024LessThan1280 ? "" : "25px",
+    },
+    whoweare_mission: {
+      display: "flex",
+      flexDirection: screenGreaterThan1920LessThan2560 ? "row" : "column",
+      gap: screenGreaterThan1920LessThan2560 ? "40px" : "25px",
+    },
   };
   return (
     <>
@@ -44,10 +83,14 @@ function AboutUs() {
           <Typography sx={styles.typo_heading}>Who Are We</Typography>
         </Box>
         <Box sx={styles.about_cards}>
-          <WhoWeAreCard />
-          <OurMission />
-          <GreenCommitment />
-          <WhyChooseUs />
+          <Box sx={styles.whoweare_mission}>
+            <WhoWeAreCard />
+            <OurMission />
+          </Box>
+          <Box sx={styles.commitment_chooseus}>
+            <GreenCommitment />
+            <WhyChooseUs />
+          </Box>
         </Box>
       </Box>
     </>

@@ -133,6 +133,8 @@ function HomeLandingPage() {
         ? "center"
         : screenGreaterThan1920LessThan2560
         ? "center"
+        : screenGreaterThan1440LessThan1920
+        ? "center"
         : "",
     },
     typo_paragraph: {
@@ -161,7 +163,7 @@ function HomeLandingPage() {
         : screenGreaterThan430LessThan768
         ? "18px"
         : screenGreaterThan768LessThan1024
-        ? "20px"
+        ? "18px"
         : screenGreaterThan1024LessThan1280
         ? "15px"
         : screenGreaterThan1280LessThan1366
