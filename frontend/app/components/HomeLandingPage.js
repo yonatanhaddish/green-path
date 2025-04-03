@@ -20,10 +20,19 @@ function HomeLandingPage() {
   const screenGreaterThan1280LessThan1366 = useMediaQuery(
     "(min-width: 1281px) and (max-width: 1366px)"
   );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan2560 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 2560px)"
+  );
 
   const styles = {
     landing_page_parent: {
-      // border: screenGreaterThan1280LessThan1366 ? "solid red 3px" : "",
+      // border: screenGreaterThan1024LessThan1280 ? "solid red 3px" : "",
       display: "flex",
       flexDirection: screenLessThan430
         ? "column"
@@ -35,10 +44,16 @@ function HomeLandingPage() {
         ? "row-reverse"
         : screenGreaterThan1280LessThan1366
         ? "row-reverse"
+        : screenGreaterThan1366LessThan1440
+        ? "row-reverse"
+        : screenGreaterThan1440LessThan1920
+        ? "row-reverse"
+        : screenGreaterThan1920LessThan2560
+        ? "row-reverse"
         : "row",
       width: screenLessThan430 ? "100%" : "100%",
       height: screenLessThan430
-        ? "87vh"
+        ? "90vh"
         : screenGreaterThan430LessThan768
         ? "93vh"
         : screenGreaterThan768LessThan1024
@@ -46,6 +61,12 @@ function HomeLandingPage() {
         : screenGreaterThan1024LessThan1280
         ? "90vh"
         : screenGreaterThan1280LessThan1366
+        ? "90vh"
+        : screenGreaterThan1366LessThan1440
+        ? "90vh"
+        : screenGreaterThan1440LessThan1920
+        ? "93vh"
+        : screenGreaterThan1920LessThan2560
         ? "90vh"
         : "",
       margin: "0 auto",
@@ -58,7 +79,7 @@ function HomeLandingPage() {
       //   border: "solid blue 2px",
       width: screenLessThan430 ? "100%" : "100%",
       height: screenLessThan430
-        ? "65%"
+        ? "55%"
         : screenGreaterThan430LessThan768
         ? "55%"
         : screenGreaterThan768LessThan1024
@@ -66,6 +87,12 @@ function HomeLandingPage() {
         : screenGreaterThan1024LessThan1280
         ? "100%"
         : screenGreaterThan1280LessThan1366
+        ? "100%"
+        : screenGreaterThan1366LessThan1440
+        ? "100%"
+        : screenGreaterThan1440LessThan1920
+        ? "100%"
+        : screenGreaterThan1920LessThan2560
         ? "100%"
         : "",
       backgroundImage: `url("/images/landing-page.jpeg")`,
@@ -79,15 +106,34 @@ function HomeLandingPage() {
         ? "25px"
         : screenGreaterThan430LessThan768
         ? "40px"
-        : "40px",
+        : screenGreaterThan768LessThan1024
+        ? "50px"
+        : screenGreaterThan1024LessThan1280
+        ? "55px"
+        : screenGreaterThan1280LessThan1366
+        ? "60px"
+        : screenGreaterThan1366LessThan1440
+        ? "70px"
+        : screenGreaterThan1440LessThan1920
+        ? "70px"
+        : screenGreaterThan1920LessThan2560
+        ? "100px"
+        : "100px",
       fontFamily: "serif",
       width: "100%",
       fontWeight: "bold",
       color: "green",
-      paddingTop: screenGreaterThan1024LessThan1280 ? "40px" : "20px",
       display: "flex",
       justifyContent: "center",
-      paddingTop: screenGreaterThan1280LessThan1366 ? "80px" : "20px",
+      textAlign: screenGreaterThan1024LessThan1280
+        ? "center"
+        : screenGreaterThan1280LessThan1366
+        ? "center"
+        : screenGreaterThan1366LessThan1440
+        ? "center"
+        : screenGreaterThan1920LessThan2560
+        ? "center"
+        : "",
     },
     typo_paragraph: {
       // border: "solid blue 2px",
@@ -96,8 +142,16 @@ function HomeLandingPage() {
         : screenGreaterThan430LessThan768
         ? "85%"
         : screenGreaterThan1024LessThan1280
-        ? "70%"
+        ? "80%"
         : screenGreaterThan1280LessThan1366
+        ? "70%"
+        : screenGreaterThan768LessThan1024
+        ? "75%"
+        : screenGreaterThan1366LessThan1440
+        ? "85%"
+        : screenGreaterThan1440LessThan1920
+        ? "80%"
+        : screenGreaterThan1920LessThan2560
         ? "70%"
         : "100%",
       color: "white",
@@ -107,12 +161,18 @@ function HomeLandingPage() {
         : screenGreaterThan430LessThan768
         ? "18px"
         : screenGreaterThan768LessThan1024
-        ? "16px"
-        : screenGreaterThan1024LessThan1280
-        ? "16px"
-        : screenGreaterThan1280LessThan1366
         ? "20px"
-        : "50px",
+        : screenGreaterThan1024LessThan1280
+        ? "15px"
+        : screenGreaterThan1280LessThan1366
+        ? "18px"
+        : screenGreaterThan1366LessThan1440
+        ? "18px"
+        : screenGreaterThan1440LessThan1920
+        ? "20px"
+        : screenGreaterThan1920LessThan2560
+        ? "20px"
+        : "100px",
     },
     button: {
       //   border: "solid white 1px",
@@ -123,12 +183,18 @@ function HomeLandingPage() {
         : screenGreaterThan430LessThan768
         ? "18px"
         : screenGreaterThan768LessThan1024
-        ? "16px"
+        ? "18px"
         : screenGreaterThan1024LessThan1280
         ? "16px"
         : screenGreaterThan1280LessThan1366
         ? "18px"
-        : "50px",
+        : screenGreaterThan1366LessThan1440
+        ? "18px"
+        : screenGreaterThan1440LessThan1920
+        ? "18px"
+        : screenGreaterThan1920LessThan2560
+        ? "18px"
+        : "100px",
       fontWeight: "bold",
       width: "200px",
       //   marginBottom: "50px",
@@ -137,19 +203,31 @@ function HomeLandingPage() {
         : screenGreaterThan430LessThan768
         ? "55px"
         : screenGreaterThan1024LessThan1280
-        ? "90px"
+        ? "10%"
         : screenGreaterThan1280LessThan1366
         ? "100px"
+        : screenGreaterThan768LessThan1024
+        ? "12%"
+        : screenGreaterThan1366LessThan1440
+        ? "7%"
+        : screenGreaterThan1920LessThan2560
+        ? "15%"
         : "100px",
     },
     child_box: {
       margin: "0 auto",
       display: "flex",
       flexDirection: "column",
-      gap: "20px",
+      gap: screenGreaterThan768LessThan1024
+        ? "20px"
+        : screenGreaterThan1024LessThan1280
+        ? "10px"
+        : screenGreaterThan1920LessThan2560
+        ? "60px"
+        : "20px",
       width: "100%",
       height: screenLessThan430
-        ? "35%"
+        ? "45%"
         : screenGreaterThan430LessThan768
         ? "45%"
         : screenGreaterThan768LessThan1024
@@ -158,9 +236,16 @@ function HomeLandingPage() {
         ? "100%"
         : screenGreaterThan1280LessThan1366
         ? "100%"
+        : screenGreaterThan1366LessThan1440
+        ? "100%"
+        : screenGreaterThan1440LessThan1920
+        ? "100%"
+        : screenGreaterThan1920LessThan2560
+        ? "100%"
         : "",
       // border: "solid blue 1px",
       backgroundColor: "#000",
+      justifyContent: "center",
     },
   };
   return (
