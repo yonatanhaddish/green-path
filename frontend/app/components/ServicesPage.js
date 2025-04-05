@@ -1,38 +1,57 @@
+"use client";
+
 import React from "react";
-import { Typography, Box } from "@mui/material";
+import { useMediaQuery, Typography, Box } from "@mui/material";
 import {
   ServicesCardLoadOwnwer,
   ServicesCardVanOwner,
 } from "../components/ServicesCard";
 
 function ServicesPage() {
+  const screenGreaterThan1024LessThan1280 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan2560 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 2560px)"
+  );
   const styles = {
     box_parent: {
-      // border: "solid red 2px",
+      // border: "solid blue 2px",
       display: "flex",
       flexDirection: "column",
       gap: "20px",
       paddingBottom: "50px",
       paddingTop: "50px",
-      // backgroundColor: "#48524c",
     },
     typo_heading: {
-      border: "solid black 2px",
+      //   border: "solid red 2px",
       fontSize: "22px",
       fontWeight: "bold",
       display: "flex",
       justifySelf: "center",
-      // backgroundColor: "green",
+      backgroundColor: "green",
       paddingLeft: "20px",
       paddingRight: "20px",
     },
     services_cards: {
-      //   border: "solid green 2px",
+      // border: "solid green 2px",
       display: "flex",
-      flexDirection: "column",
+      flexDirection:
+        screenGreaterThan1024LessThan1280 ||
+        screenGreaterThan1366LessThan1440 ||
+        screenGreaterThan1440LessThan1920 ||
+        screenGreaterThan1920LessThan2560
+          ? "row"
+          : "column",
       gap: "50px",
       width: "80%",
-      margin: "0 auto",
+      alignSelf: "center",
     },
   };
 

@@ -28,7 +28,7 @@ const styles = {
     display: "flex",
     // background: "linear-gradient(to right, #fff , #000 20%)",
     backgroundColor: "#000",
-    color: "#fff",
+    color: "#009737",
     height: "150px",
   },
   partner_box: {
@@ -39,7 +39,7 @@ const styles = {
   partner_item: {
     marginRight: "50px",
     fontSize: "35px",
-    fontWeight: "bold",
+    // fontWeight: "bold",
     fontFamily: forum.style.fontFamily,
     whiteSpace: "nowrap",
     // border: "solid blue 2px",
