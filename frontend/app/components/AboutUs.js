@@ -27,12 +27,13 @@ function AboutUs() {
   );
   const styles = {
     box_parent: {
-      //   border: "solid red 2px",
+      // border: "solid red 2px",
       display: "flex",
       flexDirection: "column",
       gap: "20px",
       paddingBottom: "50px",
       paddingTop: "50px",
+      backgroundColor: "#c1c4c2",
     },
     typo_heading: {
       border: "solid black 2px",

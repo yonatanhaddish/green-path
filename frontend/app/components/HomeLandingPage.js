@@ -246,7 +246,7 @@ function HomeLandingPage() {
         ? "100%"
         : "",
       // border: "solid blue 1px",
-      backgroundColor: "#000",
+      backgroundColor: "#0E2835",
       justifyContent: "center",
     },
   };

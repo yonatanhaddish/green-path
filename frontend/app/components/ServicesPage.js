@@ -22,20 +22,21 @@ function ServicesPage() {
   );
   const styles = {
     box_parent: {
-      // border: "solid blue 2px",
+      border: "solid blue 2px",
       display: "flex",
       flexDirection: "column",
       gap: "20px",
       paddingBottom: "50px",
       paddingTop: "50px",
+      backgroundColor: "#c1c4c2",
     },
     typo_heading: {
-      //   border: "solid red 2px",
+      border: "solid black 2px",
       fontSize: "22px",
       fontWeight: "bold",
       display: "flex",
       justifySelf: "center",
-      backgroundColor: "green",
+      // backgroundColor: "green",
       paddingLeft: "20px",
       paddingRight: "20px",
     },

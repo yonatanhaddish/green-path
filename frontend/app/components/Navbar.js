@@ -13,6 +13,7 @@ import {
 const NavBar = () => {
   return (
     <AppBar position="static" sx={{ width: "100%" }}>
+      {/* <Toolbar sx={{ bgcolor: "#228245", gap: 4 }}> */}
       <Toolbar sx={{ bgcolor: "#228245", gap: 4 }}>
         <Typography
           variant="h6"

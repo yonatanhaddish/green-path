@@ -18,17 +18,15 @@ const marquee = keyframes`
 
 const styles = {
   parent_container: {
-    // border: "solid green 2px",
+    // border: "solid black 2px",
     overflow: "hidden",
     whiteSpace: "nowrap",
     width: "100%",
     position: "relative",
-    background: "#f5f5f5",
     padding: "10px 0",
     display: "flex",
     // background: "linear-gradient(to right, #fff , #000 20%)",
-    backgroundColor: "#000",
-    color: "#009737",
+    backgroundColor: "#0E2835",
     height: "150px",
   },
   partner_box: {
@@ -38,22 +36,26 @@ const styles = {
   },
   partner_item: {
     marginRight: "50px",
-    fontSize: "35px",
+    fontSize: "60px",
     // fontWeight: "bold",
     fontFamily: forum.style.fontFamily,
     whiteSpace: "nowrap",
     // border: "solid blue 2px",
+    color: "#fff",
   },
   typo_heading: {
-    border: "solid black 2px",
+    // border: "solid black 2px",
     fontSize: "22px",
     fontWeight: "bold",
     display: "flex",
     justifySelf: "center",
     //   marginTop: "30px",
-    // backgroundColor: "green",
+    backgroundColor: "green",
     paddingLeft: "20px",
     paddingRight: "20px",
+  },
+  super_parent: {
+    backgroundColor: "#c1c4c2",
   },
 };
 
@@ -91,7 +93,7 @@ const partners_array = [
 ];
 function WeWorkWith() {
   return (
-    <Box>
+    <Box sx={styles.super_parent}>
       <Typography sx={styles.typo_heading}>Our Partners</Typography>
       <Box sx={styles.parent_container}>
         <Box sx={styles.partner_box}>

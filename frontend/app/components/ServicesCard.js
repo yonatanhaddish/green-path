@@ -46,7 +46,7 @@ export function ServicesCardLoadOwnwer() {
       display: "flex",
       flexDirection: "column",
       //   gap: "20px",
-      backgroundColor: "green",
+      backgroundColor: "#228245",
       paddingBottom: "10px",
     },
     title_image_box: {
@@ -85,7 +85,7 @@ export function ServicesCardLoadOwnwer() {
         ? ""
         : screenGreaterThan1920LessThan2560
         ? ""
-        : "center",
+        : "",
       margin: "0 auto",
     },
     typo_heading: {
@@ -94,7 +94,7 @@ export function ServicesCardLoadOwnwer() {
       fontWeight: "bold",
       paddingLeft: "10px",
       // backgroundColor: "#000",
-      // color: "green",
+      color: "green",
     },
     typo_description: {
       //   border: "solid red 2px",
@@ -181,7 +181,7 @@ export function ServicesCardVanOwner() {
       display: "flex",
       flexDirection: "column",
       //   gap: "20px",
-      backgroundColor: "green",
+      backgroundColor: "#228245",
       paddingBottom: "10px",
     },
     title_image_box: {
@@ -219,7 +219,7 @@ export function ServicesCardVanOwner() {
       fontWeight: "bold",
       paddingLeft: "10px",
       // backgroundColor: "#000",
-      // color: "green",
+      color: "green",
     },
     typo_description: {
       //   border: "solid red 2px",

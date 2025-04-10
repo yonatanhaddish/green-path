@@ -59,7 +59,7 @@ export function WhoWeAreCard() {
         : "700px",
       width: screenGreaterThan1920LessThan2560 ? "50%" : "100%",
       margin: "0 auto",
-      backgroundColor: "#009737",
+      backgroundColor: "#228245",
       display: "flex",
       flexDirection: screenGreaterThan1280LessThan1366
         ? "row"
@@ -72,7 +72,7 @@ export function WhoWeAreCard() {
         : "column",
     },
     image_box_whoarewe: {
-      backgroundImage: `url("/images/landing-page.jpeg")`,
+      backgroundImage: `url("/images/green_path_about.jpeg")`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: screenGreaterThan1024LessThan1280
@@ -173,7 +173,7 @@ export function OurMission() {
         : "700px",
       width: screenGreaterThan1920LessThan2560 ? "50%" : "100%",
       margin: "0 auto",
-      backgroundColor: "#009737",
+      backgroundColor: "#228245",
       display: "flex",
       flexDirection: screenGreaterThan1280LessThan1366
         ? "row-reverse"
@@ -201,7 +201,7 @@ export function OurMission() {
       alignSelf: "center",
     },
     image_box_mission: {
-      backgroundImage: `url("/images/landing-page-02.png")`,
+      backgroundImage: `url("/images/our_mission.jpeg")`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: screenGreaterThan1024LessThan1280
@@ -297,7 +297,7 @@ export function GreenCommitment() {
         ? "40%"
         : "100%",
       margin: "0 auto",
-      backgroundColor: "#009737",
+      backgroundColor: "#228245",
     },
     typo_heading: {
       fontSize: "20px",
@@ -403,7 +403,7 @@ export function WhyChooseUs() {
         ? "40%"
         : "100%",
       margin: "0 auto",
-      backgroundColor: "#009737",
+      backgroundColor: "#228245",
     },
     typo_heading: {
       fontSize: "20px",
