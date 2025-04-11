@@ -13,11 +13,11 @@ import {
 const NavBar = () => {
   return (
     <AppBar position="static" sx={{ width: "100%" }}>
-      {/* <Toolbar sx={{ bgcolor: "#228245", gap: 4 }}> */}
-      <Toolbar sx={{ bgcolor: "#228245", gap: 4 }}>
+      {/* <Box sx={{ bgcolor: "#009737", height: "40px", width: "100%" }}></Box> */}
+      <Toolbar sx={{ bgcolor: "#fff", gap: 4 }}>
         <Typography
           variant="h6"
-          sx={{ flexGrow: 1, color: "white", fontWeight: "bold" }}
+          sx={{ flexGrow: 1, color: "#009737", fontWeight: "bold" }}
         >
           Green Path
         </Typography>
