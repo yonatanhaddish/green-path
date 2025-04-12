@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <div className="layout">
           <NavBar />
           <Box sx={{ flex: 1, backgroundColor: "#F5F5F5" }}>{children}</Box>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>

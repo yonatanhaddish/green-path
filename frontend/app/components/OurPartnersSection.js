@@ -30,19 +30,8 @@ function OurPartnersSection() {
   );
   const styles = {
     landing_page_parent: {
-      // border: screenGreaterThan1920LessThan3840 ? "solid red 2px" : "",
-      height:
-        screenLessThan430 ||
-        screenGreaterThan430LessThan768 ||
-        screenGreaterThan768LessThan1024
-          ? "100%"
-          : screenGreaterThan1024LessThan1280 ||
-            screenGreaterThan1280LessThan1366 ||
-            screenGreaterThan1366LessThan1440 ||
-            screenGreaterThan1440LessThan1920 ||
-            screenGreaterThan1920LessThan3840
-          ? "100%"
-          : "100%",
+      // border: "solid red 2px",
+      height: "93vh",
       width: screenGreaterThan1920LessThan3840 ? "80%" : "100%",
       backgroundColor: "#c1c4c2",
       display: "flex",
@@ -71,7 +60,7 @@ function OurPartnersSection() {
       justifySelf: "center",
     },
     image_box: {
-      // border: screenGreaterThan1920LessThan3840 ? "solid green 2px" : "",
+      // border: "solid green 2px",
       height:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
@@ -100,7 +89,7 @@ function OurPartnersSection() {
           : "",
     },
     child_box: {
-      // border: screenGreaterThan1920LessThan3840 ? "solid blue 2px" : "",
+      // border: "solid blue 2px",
       height:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
@@ -147,7 +136,7 @@ function OurPartnersSection() {
             screenGreaterThan1920LessThan3840
           ? "50%"
           : "",
-      // alignSelf: "center",
+      marginBottom: "50px",
     },
     typo_heading: {
       // border: "solid green 2px",
@@ -283,7 +272,8 @@ function OurPartnersSection() {
     },
     button_contact_us: {
       border: "solid #009737 2px",
-      fontSize: "16px",
+      fontSize: screenGreaterThan1920LessThan3840 ? "18px" : "16px",
+      color: "#009737 ",
       width: screenLessThan430
         ? "50%"
         : screenGreaterThan430LessThan768
@@ -302,7 +292,6 @@ function OurPartnersSection() {
         ? "40%"
         : "100%",
       fontWeight: "bold",
-      color: "#000",
     },
     span_heading_title: {
       color: "#009737",
