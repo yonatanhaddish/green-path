@@ -8,12 +8,14 @@ import Footer from "./components/Footer";
 
 import OurPartnersSection from "./components/OurPartnersSection";
 import AboutUsSection from "./components/AboutUsSection";
+import OurServiceSection from "./components/OurServiceSection";
 
 function Home() {
   return (
     <>
       <OurPartnersSection />
       <AboutUsSection />
+      <OurServiceSection />
       <Footer />
     </>
   );

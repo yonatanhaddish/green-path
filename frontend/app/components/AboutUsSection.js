@@ -210,7 +210,7 @@ function AboutUsSection() {
       fontSize: screenLessThan430
         ? "25px"
         : screenGreaterThan430LessThan768
-        ? "20px"
+        ? "25px"
         : screenGreaterThan768LessThan1024
         ? "40px"
         : screenGreaterThan1024LessThan1280
@@ -261,6 +261,8 @@ function AboutUsSection() {
         ? "20px"
         : screenGreaterThan1920LessThan3840
         ? "22px "
+        : screenGreaterThan430LessThan768
+        ? "16px"
         : "40px",
     },
     button_box: {
