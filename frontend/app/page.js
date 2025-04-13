@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import OurPartnersSection from "./components/OurPartnersSection";
 import AboutUsSection from "./components/AboutUsSection";
 import OurServiceSection from "./components/OurServiceSection";
+import OurPartners from "./components/OurPartners";
 
 function Home() {
   return (
@@ -16,6 +17,8 @@ function Home() {
       <OurPartnersSection />
       <AboutUsSection />
       <OurServiceSection />
+      <OurPartners />
+      {/* <WeWorkWith /> */}
       <Footer />
     </>
   );

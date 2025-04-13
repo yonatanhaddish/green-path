@@ -66,7 +66,7 @@ function OurServiceSection() {
         screenGreaterThan1920LessThan3840
           ? "center"
           : "",
-      paddingBottom: "100px",
+      // paddingBottom: "100px",
     },
     typo_heading: {
       borderBottom: "solid green 2px",
@@ -175,7 +175,7 @@ function OurServiceSection() {
         : screenGreaterThan1440LessThan1920
         ? "32%"
         : screenGreaterThan1920LessThan3840
-        ? "25%"
+        ? "30%"
         : "100%",
     },
     icon_load_owner: {
@@ -217,7 +217,7 @@ function OurServiceSection() {
         : screenGreaterThan1440LessThan1920
         ? "32%"
         : screenGreaterThan1920LessThan3840
-        ? "25%"
+        ? "30%"
         : "100%",
     },
     service_cards: {

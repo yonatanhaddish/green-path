@@ -12,6 +12,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Lora&family=Oswald&family=Playfair+Display&family=Poppins&family=Merriweather&family=Raleway&family=Ubuntu&family=Fira+Sans&family=Nunito&family=Quicksand&family=Dancing+Script&family=Bebas+Neue&family=Pacifico&family=Open+Sans&family=Lobster&family=Source+Sans+Pro&family=Teko&family=Anton&family=Josefin+Sans&family=Arvo&family=Rubik&family=Noto+Sans&family=PT+Sans&family=Cormorant+Garamond&family=Libre+Baskerville&family=Work+Sans&family=Cabin&family=Vollkorn&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="root-body">
         <div className="layout">
           <NavBar />
