@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Box, useTheme, useMediaQuery } from "@mui/material";
+import { Box, useTheme, useMediaQuery, Typography } from "@mui/material";
 
 const partners_array = [
   { name: "Atlantis Freight Solutions", fontFamily: "'Roboto', sans-serif" },
@@ -46,14 +46,8 @@ const OurPartners = () => {
   const screenGreaterThan768LessThan1024 = useMediaQuery(
     "(min-width: 769px) and (max-width: 1024px)"
   );
-  const screenGreaterThan1024LessThan1280 = useMediaQuery(
-    "(min-width: 1025px) and (max-width: 1280px)"
-  );
-  const screenGreaterThan1280LessThan1366 = useMediaQuery(
-    "(min-width: 1281px) and (max-width: 1366px)"
-  );
-  const screenGreaterThan1366LessThan1440 = useMediaQuery(
-    "(min-width: 1367px) and (max-width: 1440px)"
+  const screenGreaterThan1024LessThan1440 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1440px)"
   );
   const screenGreaterThan1440LessThan1920 = useMediaQuery(
     "(min-width: 1441px) and (max-width: 1920px)"
@@ -80,93 +74,129 @@ const OurPartners = () => {
   return (
     <Box
       sx={{
-        overflow: "hidden",
-        width: "100%",
-        whiteSpace: "nowrap",
+        // border: "solid red 2px",
         backgroundColor: "#c1c4c2",
-        color: "#009737",
+        //   height: "100%",
+        display: "flex",
+        flexDirection: "column",
         width: screenGreaterThan1920LessThan3840 ? "80%" : "100%",
-        height: screenLessThan430
-          ? "160px"
-          : screenGreaterThan430LessThan768
-          ? "220px"
-          : screenGreaterThan768LessThan1024
-          ? "220px"
-          : screenGreaterThan1024LessThan1280
-          ? "180px"
-          : screenGreaterThan1280LessThan1366
-          ? "200px"
-          : screenGreaterThan1366LessThan1440
-          ? "200px"
-          : screenGreaterThan1440LessThan1920
-          ? "220px"
-          : screenGreaterThan1920LessThan3840
-          ? "260px"
-          : "100px",
         justifySelf: "center",
+        paddingBottom: "60px",
       }}
     >
-      <Box
+      <Typography
         sx={{
-          display: "inline-flex",
-          animation: screenLessThan430
-            ? "scroll-left 100s linear infinite"
+          borderBottom: "solid green 2px",
+          fontSize: screenLessThan430
+            ? "25px"
             : screenGreaterThan430LessThan768
-            ? "scroll-left 120s linear infinite"
+            ? "25px"
             : screenGreaterThan768LessThan1024
-            ? "scroll-left 130s linear infinite"
-            : screenGreaterThan1024LessThan1280
-            ? "scroll-left 150s linear infinite"
-            : screenGreaterThan1280LessThan1366
-            ? "scroll-left 160s linear infinite"
-            : screenGreaterThan1366LessThan1440
-            ? "scroll-left 160s linear infinite"
+            ? "40px"
+            : screenGreaterThan1024LessThan1440
+            ? "35px"
             : screenGreaterThan1440LessThan1920
-            ? "scroll-left 160s linear infinite"
+            ? "45px"
             : screenGreaterThan1920LessThan3840
-            ? "scroll-left 160s linear infinite"
-            : "",
-          height: "100%",
+            ? "45px"
+            : "100px",
+          width: screenLessThan430
+            ? "40%"
+            : screenGreaterThan430LessThan768
+            ? "20%"
+            : screenGreaterThan768LessThan1024
+            ? "30%"
+            : screenGreaterThan1024LessThan1440
+            ? "20%"
+            : screenGreaterThan1440LessThan1920
+            ? "17%"
+            : screenGreaterThan1920LessThan3840
+            ? "20%"
+            : "100%",
+          marginLeft: "30px",
+          marginBottom: "15px",
+          //   paddingLeft: "30px",
+          textAlign: "center",
         }}
       >
-        {[...partners_array, ...partners_array].map((partner, index) => (
-          <Box
-            key={index}
-            sx={(theme) => ({
-              display: "inline-block",
-              padding: { xs: "0.8rem 1.5rem", sm: "1rem 2rem" },
-              fontSize: screenLessThan430
-                ? "40px"
-                : screenGreaterThan430LessThan768
-                ? "60px"
-                : screenGreaterThan768LessThan1024
-                ? "50px"
-                : screenGreaterThan1024LessThan1280
-                ? "40px"
-                : screenGreaterThan1280LessThan1366
-                ? "45px"
-                : screenGreaterThan1366LessThan1440
-                ? "50px"
-                : screenGreaterThan1440LessThan1920
-                ? "50px"
-                : screenGreaterThan1920LessThan3840
-                ? "60px"
-                : "80px",
-              whiteSpace: "nowrap",
-              flexShrink: 0,
-              fontFamily: partner.fontFamily,
-              height: "30%",
-              alignSelf: "center",
-            })}
-          >
-            {partner.name}
-          </Box>
-        ))}
-      </Box>
+        Our Partners
+      </Typography>
+      <Box
+        sx={{
+          overflow: "hidden",
+          width: "100%",
+          whiteSpace: "nowrap",
+          backgroundColor: "#009737",
+          color: "#c1c4c2",
+          height: screenLessThan430
+            ? "180px"
+            : screenGreaterThan430LessThan768
+            ? "240px"
+            : screenGreaterThan768LessThan1024
+            ? "240px"
+            : screenGreaterThan1024LessThan1440
+            ? "200px"
+            : screenGreaterThan1440LessThan1920
+            ? "240px"
+            : screenGreaterThan1920LessThan3840
+            ? "280px"
+            : "100px",
+          justifySelf: "center",
+        }}
+      >
+        <Box
+          sx={{
+            display: "inline-flex",
+            animation: screenLessThan430
+              ? "scroll-left 100s linear infinite"
+              : screenGreaterThan430LessThan768
+              ? "scroll-left 120s linear infinite"
+              : screenGreaterThan768LessThan1024
+              ? "scroll-left 130s linear infinite"
+              : screenGreaterThan1024LessThan1440
+              ? "scroll-left 150s linear infinite"
+              : screenGreaterThan1440LessThan1920
+              ? "scroll-left 160s linear infinite"
+              : screenGreaterThan1920LessThan3840
+              ? "scroll-left 160s linear infinite"
+              : "",
+            height: "100%",
+          }}
+        >
+          {[...partners_array, ...partners_array].map((partner, index) => (
+            <Box
+              key={index}
+              sx={(theme) => ({
+                display: "inline-block",
+                padding: { xs: "0.8rem 1.5rem", sm: "1rem 2rem" },
+                fontSize: screenLessThan430
+                  ? "40px"
+                  : screenGreaterThan430LessThan768
+                  ? "60px"
+                  : screenGreaterThan768LessThan1024
+                  ? "50px"
+                  : screenGreaterThan1024LessThan1440
+                  ? "40px"
+                  : screenGreaterThan1440LessThan1920
+                  ? "50px"
+                  : screenGreaterThan1920LessThan3840
+                  ? "60px"
+                  : "80px",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+                fontFamily: partner.fontFamily,
+                height: "30%",
+                alignSelf: "center",
+              })}
+            >
+              {partner.name}
+            </Box>
+          ))}
+        </Box>
 
-      {/* Custom animation keyframes */}
-      <style>
-        {`
+        {/* Custom animation keyframes */}
+        <style>
+          {`
           @keyframes scroll-left {
             0% {
               transform: translateX(0);
@@ -176,7 +206,8 @@ const OurPartners = () => {
             }
           }
         `}
-      </style>
+        </style>
+      </Box>
     </Box>
   );
 };

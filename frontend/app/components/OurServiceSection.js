@@ -66,7 +66,7 @@ function OurServiceSection() {
         screenGreaterThan1920LessThan3840
           ? "center"
           : "",
-      // paddingBottom: "100px",
+      paddingBottom: "100px",
     },
     typo_heading: {
       borderBottom: "solid green 2px",
