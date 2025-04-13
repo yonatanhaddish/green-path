@@ -35,7 +35,7 @@ function AboutUsSection() {
   );
   const styles = {
     about_us_parent: {
-      //   border: screenGreaterThan1920LessThan3840 ? "solid red 2px" : "",
+      // border: "solid red 2px",
       backgroundColor: "#c1c4c2",
       //   height: "100%",
       display: "flex",
@@ -45,25 +45,33 @@ function AboutUsSection() {
       justifySelf: "center",
     },
     about_us_child: {
-      //   border: screenGreaterThan1920LessThan3840 ? "solid blue 2px" : "",
+      // border: "solid blue 2px",
       display: "flex",
       flexDirection: screenLessThan430 ? "column" : "row",
       alignItems: "center",
       alignSelf: "center",
+      justifyContent:
+        screenGreaterThan1280LessThan1366 ||
+        screenGreaterThan1024LessThan1280 ||
+        screenGreaterThan1366LessThan1440
+          ? "space-between"
+          : screenGreaterThan1440LessThan1920
+          ? "space-around"
+          : "",
       gap: screenLessThan430
         ? "10px"
         : screenGreaterThan430LessThan768
         ? "20px"
         : screenGreaterThan768LessThan1024
-        ? "20px"
+        ? "40px"
         : screenGreaterThan1024LessThan1280
-        ? "50px"
+        ? ""
         : screenGreaterThan1280LessThan1366
-        ? "80px"
+        ? ""
         : screenGreaterThan1366LessThan1440
-        ? "90px"
+        ? ""
         : screenGreaterThan1440LessThan1920
-        ? "250px"
+        ? ""
         : screenGreaterThan1920LessThan3840
         ? "10%"
         : "",
@@ -78,10 +86,11 @@ function AboutUsSection() {
         : screenGreaterThan1366LessThan1440
         ? "80%"
         : screenGreaterThan1440LessThan1920
-        ? "80%"
+        ? "70%"
         : screenGreaterThan1920LessThan3840
-        ? "90%"
+        ? "70%"
         : "90%",
+      paddingBottom: "100px",
     },
     images_box_parent: {
       width: screenLessThan430
@@ -116,7 +125,7 @@ function AboutUsSection() {
         : screenGreaterThan1440LessThan1920
         ? "500px"
         : screenGreaterThan1920LessThan3840
-        ? "600px"
+        ? "550px"
         : "100px",
       maxWidth: "100%",
       maxHeight: "100%",
@@ -182,7 +191,7 @@ function AboutUsSection() {
       //   border: "3px solid green",
     },
     typo_parent: {
-      //   border: screenGreaterThan1920LessThan3840 ? "solid green 2px" : "",
+      // border: "solid green 2px",
       width: screenLessThan430
         ? "90%"
         : screenGreaterThan1440LessThan1920
@@ -208,7 +217,7 @@ function AboutUsSection() {
     typo_heading: {
       borderBottom: "solid green 2px",
       fontSize: screenLessThan430
-        ? "25px"
+        ? "30px"
         : screenGreaterThan430LessThan768
         ? "25px"
         : screenGreaterThan768LessThan1024
@@ -246,11 +255,11 @@ function AboutUsSection() {
       textAlign: "center",
     },
     typo_desc: {
-      fontWeight: "bold",
+      // fontWeight: "bold",
       fontSize: screenLessThan430
         ? "16px"
         : screenGreaterThan768LessThan1024
-        ? "16px"
+        ? "18px"
         : screenGreaterThan1024LessThan1280
         ? "18px"
         : screenGreaterThan1280LessThan1366
@@ -307,7 +316,9 @@ function AboutUsSection() {
           <Box sx={styles.typo_parent}>
             <Typography sx={styles.typo_desc}>
               <span style={{ fontSize: "1.5rem" }}>W</span>e are{" "}
-              <span style={{ color: "#009737" }}>Green Path </span>
+              <span style={{ color: "#009737", fontWeight: "bold" }}>
+                Green Path{" "}
+              </span>
               Logistics, a company dedicated to providing reliable, efficient,
               and sustainable road transportation solutions. Our goal is to
               revolutionize logistics by combining innovation, efficiency, and
@@ -317,9 +328,12 @@ function AboutUsSection() {
               <span style={{ fontSize: "1.5rem" }}>O</span>ur Mission is to
               deliver seamless and cost-effective transportation solutions while
               moving toward a fully
-              <span style={{ color: "#009737" }}> eco-friendly</span> future. We
-              are committed to reducing our carbon footprint and adopting
-              greener practices in every aspect of our operations.
+              <span style={{ color: "#009737", fontWeight: "bold" }}>
+                {" "}
+                eco-friendly
+              </span>{" "}
+              future. We are committed to reducing our carbon footprint and
+              adopting greener practices in every aspect of our operations.
             </Typography>
             <Button sx={styles.button_box}>Read More</Button>
           </Box>

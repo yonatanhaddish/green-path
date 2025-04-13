@@ -31,7 +31,7 @@ function OurPartnersSection() {
   const styles = {
     landing_page_parent: {
       // border: "solid red 2px",
-      height: "93vh",
+      height: screenLessThan430 ? "93vh" : "95vh",
       width: screenGreaterThan1920LessThan3840 ? "80%" : "100%",
       backgroundColor: "#c1c4c2",
       display: "flex",
@@ -48,13 +48,14 @@ function OurPartnersSection() {
           ? "row-reverse"
           : "row",
       gap: screenLessThan430
-        ? "10px"
+        ? ""
         : screenGreaterThan430LessThan768 ||
           screenGreaterThan1024LessThan1280 ||
           screenGreaterThan1280LessThan1366 ||
           screenGreaterThan1366LessThan1440 ||
           screenGreaterThan1440LessThan1920 ||
-          screenGreaterThan1920LessThan3840
+          screenGreaterThan1920LessThan3840 ||
+          screenGreaterThan768LessThan1024
         ? ""
         : "20px",
       justifySelf: "center",
@@ -67,10 +68,12 @@ function OurPartnersSection() {
         screenGreaterThan768LessThan1024
           ? "50%"
           : screenGreaterThan1280LessThan1366 ||
-            screenGreaterThan1366LessThan1440 ||
-            screenGreaterThan1440LessThan1920 ||
             screenGreaterThan1920LessThan3840
-          ? "100%"
+          ? "75%"
+          : screenGreaterThan1366LessThan1440
+          ? "90%"
+          : screenGreaterThan1440LessThan1920
+          ? "80%"
           : "100%",
       backgroundImage: `url("/images/LandingImage.jpeg")`,
       backgroundSize: "cover",
@@ -86,6 +89,10 @@ function OurPartnersSection() {
             screenGreaterThan1440LessThan1920 ||
             screenGreaterThan1920LessThan3840
           ? "50%"
+          : "",
+      alignSelf:
+        screenGreaterThan1440LessThan1920 || screenGreaterThan1920LessThan3840
+          ? "center"
           : "",
     },
     child_box: {
@@ -106,11 +113,11 @@ function OurPartnersSection() {
       flexDirection: "column",
       // textAlign: "center",
       gap: screenLessThan430
-        ? "15px"
+        ? "25px"
         : screenGreaterThan430LessThan768
-        ? "20px"
-        : screenGreaterThan768LessThan1024
         ? "30px"
+        : screenGreaterThan768LessThan1024
+        ? "50px"
         : screenGreaterThan1024LessThan1280
         ? "20px"
         : screenGreaterThan1280LessThan1366
@@ -124,6 +131,12 @@ function OurPartnersSection() {
         : "100px",
       alignItems: "center",
       alignSelf: "center",
+      justifyContent:
+        screenLessThan430 ||
+        screenGreaterThan430LessThan768 ||
+        screenGreaterThan768LessThan1024
+          ? "center"
+          : "",
       width:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
@@ -160,34 +173,36 @@ function OurPartnersSection() {
       fontWeight: "bold",
       fontFamily: "serif",
       textAlign: "center",
-      width: screenGreaterThan768LessThan1024
-        ? "80%"
+      width: screenGreaterThan430LessThan768
+        ? "70%"
         : screenGreaterThan1280LessThan1366 ||
           screenGreaterThan1366LessThan1440 ||
           screenGreaterThan1440LessThan1920
         ? "80%"
         : screenGreaterThan1920LessThan3840
         ? "80%"
+        : screenGreaterThan768LessThan1024
+        ? "60%"
         : "100%",
     },
     typo_paragraph: {
       // border: "solid purple 2px",
       fontSize: screenLessThan430
-        ? "18px"
+        ? "16px"
         : screenGreaterThan430LessThan768
-        ? "20px"
+        ? "18px"
         : screenGreaterThan768LessThan1024
         ? "18px"
         : screenGreaterThan1024LessThan1280
-        ? "16px"
+        ? "18px"
         : screenGreaterThan1280LessThan1366
         ? "18px"
         : screenGreaterThan1366LessThan1440
-        ? "20px"
+        ? "18px"
         : screenGreaterThan1440LessThan1920
         ? "20px"
         : screenGreaterThan1920LessThan3840
-        ? "20px"
+        ? "22px"
         : "100px",
       width: screenLessThan430
         ? "85%"

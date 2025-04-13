@@ -66,6 +66,7 @@ function OurServiceSection() {
         screenGreaterThan1920LessThan3840
           ? "center"
           : "",
+      paddingBottom: "100px",
     },
     typo_heading: {
       borderBottom: "solid green 2px",
@@ -117,6 +118,14 @@ function OurServiceSection() {
         ? "16px"
         : screenGreaterThan1920LessThan3840
         ? "22px"
+        : screenGreaterThan430LessThan768
+        ? "18px"
+        : screenGreaterThan768LessThan1024
+        ? "18px"
+        : screenGreaterThan1024LessThan1440
+        ? "18px"
+        : screenGreaterThan1440LessThan1920
+        ? "22px"
         : "20px",
       fontWeight: "bold",
       alignSelf:
@@ -143,8 +152,8 @@ function OurServiceSection() {
           : "",
     },
     service_van_onwer: {
-      border: "solid black 1px",
-      boxShadow: "0 0 10px black",
+      border: "solid #000 2px",
+      boxShadow: "0 0 10px #009737",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-around",
@@ -152,7 +161,7 @@ function OurServiceSection() {
         screenLessThan430 ||
         screenGreaterThan1440LessThan1920 ||
         screenGreaterThan1920LessThan3840
-          ? ""
+          ? "30px"
           : screenGreaterThan1024LessThan1440
           ? "10px"
           : "30px",
@@ -166,7 +175,7 @@ function OurServiceSection() {
         : screenGreaterThan1440LessThan1920
         ? "32%"
         : screenGreaterThan1920LessThan3840
-        ? "30%"
+        ? "25%"
         : "100%",
     },
     icon_load_owner: {
@@ -185,8 +194,8 @@ function OurServiceSection() {
           : "",
     },
     service_load_onwer: {
-      border: "solid black 1px",
-      boxShadow: "0 0 10px black",
+      border: "solid #000 2px",
+      boxShadow: "0 0 10px #009737",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-around",
@@ -194,7 +203,7 @@ function OurServiceSection() {
         screenLessThan430 ||
         screenGreaterThan1440LessThan1920 ||
         screenGreaterThan1920LessThan3840
-          ? ""
+          ? "30px"
           : screenGreaterThan1024LessThan1440
           ? "10px"
           : "30px",
@@ -208,7 +217,7 @@ function OurServiceSection() {
         : screenGreaterThan1440LessThan1920
         ? "32%"
         : screenGreaterThan1920LessThan3840
-        ? "30%"
+        ? "25%"
         : "100%",
     },
     service_cards: {
@@ -237,6 +246,8 @@ function OurServiceSection() {
           ? "20px"
           : screenGreaterThan1440LessThan1920
           ? ""
+          : screenGreaterThan1920LessThan3840
+          ? ""
           : "100px",
       justifyContent: screenGreaterThan768LessThan1024
         ? "space-around"
@@ -248,8 +259,17 @@ function OurServiceSection() {
     },
     typo_head: {
       borderBottom: "solid #009737 2px",
-      fontSize: screenLessThan430 ? "22px" : "20px",
+      fontSize: screenLessThan430
+        ? "22px"
+        : screenGreaterThan768LessThan1024 ||
+          screenGreaterThan1024LessThan1440 ||
+          screenGreaterThan1440LessThan1920 ||
+          screenGreaterThan1920LessThan3840
+        ? "22px"
+        : "20px",
       fontWeight: "bold",
+      width: "70%",
+      textAlign: "center",
     },
     typo_description: {
       width:
@@ -257,13 +277,20 @@ function OurServiceSection() {
         screenGreaterThan768LessThan1024 ||
         screenGreaterThan430LessThan768 ||
         screenGreaterThan1024LessThan1440 ||
-        screenGreaterThan1440LessThan1920 ||
-        screenGreaterThan1920LessThan3840
-          ? "80%"
+        screenGreaterThan1440LessThan1920
+          ? "75%"
+          : screenGreaterThan1920LessThan3840
+          ? "65%"
           : "100%",
-      //   border: "solid red 2px",
       alignSelf: "center",
-      fontSize: screenLessThan430 ? "18px" : "20px",
+      fontSize: screenLessThan430
+        ? "16px"
+        : screenGreaterThan768LessThan1024
+        ? "18px"
+        : screenGreaterThan1024LessThan1440
+        ? "16px"
+        : "20px",
+      //   fontWeight: "bold",
     },
     button_box: {
       border: "solid #000 1px",
@@ -275,7 +302,7 @@ function OurServiceSection() {
         screenLessThan430 ||
         screenGreaterThan768LessThan1024 ||
         screenGreaterThan430LessThan768
-          ? "80%"
+          ? "70%"
           : screenGreaterThan1024LessThan1440 ||
             screenGreaterThan1440LessThan1920 ||
             screenGreaterThan1920LessThan3840
