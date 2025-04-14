@@ -291,6 +291,7 @@ function AboutUsSection() {
         : screenGreaterThan1440LessThan1920
         ? "30%"
         : "50%",
+      marginTop: "20px",
     },
   };
   return (

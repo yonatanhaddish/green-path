@@ -11,6 +11,7 @@ import AboutUsSection from "./components/AboutUsSection";
 import OurServiceSection from "./components/OurServiceSection";
 import OurPartners from "./components/OurPartners";
 import WhyChooseUs from "./components/WhyChooseUs";
+import ContactUs from "./components/ContactUs";
 
 function Home() {
   return (
@@ -20,6 +21,7 @@ function Home() {
       <OurServiceSection />
       <OurPartners />
       <WhyChooseUs />
+      <ContactUs />
       <Footer />
     </>
   );

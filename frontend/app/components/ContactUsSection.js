@@ -50,7 +50,7 @@ function ContactUsSection() {
       fontWeight: "bold",
       display: "flex",
       justifySelf: "center",
-      // backgroundColor: "#000",
+      backgroundColor: "#000",
       color: "#fff",
       paddingLeft: "20px",
       paddingRight: "20px",
@@ -131,7 +131,7 @@ function ContactUsSection() {
       border: "solid green 1px",
       boxShadow: "0 0 10px green",
       color: "#fff",
-      // backgroundColor: "#000",
+      backgroundColor: "#000",
       width: screenLessThan430
         ? "90%"
         : screenGreaterThan430LessThan768

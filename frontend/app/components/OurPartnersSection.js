@@ -71,9 +71,11 @@ function OurPartnersSection() {
             screenGreaterThan1920LessThan3840
           ? "75%"
           : screenGreaterThan1366LessThan1440
-          ? "90%"
-          : screenGreaterThan1440LessThan1920
           ? "80%"
+          : screenGreaterThan1024LessThan1280
+          ? "80%"
+          : screenGreaterThan1440LessThan1920
+          ? "70%"
           : "100%",
       backgroundImage: `url("/images/LandingImage.jpeg")`,
       backgroundSize: "cover",
@@ -91,9 +93,21 @@ function OurPartnersSection() {
           ? "50%"
           : "",
       alignSelf:
-        screenGreaterThan1440LessThan1920 || screenGreaterThan1920LessThan3840
+        screenGreaterThan1440LessThan1920 ||
+        screenGreaterThan1920LessThan3840 ||
+        screenGreaterThan1024LessThan1280 ||
+        screenGreaterThan1280LessThan1366 ||
+        screenGreaterThan1366LessThan1440 ||
+        screenGreaterThan1440LessThan1920
           ? "center"
           : "",
+      // alignSelf:
+      //   screenLessThan430 ||
+      //   screenGreaterThan430LessThan768 ||
+      //   screenGreaterThan768LessThan1024 ||
+      //   screenGreaterThan1024LessThan1280
+      //     ? ""
+      //     : "center",
     },
     child_box: {
       // border: "solid blue 2px",
