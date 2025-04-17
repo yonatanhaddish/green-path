@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+
 import {
   TextField,
   Box,
@@ -15,6 +17,11 @@ import {
 
 function ContactUs() {
   const [loading, setLoading] = useState(undefined);
+  const [contactValidated, setContactValidated] = useState(true);
+  const [fullName, setFullName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [serviceType, setServiceType] = useState("");
+  const [message, setMessage] = useState("");
 
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
@@ -38,6 +45,19 @@ function ContactUs() {
   useEffect(() => {
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (
+      fullName.length > 0 &&
+      emailAddress.length > 0 &&
+      serviceType.length > 0 &&
+      message.length > 0
+    ) {
+      setContactValidated(false);
+    } else {
+      setContactValidated(true);
+    }
+  });
 
   if (loading === undefined) {
     return <div>Loading...</div>;
@@ -127,10 +147,10 @@ function ContactUs() {
       paddingBottom: "30px",
     },
     input_box: {
-      //   border: "solid pink 2px",
+      // border: "solid pink 2px",
       display: "flex",
       flexDirection: "column",
-      alignSelf: "center",
+      justifySelf: "center",
       gap:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
@@ -198,7 +218,8 @@ function ContactUs() {
     button_box: {
       border: "solid #000 1px",
       fontSize: "16px",
-      backgroundColor: "#009737",
+      backgroundColor: contactValidated ? "#c1c4c2" : "#009737",
+      // backgroundColor: "#009737",
       color: "#000",
       fontWeight: "bold",
       width:
@@ -229,75 +250,157 @@ function ContactUs() {
       fontWeight: "bold",
       paddingTop: screenGreaterThan1920LessThan3840 ? "40px" : "20px",
     },
+    input_field: {
+      "& .MuiInputBase-root": {
+        backgroundColor: "#c1c4c2",
+        "&:hover": {
+          backgroundColor: "#c1c4c2",
+        },
+        "&.Mui-focused": {
+          backgroundColor: "#c1c4c2",
+        },
+      },
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#000",
+      },
+      "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+        borderColor: "green",
+      },
+      "& .MuiInputLabel-root": {
+        color: "#000",
+      },
+      "& .MuiInputLabel-root.Mui-focused": {
+        color: "#000",
+      },
+    },
+  };
+
+  const SERVICE_ID = "service_16fctaj";
+  const TEMPLATE_ID = "template_1cj1nnr";
+  const PUBLIC_KEY = "X40iR-BWrNLaMeJgL";
+
+  const handleSendMessage = (event) => {
+    event.preventDefault();
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, PUBLIC_KEY).then(
+      (result) => {
+        alert("Message Sent");
+      },
+      (error) => {
+        alert("Error Sending Message, Please Tyr Again!!!");
+      }
+    );
+    event.target.reset();
+  };
+
+  const handleChangeInputName = (event) => {
+    // console.log("fullName", event.target.value);
+    setFullName(event.target.value);
+  };
+  const handleChangeInputEmail = (event) => {
+    // console.log("email", event.target.value);
+    setEmailAddress(event.target.value);
+  };
+  const handleChangeInputService = (event) => {
+    // console.log("serviceType", event.target.value);
+    setServiceType(event.target.value);
+  };
+  const handleChangeInputMessage = (event) => {
+    // console.log("message", event.target.value);
+    setMessage(event.target.value);
   };
   return (
-    <Box sx={styles.contact_us_parent}>
-      <Typography sx={styles.typo_heading}>Contact Us</Typography>
-      <Box sx={styles.info_box_parent}>
-        <Box sx={styles.info_box}>
-          <Typography
-            sx={{ ...styles.typo_info, ...styles.contact_info_heading }}
-          >
-            Contact Info
-          </Typography>
-          <Typography sx={styles.typo_info}> 📧 greenpath@email.com</Typography>
-          <Typography sx={styles.typo_info}> 📞 (437) 123 1212</Typography>
-          <Typography sx={styles.typo_info}> 📍 123 Main St. E</Typography>
-          <Typography sx={styles.typo_info}> ⏰ 09:00 AM - 07:00 PM</Typography>
-        </Box>
-        <Box sx={styles.input_parent}>
-          <Typography sx={styles.typo_desc}>
-            Feel free to leave us message anytime. We will get back to your as
-            soon as we can!
-          </Typography>
-          <Box sx={styles.input_box}>
-            <TextField
-              id="full-name"
-              label="Full Name"
-              variant="outlined"
-              size="small"
-              fullWidth
-            />
-            <TextField
-              id="email"
-              label="Email"
-              variant="outlined"
-              size="small"
-              fullWidth
-            />
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">
-                Choose Service Type
-              </InputLabel>
-              <Select
-                size="small"
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value="load_owner"
-                label="Select One"
-                //   onChange={handleChange}
-              >
-                <MenuItem value="load_owner">Load Owner</MenuItem>
-                <MenuItem value="van_owner">Van Owner</MenuItem>
-              </Select>
-            </FormControl>
-            <TextField
-              sx={styles.input_field}
-              id="message"
-              label="Message"
-              variant="outlined"
-              fullWidth
-              multiline
-              size="small"
-              minRows={6}
-              maxRows={8}
-              // onChange={handleChangePhoneNumberValue}
-            />
-            <Button sx={styles.button_box}>Send Message</Button>
+    <div id="contact_us">
+      <Box sx={styles.contact_us_parent}>
+        <Typography sx={styles.typo_heading}>Contact Us</Typography>
+        <Box sx={styles.info_box_parent}>
+          <Box sx={styles.info_box}>
+            <Typography
+              sx={{ ...styles.typo_info, ...styles.contact_info_heading }}
+            >
+              Contact Info
+            </Typography>
+            <Typography sx={styles.typo_info}>
+              {" "}
+              📧 greenpath@email.com
+            </Typography>
+            <Typography sx={styles.typo_info}> 📞 (437) 123 1212</Typography>
+            <Typography sx={styles.typo_info}> 📍 123 Main St. E</Typography>
+            <Typography sx={styles.typo_info}>
+              {" "}
+              ⏰ 09:00 AM - 07:00 PM
+            </Typography>
+          </Box>
+          <Box sx={styles.input_parent}>
+            <Typography sx={styles.typo_desc}>
+              Feel free to leave us message anytime. We will get back to your as
+              soon as we can!
+            </Typography>
+            <Box>
+              <form onSubmit={handleSendMessage} style={styles.input_box}>
+                <TextField
+                  id="full-name"
+                  name="full-name"
+                  label="Full Name"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                  sx={styles.input_field}
+                  onChange={handleChangeInputName}
+                />
+                <TextField
+                  id="email"
+                  name="email"
+                  label="Email"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                  sx={styles.input_field}
+                  onChange={handleChangeInputEmail}
+                />
+                <FormControl fullWidth sx={styles.input_field}>
+                  <InputLabel id="demo-simple-select-label">
+                    Choose Service Type
+                  </InputLabel>
+                  <Select
+                    size="small"
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    name="demo-simple-select"
+                    value={serviceType}
+                    label="Select One"
+                    onChange={handleChangeInputService}
+                  >
+                    <MenuItem value="load_owner">Load Owner</MenuItem>
+                    <MenuItem value="van_owner">Van Owner</MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField
+                  sx={styles.input_field}
+                  id="message"
+                  name="message"
+                  label="Message"
+                  variant="outlined"
+                  fullWidth
+                  multiline
+                  size="small"
+                  minRows={6}
+                  maxRows={8}
+                  onChange={handleChangeInputMessage}
+                />
+                <Button
+                  disabled={contactValidated}
+                  sx={styles.button_box}
+                  type="submit"
+                  // onClick={handleSendMessage}
+                >
+                  Send Message
+                </Button>
+              </form>
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </div>
   );
 }
 

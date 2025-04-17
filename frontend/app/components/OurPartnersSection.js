@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Link } from "react-scroll";
 import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 
 function OurPartnersSection() {
@@ -276,7 +277,7 @@ function OurPartnersSection() {
         : "",
     },
     button_our_service: {
-      border: "solid #000 1px",
+      // border: "solid #000 1px",
       fontSize: "16px",
       backgroundColor: "#009737",
       color: "#000",
@@ -300,7 +301,7 @@ function OurPartnersSection() {
         : "100%",
     },
     button_contact_us: {
-      border: "solid #009737 2px",
+      // border: "solid #009737 2px",
       fontSize: screenGreaterThan1920LessThan3840 ? "18px" : "16px",
       color: "#009737 ",
       width: screenLessThan430
@@ -351,8 +352,41 @@ function OurPartnersSection() {
             </Typography>
           )}
           <Box sx={styles.button_box}>
-            <Button sx={styles.button_our_service}>Our Service</Button>
-            <Button sx={styles.button_contact_us}>Contact Us</Button>
+            <Box sx={styles.button_contact_us}>
+              <Link to="our_service" duration={500} smooth={true}>
+                <Button
+                  sx={{
+                    width: "100%",
+                    border: "solid #000 1px",
+                    fontSize: screenGreaterThan1920LessThan3840
+                      ? "18px"
+                      : "16px",
+                    backgroundColor: "#009737",
+                    color: "#000",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Our Service
+                </Button>
+              </Link>
+            </Box>
+            <Box sx={styles.button_contact_us}>
+              <Link to="contact_us" duration={500} smooth={true}>
+                <Button
+                  sx={{
+                    width: "100%",
+                    border: "solid #009737 2px",
+                    fontSize: screenGreaterThan1920LessThan3840
+                      ? "18px"
+                      : "16px",
+                    color: "#009737 ",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Contact Us
+                </Button>
+              </Link>
+            </Box>
           </Box>
         </Box>
       </Box>

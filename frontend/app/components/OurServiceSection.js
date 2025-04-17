@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 
 function OurServiceSection() {
@@ -293,7 +294,7 @@ function OurServiceSection() {
       //   fontWeight: "bold",
     },
     button_box: {
-      border: "solid #000 1px",
+      // border: "solid #000 1px",
       fontSize: "16px",
       backgroundColor: "#009737",
       color: "#000",
@@ -311,7 +312,7 @@ function OurServiceSection() {
     },
   };
   return (
-    <>
+    <div id="our_service">
       <Box sx={styles.our_service_parent}>
         <Typography sx={styles.typo_heading}>Our Services</Typography>
         <Box sx={styles.our_service_child}>
@@ -332,7 +333,23 @@ function OurServiceSection() {
                 needs with ease. Our platform matches your load with verified
                 van operators ready to transport your items safely and on time.
               </Typography>
-              <Button sx={styles.button_box}>Register Here</Button>
+
+              <Box sx={styles.button_box}>
+                <Link href="/signup">
+                  <Button
+                    sx={{
+                      width: "100%",
+                      border: "solid #000 1px",
+                      fontSize: "16px",
+                      backgroundColor: "#009737",
+                      color: "#000",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Register Here
+                  </Button>
+                </Link>
+              </Box>
             </Box>
             <Box sx={styles.service_van_onwer}>
               <Box sx={styles.icon_van_owner}></Box>
@@ -342,12 +359,27 @@ function OurServiceSection() {
                 browse available jobs, and choose deliveries that fit your
                 schedule and route preferences.
               </Typography>
-              <Button sx={styles.button_box}>Register Here</Button>
+              <Box sx={styles.button_box}>
+                <Link href="/signup">
+                  <Button
+                    sx={{
+                      width: "100%",
+                      border: "solid #000 1px",
+                      fontSize: "16px",
+                      backgroundColor: "#009737",
+                      color: "#000",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Register Here
+                  </Button>
+                </Link>
+              </Box>
             </Box>
           </Box>
         </Box>
       </Box>
-    </>
+    </div>
   );
 }
 

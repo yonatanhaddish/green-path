@@ -95,7 +95,7 @@ function page() {
     setValue(newValue);
   };
   return (
-    <>
+    <div id="signup">
       <Box sx={styles.boxGrandParent}>
         <Box sx={styles.boxParent}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -138,7 +138,7 @@ function page() {
           </CustomTabPanel>
         </Box>
       </Box>
-    </>
+    </div>
   );
 }
 
