@@ -37,14 +37,23 @@ function page() {
   const [value, setValue] = useState(0);
   const [loading, setLoading] = useState(undefined);
 
-  const screenLessThan768 = useMediaQuery(
-    "(min-width: 100px) and (max-width: 768px)"
+  const screenLessThan430 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 430px)"
+  );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
   );
   const screenGreaterThan768LessThan1024 = useMediaQuery(
-    "(min-width: 768px) and (max-width: 1024px)"
+    "(min-width: 769px) and (max-width: 1024px)"
   );
-  const screenGreaterThan1024LessThan1920 = useMediaQuery(
-    "(min-width:1025px) and (max-width: 1920px)"
+  const screenGreaterThan1024LessThan1440 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan3840 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 3840px)"
   );
   useEffect(() => {
     setLoading(false);
@@ -72,22 +81,26 @@ function page() {
       },
     },
     boxParent: {
-      width: screenLessThan768
+      width: screenLessThan430
         ? "100%"
-        : screenGreaterThan768LessThan1024
+        : screenGreaterThan430LessThan768
         ? "50%"
-        : screenGreaterThan1024LessThan1920
-        ? "30%"
-        : "10%",
+        : screenGreaterThan768LessThan1024
+        ? "40%"
+        : screenGreaterThan1024LessThan1440
+        ? "35%"
+        : "18%",
       // border: "solid red 2px",
       display: "flex",
       flexDirection: "column",
       // justifySelf: "center",
+      height: "100%",
     },
     boxGrandParent: {
       // border: "solid blue 2px",
       display: "flex",
       justifyContent: "center",
+      height: "900px",
     },
   };
 

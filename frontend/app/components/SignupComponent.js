@@ -30,22 +30,33 @@ const styles = {
     paddingTop: "0px",
   },
   heading_box: {
-    //   border: "solid red 2px",
+    // border: "solid red 2px",
     display: "flex",
     justifyContent: "space-between",
     gap: "20px",
     paddingTop: "20px",
   },
+  // heading_type: {
+  //   color: "#009737",
+  //   fontWeight: "500",
+  //   fontSize: "20px",
+  //   fontFamily: "Times, Times New Roman, serif",
+  //   borderBottom: "2px solid #009737",
+  // },
   heading_type: {
-    color: "#009737",
-    fontWeight: "500",
+    // border: "solid red 1px",
     fontSize: "20px",
+    fontWeight: "500",
     fontFamily: "Times, Times New Roman, serif",
-    borderBottom: "2px solid #009737",
+    color: "#009737",
+    backgroundColor: "#000",
+    width: "40%",
+    textAlign: "center",
   },
   login_style: {
     fontSize: "20px",
     fontWeight: "bold",
+    // border: "2px solid #009737",
   },
   input_box: {
     display: "flex",
@@ -87,11 +98,11 @@ export function SignupLoadOwner() {
   const handleChangeLoadOwnerPasswordConfirm = (event) => {
     setSignupOwnerPasswordConfirm(event.target.value);
   };
-  console.log({
-    signupOwnerEmailValue,
-    signupOwnerPassword,
-    signupOwnerPasswordConfirm,
-  });
+  // console.log({
+  //   signupOwnerEmailValue,
+  //   signupOwnerPassword,
+  //   signupOwnerPasswordConfirm,
+  // });
 
   return (
     <>
@@ -206,11 +217,11 @@ export function SignupVanOwner() {
   const handleChangeVanOwnerconfirmPassword = (event) => {
     setVanOwnerConfirmPassword(event.target.value);
   };
-  console.log({
-    vanOwnerEmailValue,
-    vanOwnerPassword,
-    vanOwnerConfirmPassword,
-  });
+  // console.log({
+  //   vanOwnerEmailValue,
+  //   vanOwnerPassword,
+  //   vanOwnerConfirmPassword,
+  // });
 
   return (
     <>
