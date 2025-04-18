@@ -18,10 +18,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="root-body">
+      <body className="root-body" style={{ backgroundColor: "#e6e8e7" }}>
         <div className="layout">
           <NavBar />
-          <Box sx={{ flex: 1, backgroundColor: "#F5F5F5" }}>{children}</Box>
+          <Box sx={{ flex: 1, backgroundColor: "#e6e8e7" }}>{children}</Box>
           {/* <Footer /> */}
         </div>
       </body>

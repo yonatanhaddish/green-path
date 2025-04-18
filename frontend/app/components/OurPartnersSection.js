@@ -99,7 +99,7 @@ function OurPartnersSection() {
         screenGreaterThan1024LessThan1280 ||
         screenGreaterThan1280LessThan1366 ||
         screenGreaterThan1366LessThan1440 ||
-        screenGreaterThan1440LessThan1920
+        screenGreaterThan768LessThan1024
           ? "center"
           : "",
       // alignSelf:
@@ -130,9 +130,9 @@ function OurPartnersSection() {
       gap: screenLessThan430
         ? "25px"
         : screenGreaterThan430LessThan768
-        ? "30px"
+        ? "20px"
         : screenGreaterThan768LessThan1024
-        ? "50px"
+        ? "30px"
         : screenGreaterThan1024LessThan1280
         ? "20px"
         : screenGreaterThan1280LessThan1366
@@ -171,9 +171,9 @@ function OurPartnersSection() {
       fontSize: screenLessThan430
         ? "36px"
         : screenGreaterThan430LessThan768
-        ? "50px"
+        ? "45px"
         : screenGreaterThan768LessThan1024
-        ? "55px"
+        ? "50px"
         : screenGreaterThan1024LessThan1280
         ? "55px"
         : screenGreaterThan1280LessThan1366
@@ -205,9 +205,9 @@ function OurPartnersSection() {
       fontSize: screenLessThan430
         ? "16px"
         : screenGreaterThan430LessThan768
-        ? "18px"
+        ? "16px"
         : screenGreaterThan768LessThan1024
-        ? "18px"
+        ? "16px"
         : screenGreaterThan1024LessThan1280
         ? "18px"
         : screenGreaterThan1280LessThan1366
@@ -328,7 +328,7 @@ function OurPartnersSection() {
     },
   };
   return (
-    <>
+    <div id="home">
       <Box sx={styles.landing_page_parent}>
         <Box sx={styles.image_box}></Box>
         <Box sx={styles.child_box}>
@@ -364,6 +364,7 @@ function OurPartnersSection() {
                     backgroundColor: "#009737",
                     color: "#000",
                     fontWeight: "bold",
+                    cursor: "pointer",
                   }}
                 >
                   Our Service
@@ -381,6 +382,7 @@ function OurPartnersSection() {
                       : "16px",
                     color: "#009737 ",
                     fontWeight: "bold",
+                    cursor: "pointer",
                   }}
                 >
                   Contact Us
@@ -390,7 +392,7 @@ function OurPartnersSection() {
           </Box>
         </Box>
       </Box>
-    </>
+    </div>
   );
 }
 

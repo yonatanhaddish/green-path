@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-scroll";
 
 import {
   TextField,
@@ -74,7 +75,7 @@ function ContactUs() {
       justifySelf: "center",
     },
     info_box_parent: {
-      //   border: "solid blue 2px",
+      // border: "solid blue 2px",
       display: "flex",
       flexDirection:
         screenLessThan430 || screenGreaterThan430LessThan768
@@ -103,7 +104,7 @@ function ContactUs() {
         : screenGreaterThan1440LessThan1920
         ? "16%"
         : screenGreaterThan1920LessThan3840
-        ? "18%"
+        ? "15%"
         : "100%",
       display: "flex",
       flexDirection: "column",
@@ -150,7 +151,10 @@ function ContactUs() {
       // border: "solid pink 2px",
       display: "flex",
       flexDirection: "column",
-      justifySelf: "center",
+      // justifySelf: "center",
+      // alignSelf: " center",
+      margin: "0 auto",
+
       gap:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
@@ -261,7 +265,7 @@ function ContactUs() {
         },
       },
       "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#000",
+        borderColor: "green",
       },
       "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
         borderColor: "green",
@@ -270,7 +274,7 @@ function ContactUs() {
         color: "#000",
       },
       "& .MuiInputLabel-root.Mui-focused": {
-        color: "#000",
+        color: "green",
       },
     },
   };
@@ -323,7 +327,7 @@ function ContactUs() {
               {" "}
               📧 greenpath@email.com
             </Typography>
-            <Typography sx={styles.typo_info}> 📞 (437) 123 1212</Typography>
+            <Typography sx={styles.typo_info}> 📞 (888) 888 8888</Typography>
             <Typography sx={styles.typo_info}> 📍 123 Main St. E</Typography>
             <Typography sx={styles.typo_info}>
               {" "}
@@ -398,6 +402,19 @@ function ContactUs() {
               </form>
             </Box>
           </Box>
+          {/* <Box
+            sx={{
+              // border: "solid red 2px",
+              width: "150px",
+              alignSelf: "end",
+              textAlign: "center",
+              backgroundColor: "#000",
+            }}
+          >
+            <Link to="nav-bar" smooth={true} duration={500}>
+              <Button sx={{ color: "#fff" }}>Back To Top</Button>
+            </Link>
+          </Box> */}
         </Box>
       </Box>
     </div>
