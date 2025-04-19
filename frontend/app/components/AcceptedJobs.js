@@ -9,7 +9,8 @@ import BasicButtons from "./BasicButton";
 export default function AcceptedJobs() {
   const styles = {
     cardParent: {
-      // border: "solid green 2px",
+      border: "solid #009737 1px",
+      boxShadow: "0 0 10px #000",
       // width: "30%",
       display: "flex",
       flexWrap: "wrap",

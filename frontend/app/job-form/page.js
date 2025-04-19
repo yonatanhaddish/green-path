@@ -19,7 +19,16 @@ export default function JobForm() {
   const screenGreaterThan4318LessThan834 = useMediaQuery(
     "(min-width: 431px) and (max-width: 834px)"
   );
-
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1366 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366 = useMediaQuery("(min-width: 1366px)");
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -31,17 +40,36 @@ export default function JobForm() {
   const styles = {
     cardContent: {
       paddingTop: "34px",
+      border: "solid #000 2px",
+      boxShadow: "0 0 10px #000",
       width: screenLessThan430
         ? "90%"
-        : screenGreaterThan4318LessThan834
-        ? "80%"
-        : "40%",
+        : screenGreaterThan430LessThan768
+        ? "60%"
+        : screenGreaterThan768LessThan1024
+        ? "55%"
+        : screenGreaterThan1024LessThan1366
+        ? "30%"
+        : screenGreaterThan1366
+        ? "450px"
+        : "20%",
       display: "flex",
       flexDirection: "column",
       gap: "30px",
       paddingBottom: "40px",
       justifySelf: "center",
-      // border: screenLessThan768 ? "solid red 2px" : "solid blue 3px",
+      marginTop: screenLessThan430
+        ? "20px"
+        : screenGreaterThan430LessThan768
+        ? "20px"
+        : screenGreaterThan768LessThan1024
+        ? "50px"
+        : screenGreaterThan1024LessThan1366
+        ? "20px"
+        : screenGreaterThan1366
+        ? "50px"
+        : "",
+      paddingTop: "40px",
     },
     headingContent: {
       width: "90%",

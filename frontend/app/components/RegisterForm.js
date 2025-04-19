@@ -21,19 +21,6 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const styles = {
-  cardContent: {
-    // border: "solid blue 10px",
-    // borderTop: "solid green 2px",
-    //   paddingTop: "10px",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-    paddingBottom: "40px",
-    // marginLeft: "20px",
-    marginTop: "15px",
-    // border: "solid green 2px",
-  },
   headingContent: {
     width: "90%",
     display: "flex",
@@ -60,6 +47,7 @@ const styles = {
     display: "flex",
     height: "45px",
     gap: "20px",
+    paddingBottom: "50px",
   },
   textField1: {
     // backgroundColor: "#f5fff9",
@@ -83,6 +71,9 @@ const styles = {
   },
   buttonUploadDL: {
     width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
   },
   buttonInVehicleClass: {
     border: "solid red 2px",
@@ -93,9 +84,9 @@ const styles = {
   buttonEditSubmitForm: {
     backgroundColor: "#000",
     color: "white",
-    width: "120px",
-    height: "30px",
-    fontSize: "12px",
+    width: "140px",
+    height: "40px",
+    fontSize: "16px",
   },
   boxGetUserVehicleInfo: {
     // border: "solid red 2px",
@@ -106,10 +97,10 @@ const styles = {
     gap: "20px",
   },
   buttonSumbit: {
-    // border: "solid red 2px",
     width: "100%",
-    height: "40px",
-    fontSize: "15px",
+    height: "45px",
+    fontSize: "18px",
+    paddingBottom: "30px",
   },
 };
 
@@ -253,7 +244,17 @@ export function RegisterUserForm({ onPageChange }) {
               width: "100%",
             }}
           >
-            Upload Driving License Here{" "}
+            {" "}
+            Upload Driving License (Front Side){" "}
+          </Button>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#5b665f",
+              width: "100%",
+            }}
+          >
+            Upload Driving License (Back Side){" "}
           </Button>
         </Box>
         <Box sx={styles.boxButton} onClick={handleUserFormNext}>
@@ -523,6 +524,10 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
     onPageUpateButton(newState);
   };
 
+  const handleVanOwnerSubmit = () => {
+    console.log("2222222");
+  };
+
   return (
     <Box sx={[styles.boxGetUserVehicleInfo, styles_2.headingContent]}>
       <Card
@@ -596,17 +601,16 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
             <span style={{ fontWeight: "bold" }}>uploaded</span>
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button
-            size="small"
-            sx={styles.buttonEditSubmitForm}
-            onClick={handleUpdateFormButton}
-          >
+        <CardActions
+          sx={{ paddingBottom: "30px" }}
+          onClick={handleUpdateFormButton}
+        >
+          <Button size="small" sx={styles.buttonEditSubmitForm}>
             Update
           </Button>
         </CardActions>
       </Card>
-      <Box sx={styles.buttonSumbit}>
+      <Box sx={styles.buttonSumbit} onClick={handleVanOwnerSubmit}>
         <BasicButtons message="SUBMIT" />
       </Box>
     </Box>

@@ -142,7 +142,7 @@ export default function WeatherCard() {
   };
 
   useEffect(() => {
-    const temperature = 40; // example value
+    const temperature = 40;
     const bg =
       temperature > 30
         ? "linear-gradient(to right, white, white, #FFF176)"

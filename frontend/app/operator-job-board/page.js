@@ -13,6 +13,9 @@ const JobBoard = () => {
     "(min-width: 100px) and (max-width: 900px)"
   );
   const screenGreaterThan_2560 = useMediaQuery("(max-width:1920px)");
+  const screenGreaterThan1920LessThan3840 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 3840px)"
+  );
 
   useEffect(() => {
     setLoading(false);
@@ -25,12 +28,13 @@ const JobBoard = () => {
   const styles = {
     parent_box: {
       // border: "solid red 2px",
-      width: "100%",
+      width: screenGreaterThan1920LessThan3840 ? "80%" : "100%",
       display: "flex",
       flexDirection: "column",
       paddingTop: "30px",
       gap: "50px",
       background: "#F5F5F5",
+      justifySelf: "center",
     },
     cards_box: {
       width: screenGreaterThan_2560 ? "90%" : "75%",
