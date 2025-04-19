@@ -37,13 +37,14 @@ export default function WeatherCard() {
     parent_box: {
       background: temperatureStyle,
       border: "none",
-      border: "solid green 2px",
+      // border: "solid green 2px",
       display: "flex",
       flexDirection:
-        screenLessThan430 || screenGreaterThan430LessThan768
+        screenLessThan430 ||
+        screenGreaterThan430LessThan768 ||
+        screenGreaterThan768LessThan1024
           ? "row"
-          : screenGreaterThan768LessThan1024 ||
-            screenGreaterThan1024LessThan1280 ||
+          : screenGreaterThan1024LessThan1280 ||
             screenGreaterThan1280LessThan1366 ||
             screenGreaterThan1366LessThan1440 ||
             screenGreaterThan1440LessThan1920
@@ -107,9 +108,11 @@ export default function WeatherCard() {
     },
     typo_date: {
       fontWeight: "bold",
+      // border: "solid red 2px",
     },
     single_card: {
-      // border: "solid pink 2px",
+      // border: "solid #009737 1px",
+      boxShadow: "0 0 10px #000",
       width: screenLessThan430
         ? "85%"
         : screenGreaterThan430LessThan768
@@ -117,18 +120,24 @@ export default function WeatherCard() {
         : screenGreaterThan768LessThan1024
         ? "60%"
         : screenGreaterThan1024LessThan1280
-        ? "20%"
+        ? "250px"
         : screenGreaterThan1280LessThan1366 || screenGreaterThan1366LessThan1440
-        ? "20%"
+        ? "250px"
         : screenGreaterThan1440LessThan1920
-        ? "18%"
-        : "15%",
+        ? "250px"
+        : "300px",
       margin:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
         screenGreaterThan768LessThan1024
           ? "0 auto"
           : "",
+    },
+    typo_city: {
+      fontWeight: "bold",
+    },
+    typo_weather_type: {
+      fontWeight: "bold",
     },
   };
 

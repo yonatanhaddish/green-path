@@ -74,8 +74,8 @@ export default function RecentActivity() {
   const styles = {
     tableContainer: {
       // border: "solid red 2px",
-      width: screenLessThan430 ? "94%" : "100%",
-      margin: "0 auto",
+      // width: screenLessThan430 ? "94%" : "100%",
+      // margin: "0 auto",
     },
   };
   return (

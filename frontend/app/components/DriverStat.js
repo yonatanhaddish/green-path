@@ -36,7 +36,7 @@ export default function DriverStat() {
 
   const styles = {
     cardContent: {
-      border: "solid green 2px",
+      // border: "solid green 2px",
       display: "flex",
       flexDirection: "column",
       gap: "7px",
@@ -55,7 +55,8 @@ export default function DriverStat() {
         : "350px",
     },
     single_card: {
-      // border: "solid pink 2px",
+      // border: "solid #009737 1px",
+      boxShadow: "0 0 10px #000",
       width: screenLessThan430
         ? "85%"
         : screenGreaterThan430LessThan768
@@ -63,12 +64,12 @@ export default function DriverStat() {
         : screenGreaterThan768LessThan1024
         ? "60%"
         : screenGreaterThan1024LessThan1280
-        ? "20%"
+        ? "250px"
         : screenGreaterThan1280LessThan1366 || screenGreaterThan1366LessThan1440
-        ? "20%"
+        ? "250px"
         : screenGreaterThan1440LessThan1920
-        ? "18%"
-        : "15%",
+        ? "250px"
+        : "300px",
       margin:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
@@ -81,7 +82,17 @@ export default function DriverStat() {
       color: "#009737",
       marginBottom: "10px",
       minHeight: "",
-      fontSize: "18px",
+      fontSize: screenGreaterThan1920LessThan3840 ? "26px" : "18px",
+      borderBottom: "solid #000 1px",
+    },
+    typo_trips: {
+      fontWeight: "bold",
+    },
+    typo_distance: {
+      fontWeight: "bold",
+    },
+    typo_rating: {
+      fontWeight: "bold",
     },
   };
 

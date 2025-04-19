@@ -39,7 +39,7 @@ export default function AvailableJobs(props) {
   );
   const styles = {
     cardContent: {
-      border: "solid green 2px",
+      // border: "solid green 2px",
       display: "flex",
       flexDirection: "column",
       gap: "7px",
@@ -56,10 +56,13 @@ export default function AvailableJobs(props) {
         : screenGreaterThan1366LessThan1440 || screenGreaterThan1440LessThan1920
         ? "250px"
         : "350px",
-      justifyContent: "space-around",
+      justifyContent: screenGreaterThan1280LessThan1366
+        ? "space-around"
+        : "space-between",
     },
     single_card: {
-      // border: "solid pink 2px",
+      // border: "solid #009737 1px",
+      boxShadow: "0 0 10px #000",
       width: screenLessThan430
         ? "85%"
         : screenGreaterThan430LessThan768
@@ -67,12 +70,12 @@ export default function AvailableJobs(props) {
         : screenGreaterThan768LessThan1024
         ? "60%"
         : screenGreaterThan1024LessThan1280
-        ? "20%"
+        ? "250px"
         : screenGreaterThan1280LessThan1366 || screenGreaterThan1366LessThan1440
-        ? "20%"
+        ? "250px"
         : screenGreaterThan1440LessThan1920
-        ? "18%"
-        : "15%",
+        ? "250px"
+        : "300px",
       margin:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
@@ -81,12 +84,20 @@ export default function AvailableJobs(props) {
           : "",
     },
     typo_avail: {
-      fontSize: "18px",
+      fontSize: screenGreaterThan1920LessThan3840 ? "26px" : "18px",
       fontWeight: "bold",
       color: "#009737",
+      borderBottom: "solid #000 1px",
     },
     typo_available_jobs: {
-      fontSize: "35px",
+      fontSize:
+        screenLessThan430 ||
+        screenGreaterThan430LessThan768 ||
+        screenGreaterThan768LessThan1024
+          ? "35px"
+          : screenGreaterThan1024LessThan1280
+          ? "70px"
+          : "80px",
     },
     button_view_board: {
       // border: "solid red 2px",
