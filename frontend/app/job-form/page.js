@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import TextField, { textFieldClasses } from "@mui/material/TextField";
+import { Box, TextField, Button } from "@mui/material";
+
+// import TextField, { textFieldClasses } from "@mui/material/TextField";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -12,12 +13,8 @@ import BasicButtons from "../components/BasicButton";
 
 export default function JobForm() {
   const [loading, setLoading] = useState(undefined);
-
   const screenLessThan430 = useMediaQuery(
     "(min-width: 100px) and (max-width: 430px)"
-  );
-  const screenGreaterThan4318LessThan834 = useMediaQuery(
-    "(min-width: 431px) and (max-width: 834px)"
   );
   const screenGreaterThan430LessThan768 = useMediaQuery(
     "(min-width: 431px) and (max-width: 768px)"
@@ -25,10 +22,21 @@ export default function JobForm() {
   const screenGreaterThan768LessThan1024 = useMediaQuery(
     "(min-width: 769px) and (max-width: 1024px)"
   );
-  const screenGreaterThan1024LessThan1366 = useMediaQuery(
-    "(min-width: 1025px) and (max-width: 1366px)"
+  const screenGreaterThan1024LessThan1280 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1280px)"
   );
-  const screenGreaterThan1366 = useMediaQuery("(min-width: 1366px)");
+  const screenGreaterThan1280LessThan1366 = useMediaQuery(
+    "(min-width: 1281px) and (max-width: 1366px)"
+  );
+  const screenGreaterThan1366LessThan1440 = useMediaQuery(
+    "(min-width: 1367px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan1920 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 1920px)"
+  );
+  const screenGreaterThan1920LessThan3840 = useMediaQuery(
+    "(min-width: 1921px) and (max-width: 3840px)"
+  );
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -38,158 +46,119 @@ export default function JobForm() {
   }
 
   const styles = {
-    cardContent: {
-      paddingTop: "34px",
-      border: "solid #000 2px",
-      boxShadow: "0 0 10px #000",
-      width: screenLessThan430
-        ? "90%"
-        : screenGreaterThan430LessThan768
-        ? "60%"
-        : screenGreaterThan768LessThan1024
-        ? "55%"
-        : screenGreaterThan1024LessThan1366
-        ? "30%"
-        : screenGreaterThan1366
-        ? "450px"
-        : "20%",
+    parent_box: {
+      border: "solid #000 1px",
+      boxShadow: "0 0 10px #009737",
       display: "flex",
       flexDirection: "column",
-      gap: "30px",
-      paddingBottom: "40px",
+      gap: "20px",
+      width: screenLessThan430 ? "90%" : "100%",
       justifySelf: "center",
-      marginTop: screenLessThan430
-        ? "20px"
-        : screenGreaterThan430LessThan768
-        ? "20px"
-        : screenGreaterThan768LessThan1024
-        ? "50px"
-        : screenGreaterThan1024LessThan1366
-        ? "20px"
-        : screenGreaterThan1366
-        ? "50px"
-        : "",
-      paddingTop: "40px",
+      marginTop: "20px",
     },
-    headingContent: {
-      width: "90%",
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignSelf: "center",
-    },
-    textFieldBox: {
-      width: "90%",
+
+    child_box: {
+      // border: "solid green 2px",
       display: "flex",
       flexDirection: "column",
-      alignSelf: "center",
-      gap: "15px",
+      gap: "25px",
+      paddingBottom: "30px",
     },
-    textField: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "15px",
-    },
-    boxButton: {
-      marginTop: "10px",
-      height: "50px",
-    },
-    textField1: {
-      "& .MuiInputLabel-root": { color: "black" },
-      "& .MuiInputLabel-root.Mui-focused": { color: "black" },
-      "& .MuiOutlinedInput-root": {
-        "& fieldset": { borderColor: "gray" },
-        "&:hover fieldset": { borderColor: "black" },
-        "&.Mui-focused fieldset": {
-          borderColor: "gray",
-        },
-      },
-    },
-    typoCompany: {
+    typo_jobid: {
+      textAlign: "end",
+      fontSize: screenLessThan430 ? "18px" : "20px",
       fontWeight: "bold",
+      paddingTop: "20px",
+      marginRight: "5%",
+      color: "#009737",
     },
-    job_id: {
-      borderBottom: "green solid 2px",
+    input_box: {
+      // border: "solid yellow 2px",
+      width: screenLessThan430 ? "90%" : "100%",
+      display: "flex",
+      flexDirection: "column",
+      flexWrap: "wrap",
+      gap: screenLessThan430 ? "10px" : "",
+      alignSelf: "center",
+    },
+    text_input: {
+      // border: "solid green 1px",
+      width: "100%",
+    },
+    button_box: {
+      // border: "solid green 2px",
+      width: screenLessThan430 ? "70%" : "100%",
+      alignSelf: "center",
+      textAlign: "center",
+      fontWeight: "bold",
+      height: "50px",
+      fontSize: "16px",
+      backgroundColor: "#000",
+      color: "#fff",
     },
   };
+
   return (
-    <Box component="form" noValidate autoComplete="off" sx={styles.cardContent}>
-      <Box sx={styles.headingContent}>
-        <Typography sx={styles.typoCompany}>Eagle Import & Export</Typography>
-        <Typography sx={styles.job_id}>Job Id: #123123</Typography>
-      </Box>
-      <Box sx={styles.textFieldBox}>
-        <Box sx={styles.textField}>
+    <Box sx={styles.parent_box}>
+      <Typography sx={styles.typo_jobid}>Job ID: #123123</Typography>
+      <Box sx={styles.child_box}>
+        <Box sx={styles.input_box}>
           <TextField
-            required
-            id="pickup-location"
-            label="Pickup Location"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
+            id="outlined-basic"
+            label="Company Name"
+            variant="outlined"
+            sx={styles.text_input}
           />
           <TextField
-            required
-            id="dropoff-location"
-            label="Dropoff Location"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
-          />
-        </Box>
-        <Box sx={styles.textField}>
-          <TextField
-            id="distance"
-            label="Distance (km)"
-            type="number"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
+            id="outlined-basic"
+            label="Company Address"
+            variant="outlined"
+            sx={styles.text_input}
           />
           <TextField
-            id="weight"
-            label="Weight (kg)"
-            type="number"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
+            id="outlined-basic"
+            label="City"
+            variant="outlined"
+            sx={styles.text_input}
           />
-        </Box>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <Box sx={styles.textField}>
-            <DemoContainer components={["DateField"]}>
-              <DateField
-                label="Delivery Date"
-                fullWidth
-                sx={styles.textField1}
-                size="small"
-              />
-            </DemoContainer>
-          </Box>
-          <Box sx={styles.textField}>
-            <DemoContainer components={["DateField"]}>
-              <DateField
-                label="Delivery Date"
-                fullWidth
-                sx={styles.textField1}
-                size="small"
-              />
-            </DemoContainer>
-          </Box>
-        </LocalizationProvider>
-        <Box sx={styles.textField}>
           <TextField
-            id="price"
-            label="Price ($)"
-            type="number"
-            fullWidth
-            sx={styles.textField1}
-            size="small"
+            id="outlined-basic"
+            label="Postal Code"
+            variant="outlined"
+            sx={styles.text_input}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Phone Number"
+            variant="outlined"
+            sx={styles.text_input}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Email Address"
+            variant="outlined"
+            sx={styles.text_input}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Contact Person Name"
+            variant="outlined"
+            sx={styles.text_input}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Contact Person Job Title"
+            variant="outlined"
+            sx={styles.text_input}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Contact Person Phone Number"
+            variant="outlined"
+            sx={styles.text_input}
           />
         </Box>
-        <Box sx={styles.boxButton}>
-          <BasicButtons message="Post Job" />
-        </Box>
+        <Button sx={styles.button_box}>Submit</Button>
       </Box>
     </Box>
   );
