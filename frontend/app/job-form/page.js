@@ -52,42 +52,95 @@ export default function JobForm() {
       display: "flex",
       flexDirection: "column",
       gap: "20px",
-      width: screenLessThan430 ? "90%" : "100%",
-      justifySelf: "center",
-      marginTop: "20px",
+      width: screenLessThan430
+        ? "90%"
+        : screenGreaterThan430LessThan768
+        ? "80%"
+        : screenGreaterThan768LessThan1024
+        ? "70%"
+        : screenGreaterThan1024LessThan1280
+        ? "60% "
+        : "100%",
+      // justifySelf: "center",
+      marginTop: screenLessThan430
+        ? "20px"
+        : screenGreaterThan430LessThan768 || screenGreaterThan768LessThan1024
+        ? "50px"
+        : "",
+      marginBottom: "50px",
+      margin: "0 auto",
     },
 
     child_box: {
-      // border: "solid green 2px",
+      // border: "solid red 2px",
       display: "flex",
       flexDirection: "column",
-      gap: "25px",
-      paddingBottom: "30px",
+      gap: "30px",
+      paddingBottom:
+        screenLessThan430 ||
+        screenGreaterThan768LessThan1024 ||
+        screenGreaterThan1024LessThan1280
+          ? "30px"
+          : screenGreaterThan430LessThan768
+          ? "50px"
+          : "",
     },
     typo_jobid: {
-      textAlign: "end",
-      fontSize: screenLessThan430 ? "18px" : "20px",
+      fontSize: screenLessThan430 ? "18px" : "18px",
       fontWeight: "bold",
       paddingTop: "20px",
       marginRight: "5%",
       color: "#009737",
+      borderBottom: "solid #009737 2px",
+      width: "fit-content",
+      alignSelf: "end",
     },
     input_box: {
-      // border: "solid yellow 2px",
-      width: screenLessThan430 ? "90%" : "100%",
+      // border: "solid purple 2px",
+      width: screenLessThan430
+        ? "90%"
+        : screenGreaterThan430LessThan768
+        ? "80%"
+        : screenGreaterThan768LessThan1024
+        ? "80%"
+        : "80%",
       display: "flex",
-      flexDirection: "column",
+      flexDirection: "row",
       flexWrap: "wrap",
-      gap: screenLessThan430 ? "10px" : "",
+
+      gap: screenLessThan430
+        ? "10px"
+        : screenGreaterThan430LessThan768 ||
+          screenGreaterThan768LessThan1024 ||
+          screenGreaterThan1024LessThan1280
+        ? "20px"
+        : "",
       alignSelf: "center",
     },
     text_input: {
       // border: "solid green 1px",
-      width: "100%",
+      width: screenLessThan430
+        ? "100%"
+        : screenGreaterThan430LessThan768
+        ? "45%"
+        : screenGreaterThan768LessThan1024
+        ? "80%"
+        : screenGreaterThan1024LessThan1280
+        ? "45%"
+        : "200px",
+      // textAlign: "center",
     },
     button_box: {
       // border: "solid green 2px",
-      width: screenLessThan430 ? "70%" : "100%",
+      width: screenLessThan430
+        ? "70%"
+        : screenGreaterThan430LessThan768
+        ? "60%"
+        : screenGreaterThan768LessThan1024
+        ? "50%"
+        : screenGreaterThan1024LessThan1280
+        ? "40%"
+        : "100%",
       alignSelf: "center",
       textAlign: "center",
       fontWeight: "bold",
@@ -105,54 +158,63 @@ export default function JobForm() {
         <Box sx={styles.input_box}>
           <TextField
             id="outlined-basic"
+            size="small"
             label="Company Name"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="Company Address"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="City"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="Postal Code"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="Phone Number"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="Email Address"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="Contact Person Name"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="Contact Person Job Title"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
+            size="small"
             label="Contact Person Phone Number"
             variant="outlined"
             sx={styles.text_input}
