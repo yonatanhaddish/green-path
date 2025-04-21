@@ -51,10 +51,12 @@ export default function JobForm() {
         : screenGreaterThan430LessThan768
         ? "80%"
         : screenGreaterThan768LessThan1024
-        ? "70%"
+        ? "80%"
         : screenGreaterThan1024LessThan1440
         ? "60%"
-        : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
+        : screenGreaterThan1440LessThan2560
+        ? "25%"
+        : screenGreaterThan2560LessThan3840
         ? "25%"
         : "80%",
       marginBottom: "50px",
@@ -68,7 +70,7 @@ export default function JobForm() {
       // border: "solid red 2px",
       display: "flex",
       flexDirection: "column",
-      gap: "30px",
+      gap: "20px",
       paddingBottom:
         screenLessThan430 ||
         screenGreaterThan768LessThan1024 ||
@@ -85,7 +87,6 @@ export default function JobForm() {
       fontWeight: "bold",
       paddingTop: "20px",
       marginRight: "5%",
-      color: "#009737",
       borderBottom: "solid #009737 2px",
       width: "fit-content",
       alignSelf: "end",
@@ -97,8 +98,8 @@ export default function JobForm() {
         : screenGreaterThan430LessThan768
         ? "80%"
         : screenGreaterThan768LessThan1024
-        ? "80%"
-        : "80%",
+        ? "70%"
+        : "70%",
       display: "flex",
       flexDirection: "row",
       flexWrap: "wrap",
@@ -110,7 +111,7 @@ export default function JobForm() {
           screenGreaterThan1024LessThan1440 ||
           screenGreaterThan1440LessThan2560 ||
           screenGreaterThan2560LessThan3840
-        ? "20px"
+        ? "10px"
         : "",
       alignSelf: "center",
       justifyContent: "center",
@@ -120,7 +121,7 @@ export default function JobForm() {
       width: screenLessThan430
         ? "100%"
         : screenGreaterThan430LessThan768
-        ? "45%"
+        ? "70%"
         : screenGreaterThan768LessThan1024 || screenGreaterThan1440LessThan2560
         ? "80%"
         : screenGreaterThan1024LessThan1440
@@ -135,9 +136,9 @@ export default function JobForm() {
       width: screenLessThan430
         ? "70%"
         : screenGreaterThan430LessThan768
-        ? "60%"
-        : screenGreaterThan768LessThan1024
         ? "50%"
+        : screenGreaterThan768LessThan1024
+        ? "45%"
         : screenGreaterThan1024LessThan1440
         ? "40%"
         : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
@@ -151,78 +152,93 @@ export default function JobForm() {
       backgroundColor: "#000",
       color: "#fff",
     },
+    typo_heading: {
+      // border: "solid green 2px",
+      fontSize: screenLessThan430
+        ? "26px"
+        : screenGreaterThan430LessThan768
+        ? "26px"
+        : screenGreaterThan768LessThan1024
+        ? "26px"
+        : screenGreaterThan1024LessThan1440
+        ? "28px"
+        : screenGreaterThan1440LessThan2560
+        ? "30px"
+        : "30px",
+      marginTop: "20px",
+      color: "#009737",
+      fontWeight: "bold",
+      marginLeft: "20px",
+    },
+    heading_box: {
+      // border: "solid red 2px",
+      display: "flex",
+      flexDirection: screenLessThan430 ? "column" : "row",
+      justifyContent: "space-between",
+    },
   };
 
   return (
     <Box sx={styles.parent_box}>
-      <Typography sx={styles.typo_jobid}>Job ID: #123123</Typography>
+      <Box sx={styles.heading_box}>
+        <Typography sx={styles.typo_heading}>
+          Eagle Import & Export Ltd.
+        </Typography>
+        <Box sx={styles.typo_jobid}>
+          <Typography sx={{ color: "#000" }}>06 - Feb - 2024</Typography>
+          <Typography>Job Id: #123123</Typography>
+        </Box>
+      </Box>
+
       <Box sx={styles.child_box}>
         <Box sx={styles.input_box}>
           <TextField
             id="outlined-basic"
             size="small"
-            label="Company Name"
+            label="Pickup Location"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
             size="small"
-            label="Company Address"
+            label="Droppoff Location"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
             size="small"
-            label="City"
+            label="Weight"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
             size="small"
-            label="Postal Code"
+            label="Pickup Time"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
             size="small"
-            label="Phone Number"
+            label="Price"
             variant="outlined"
             sx={styles.text_input}
           />
           <TextField
             id="outlined-basic"
             size="small"
-            label="Email Address"
-            variant="outlined"
-            sx={styles.text_input}
-          />
-          <TextField
-            id="outlined-basic"
-            size="small"
-            label="Contact Person Name"
-            variant="outlined"
-            sx={styles.text_input}
-          />
-          <TextField
-            id="outlined-basic"
-            size="small"
-            label="Contact Person Job Title"
-            variant="outlined"
-            sx={styles.text_input}
-          />
-          <TextField
-            id="outlined-basic"
-            size="small"
-            label="Contact Person Phone Number"
+            label="Item Description"
+            multiline
+            minRows={4}
+            maxRows={6}
             variant="outlined"
             sx={styles.text_input}
           />
         </Box>
-        <Button sx={styles.button_box}>Submit</Button>
+        <Button sx={styles.button_box}>Post</Button>
       </Box>
     </Box>
   );
