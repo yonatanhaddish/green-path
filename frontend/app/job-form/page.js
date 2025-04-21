@@ -22,20 +22,14 @@ export default function JobForm() {
   const screenGreaterThan768LessThan1024 = useMediaQuery(
     "(min-width: 769px) and (max-width: 1024px)"
   );
-  const screenGreaterThan1024LessThan1280 = useMediaQuery(
-    "(min-width: 1025px) and (max-width: 1280px)"
+  const screenGreaterThan1024LessThan1440 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1440px)"
   );
-  const screenGreaterThan1280LessThan1366 = useMediaQuery(
-    "(min-width: 1281px) and (max-width: 1366px)"
+  const screenGreaterThan1440LessThan2560 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 2560px)"
   );
-  const screenGreaterThan1366LessThan1440 = useMediaQuery(
-    "(min-width: 1367px) and (max-width: 1440px)"
-  );
-  const screenGreaterThan1440LessThan1920 = useMediaQuery(
-    "(min-width: 1441px) and (max-width: 1920px)"
-  );
-  const screenGreaterThan1920LessThan3840 = useMediaQuery(
-    "(min-width: 1921px) and (max-width: 3840px)"
+  const screenGreaterThan2560LessThan3840 = useMediaQuery(
+    "(min-width: 2560px) and (max-width: 3840px)"
   );
   useEffect(() => {
     setLoading(false);
@@ -58,17 +52,16 @@ export default function JobForm() {
         ? "80%"
         : screenGreaterThan768LessThan1024
         ? "70%"
-        : screenGreaterThan1024LessThan1280
-        ? "60% "
-        : "100%",
-      // justifySelf: "center",
-      marginTop: screenLessThan430
-        ? "20px"
-        : screenGreaterThan430LessThan768 || screenGreaterThan768LessThan1024
-        ? "50px"
-        : "",
+        : screenGreaterThan1024LessThan1440
+        ? "60%"
+        : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
+        ? "25%"
+        : "80%",
       marginBottom: "50px",
-      margin: "0 auto",
+      margin:
+        screenLessThan430 || screenGreaterThan1024LessThan1440
+          ? "25px auto"
+          : "50px auto",
     },
 
     child_box: {
@@ -79,9 +72,11 @@ export default function JobForm() {
       paddingBottom:
         screenLessThan430 ||
         screenGreaterThan768LessThan1024 ||
-        screenGreaterThan1024LessThan1280
+        screenGreaterThan1024LessThan1440
           ? "30px"
-          : screenGreaterThan430LessThan768
+          : screenGreaterThan430LessThan768 ||
+            screenGreaterThan1440LessThan2560 ||
+            screenGreaterThan2560LessThan3840
           ? "50px"
           : "",
     },
@@ -112,10 +107,13 @@ export default function JobForm() {
         ? "10px"
         : screenGreaterThan430LessThan768 ||
           screenGreaterThan768LessThan1024 ||
-          screenGreaterThan1024LessThan1280
+          screenGreaterThan1024LessThan1440 ||
+          screenGreaterThan1440LessThan2560 ||
+          screenGreaterThan2560LessThan3840
         ? "20px"
         : "",
       alignSelf: "center",
+      justifyContent: "center",
     },
     text_input: {
       // border: "solid green 1px",
@@ -123,29 +121,33 @@ export default function JobForm() {
         ? "100%"
         : screenGreaterThan430LessThan768
         ? "45%"
-        : screenGreaterThan768LessThan1024
+        : screenGreaterThan768LessThan1024 || screenGreaterThan1440LessThan2560
         ? "80%"
-        : screenGreaterThan1024LessThan1280
+        : screenGreaterThan1024LessThan1440
         ? "45%"
+        : screenGreaterThan2560LessThan3840
+        ? "70%"
         : "200px",
       // textAlign: "center",
     },
     button_box: {
-      // border: "solid green 2px",
+      // border: "solid red 2px",
       width: screenLessThan430
         ? "70%"
         : screenGreaterThan430LessThan768
         ? "60%"
         : screenGreaterThan768LessThan1024
         ? "50%"
-        : screenGreaterThan1024LessThan1280
+        : screenGreaterThan1024LessThan1440
         ? "40%"
+        : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
+        ? "50%"
         : "100%",
       alignSelf: "center",
       textAlign: "center",
       fontWeight: "bold",
-      height: "50px",
-      fontSize: "16px",
+      height: "45px",
+      // fontSize: "16px",
       backgroundColor: "#000",
       color: "#fff",
     },
