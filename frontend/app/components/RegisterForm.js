@@ -21,87 +21,86 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const styles = {
-  headingContent: {
-    width: "90%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignSelf: "center",
-  },
-  textFieldBox: {
-    width: "90%",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-    // border: "solid red 2px",
-    margin: "0 auto",
-  },
-  textField: {
-    // width: "90%",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-  },
-  boxButton: {
-    marginTop: "10px",
-    display: "flex",
-    height: "45px",
-    gap: "20px",
-    paddingBottom: "50px",
-  },
-  textField1: {
-    // backgroundColor: "#f5fff9",
-    "& .MuiInputLabel-root": { color: "black" },
-    "& .MuiInputLabel-root.Mui-focused": { color: "black" },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": { borderColor: "gray" },
-      "&:hover fieldset": { borderColor: "black" },
-      "&.Mui-focused fieldset": {
-        borderColor: "green",
-
-        //   backgroundColor: "#e1fceb",
-      },
-    },
-  },
-  typoCompany: {
-    fontWeight: "bold",
-  },
-  job_id: {
-    borderBottom: "green solid 2px",
-  },
-  buttonUploadDL: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  },
-  buttonInVehicleClass: {
-    border: "solid red 2px",
-    display: "flex",
-    displayDirection: "column",
-    // justifyContent: "space-around",
-  },
-  buttonEditSubmitForm: {
-    backgroundColor: "#000",
-    color: "white",
-    width: "140px",
-    height: "40px",
-    fontSize: "16px",
-  },
-  boxGetUserVehicleInfo: {
-    // border: "solid red 2px",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    alignSelf: "center",
-    gap: "20px",
-  },
-  buttonSumbit: {
-    width: "100%",
-    height: "45px",
-    fontSize: "18px",
-    paddingBottom: "30px",
-  },
+  // headingContent: {
+  //   width: "90%",
+  //   display: "flex",
+  //   flexDirection: "row",
+  //   justifyContent: "space-between",
+  //   alignSelf: "center",
+  // },
+  // textFieldBox: {
+  //   width: "90%",
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   gap: "15px",
+  //   // border: "solid red 2px",
+  //   margin: "0 auto",
+  // },
+  // textField: {
+  //   // width: "90%",
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   gap: "15px",
+  // },
+  // boxButton: {
+  //   marginTop: "10px",
+  //   display: "flex",
+  //   height: "45px",
+  //   gap: "20px",
+  //   paddingBottom: "50px",
+  // },
+  // textField1: {
+  //   // backgroundColor: "#f5fff9",
+  //   "& .MuiInputLabel-root": { color: "black" },
+  //   "& .MuiInputLabel-root.Mui-focused": { color: "black" },
+  //   "& .MuiOutlinedInput-root": {
+  //     "& fieldset": { borderColor: "gray" },
+  //     "&:hover fieldset": { borderColor: "black" },
+  //     "&.Mui-focused fieldset": {
+  //       borderColor: "green",
+  //       //   backgroundColor: "#e1fceb",
+  //     },
+  //   },
+  // },
+  // typoCompany: {
+  //   fontWeight: "bold",
+  // },
+  // job_id: {
+  //   borderBottom: "green solid 2px",
+  // },
+  // buttonUploadDL: {
+  //   width: "100%",
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   gap: "10px",
+  // },
+  // buttonInVehicleClass: {
+  //   border: "solid red 2px",
+  //   display: "flex",
+  //   displayDirection: "column",
+  //   // justifyContent: "space-around",
+  // },
+  // buttonEditSubmitForm: {
+  //   backgroundColor: "#000",
+  //   color: "white",
+  //   width: "140px",
+  //   height: "40px",
+  //   fontSize: "16px",
+  // },
+  // boxGetUserVehicleInfo: {
+  //   // border: "solid red 2px",
+  //   width: "100%",
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   alignSelf: "center",
+  //   gap: "20px",
+  // },
+  // buttonSumbit: {
+  //   width: "100%",
+  //   height: "45px",
+  //   fontSize: "18px",
+  //   paddingBottom: "30px",
+  // },
 };
 
 // export function RegisterUserForm({ onPageChange }) {
@@ -807,6 +806,25 @@ export function RegisterUserForm({ onPageChange }) {
   const [postalCodeValue, setPostalCodeValue] = useState("");
   const [loading, setLoading] = useState(undefined);
 
+  const screenLessThan430 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 430px)"
+  );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1440 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan2560 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 2560px)"
+  );
+  const screenGreaterThan2560LessThan3840 = useMediaQuery(
+    "(min-width: 2560px) and (max-width: 3840px)"
+  );
+
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -815,37 +833,83 @@ export function RegisterUserForm({ onPageChange }) {
     return <div>Loading...</div>;
   }
 
-  const handleChangeFullName = (event) => {
-    setFullNameValue(event.target.value);
+  const styles = {
+    parent_box: {
+      border: "solid #000 1px",
+      boxShadow: "0 0 10px #009737",
+      display: "flex",
+      flexDirection: "column",
+      gap: "20px",
+      width: screenLessThan430
+        ? "90%"
+        : screenGreaterThan430LessThan768
+        ? "80%"
+        : screenGreaterThan768LessThan1024
+        ? "70%"
+        : screenGreaterThan1024LessThan1440
+        ? "60%"
+        : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
+        ? "25%"
+        : "80%",
+      marginBottom: "50px",
+      margin:
+        screenLessThan430 || screenGreaterThan1024LessThan1440
+          ? "25px auto"
+          : "50px auto",
+    },
+    typo_heading: {
+      fontSize: screenLessThan430 ? "18px" : "18px",
+      fontWeight: "bold",
+      paddingTop: "20px",
+      marginLeft: "5%",
+      color: "#009737",
+      // borderBottom: "solid #009737 2px",
+      width: "fit-content",
+      // alignSelf: "end",
+    },
+    input_form_box: {
+      // border: "solid red 2px",
+      width: screenLessThan430 ? "90%" : "100%",
+      alignSelf: "center",
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+    },
+    input_box: {
+      // border: "solid purple 2px",
+      // width: screenLessThan430 ? "90%" : "100%",
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+    },
+    text_input: {
+      // border: "solid green 1px",
+      width: screenLessThan430 ? "100%" : "50%",
+    },
+    d_license_box: {
+      // border: "solid green 2px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+    },
+    front_button: {
+      // border: "solid red 1px",
+      backgroundColor: "#009737",
+      color: "#000",
+      width: "100%",
+    },
+    back_button: {
+      border: "solid #009737 1px",
+      backgroundColor: "#009737",
+      color: "#000",
+      width: "100%",
+    },
+    next_button: {
+      border: "solid #009737 1px",
+      backgroundColor: "#000",
+      color: "#fff",
+    },
   };
-  const handleChangeEmailValue = (event) => {
-    setEmailAddressValue(event.target.value);
-  };
-  const handleChangePhoneNumberValue = (event) => {
-    setPhoneNumberValue(event.target.value);
-  };
-  const handleChangeDOBValue = (event) => {
-    setDateOfBirthValue(event.format("MM/DD/YYYY"));
-  };
-  const handleChangeHomeAddressValue = (event) => {
-    setHomeAddressValue(event.target.value);
-  };
-  const handleChangeCityTownValue = (event) => {
-    setCityTownValue(event.target.value);
-  };
-  const handleChangePostalCodeValue = (event) => {
-    setPostalCodeValue(event.target.value);
-  };
-
-  // console.log({
-  //   fullNameValue,
-  //   emailAddressValue,
-  //   phoneNumberValue,
-  //   dateOfBirthValue,
-  //   homeAddressValue,
-  //   cityTownValue,
-  //   postalCodeValue,
-  // });
 
   const handleUserFormNext = () => {
     const newState = "vehicle-page";
@@ -855,8 +919,68 @@ export function RegisterUserForm({ onPageChange }) {
 
   return (
     <>
-      <Box>
-        <Typography>Register Van Operator Form</Typography>
+      <Box sx={styles.parent_box}>
+        <Typography sx={styles.typo_heading}>Welcome to GreenPath</Typography>
+        <Box sx={styles.input_form_box}>
+          <Box sx={styles.input_box}>
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Full Name"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Email Address"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Phone Number"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Home Address"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="City"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Country"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Postal Code"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+          </Box>
+          <Box sx={styles.d_license_box}>
+            <Button sx={styles.front_button}>
+              Driving License (Front Side)
+            </Button>
+            <Button sx={styles.back_button}>Driving License(Back Side)</Button>
+          </Box>
+          <Button sx={styles.next_button}>Next</Button>
+        </Box>
       </Box>
     </>
   );
