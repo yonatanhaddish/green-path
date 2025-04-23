@@ -1403,7 +1403,9 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
             Vehicle Insurance:{" "}
             <span style={{ color: "green" }}>uploaded successful</span>
           </Typography>
-          <Button sx={styles.update_button}>Update</Button>
+          <Button sx={styles.update_button} onClick={handleUpdateFormButton}>
+            Update
+          </Button>
         </Box>
         <Button sx={styles.submit_button}>Submit</Button>
       </Box>
