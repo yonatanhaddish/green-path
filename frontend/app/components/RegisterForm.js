@@ -874,6 +874,7 @@ export function RegisterUserForm({ onPageChange }) {
       display: "flex",
       flexDirection: "column",
       gap: "15px",
+      marginBottom: "30px",
     },
     input_box: {
       // border: "solid purple 2px",
@@ -891,23 +892,26 @@ export function RegisterUserForm({ onPageChange }) {
       display: "flex",
       flexDirection: "column",
       gap: "15px",
+      // width: screenLessThan430 ? "80%" : "100%",
     },
     front_button: {
-      // border: "solid red 1px",
+      border: "solid #000 1px",
       backgroundColor: "#009737",
       color: "#000",
       width: "100%",
     },
     back_button: {
-      border: "solid #009737 1px",
+      border: "solid #000 1px",
       backgroundColor: "#009737",
       color: "#000",
       width: "100%",
     },
     next_button: {
-      border: "solid #009737 1px",
+      // border: "solid #009737 1px",
       backgroundColor: "#000",
       color: "#fff",
+      fontSize: "18px",
+      marginTop: "20px",
     },
   };
 
@@ -920,7 +924,9 @@ export function RegisterUserForm({ onPageChange }) {
   return (
     <>
       <Box sx={styles.parent_box}>
-        <Typography sx={styles.typo_heading}>Welcome to GreenPath</Typography>
+        <Typography sx={styles.typo_heading}>
+          Welcome to GreenPath | User Info
+        </Typography>
         <Box sx={styles.input_form_box}>
           <Box sx={styles.input_box}>
             <TextField
@@ -979,7 +985,9 @@ export function RegisterUserForm({ onPageChange }) {
             </Button>
             <Button sx={styles.back_button}>Driving License(Back Side)</Button>
           </Box>
-          <Button sx={styles.next_button}>Next</Button>
+          <Button sx={styles.next_button} onClick={handleUserFormNext}>
+            Next
+          </Button>
         </Box>
       </Box>
     </>
@@ -1003,6 +1011,25 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     vehicleYears.push(year);
   }
 
+  const screenLessThan430 = useMediaQuery(
+    "(min-width: 100px) and (max-width: 430px)"
+  );
+  const screenGreaterThan430LessThan768 = useMediaQuery(
+    "(min-width: 431px) and (max-width: 768px)"
+  );
+  const screenGreaterThan768LessThan1024 = useMediaQuery(
+    "(min-width: 769px) and (max-width: 1024px)"
+  );
+  const screenGreaterThan1024LessThan1440 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1440px)"
+  );
+  const screenGreaterThan1440LessThan2560 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 2560px)"
+  );
+  const screenGreaterThan2560LessThan3840 = useMediaQuery(
+    "(min-width: 2560px) and (max-width: 3840px)"
+  );
+
   // useEffect(() => {
   //   setLoading(false);
   // }, []);
@@ -1011,37 +1038,90 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
   //   return <div>Loading...</div>;
   // }
 
-  const handleChangeVehicleType = (event) => {
-    setVehicleTypeValue(event.target.value);
-  };
-  const handleChangeVehicleMake = (evenet) => {
-    setVehicleMakeValue(evenet.target.value);
-  };
-  const handleChangeVehicleModel = (event) => {
-    setVehicleModelValue(event.target.value);
-  };
-  const handleChangeVehicleYear = (event) => {
-    setVehicleYearValue(event.target.value);
-  };
-  const handleLicensePlateNumber = (event) => {
-    setVehicleLicensePlateValue(event.target.value);
-  };
-  const handleChangeVehicleColor = (event) => {
-    setVehicleColorValue(event.target.value);
-  };
-  const handleChangeCargoSize = (event) => {
-    setVehicleCargoSize(event.target.value);
-  };
+  const styles = {
+    parent_box: {
+      border: "solid #000 1px",
+      boxShadow: "0 0 10px #009737",
+      display: "flex",
+      flexDirection: "column",
+      gap: "20px",
+      width: screenLessThan430
+        ? "90%"
+        : screenGreaterThan430LessThan768
+        ? "80%"
+        : screenGreaterThan768LessThan1024
+        ? "70%"
+        : screenGreaterThan1024LessThan1440
+        ? "60%"
+        : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
+        ? "25%"
+        : "80%",
+      marginBottom: "50px",
+      margin:
+        screenLessThan430 || screenGreaterThan1024LessThan1440
+          ? "25px auto"
+          : "50px auto",
+    },
+    typo_heading: {
+      fontSize: screenLessThan430 ? "18px" : "18px",
+      fontWeight: "bold",
+      paddingTop: "20px",
+      marginLeft: "5%",
+      color: "#009737",
+      // borderBottom: "solid #009737 2px",
+      width: "fit-content",
+      // alignSelf: "end",
+    },
+    input_form_box: {
+      // border: "solid red 2px",
+      width: screenLessThan430 ? "90%" : "100%",
+      alignSelf: "center",
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+      marginBottom: "30px",
+    },
+    input_box: {
+      // border: "solid purple 2px",
+      // width: screenLessThan430 ? "90%" : "100%",
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+    },
+    text_input: {
+      // border: "solid green 1px",
+      width: screenLessThan430 ? "100%" : "50%",
+    },
+    document_box: {
+      // border: "solid green 2px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+      // width: screenLessThan430 ? "80%" : "100%",
+    },
+    vehicle_doc_button: {
+      border: "solid #000 1px",
+      backgroundColor: "#009737",
+      color: "#000",
+      width: "100%",
+    },
 
-  // console.log({
-  //   vehicleTypeValue,
-  //   vehicleMakeValue,
-  //   vehicleModelValue,
-  //   vehicleYearValue,
-  //   vehicleLicensePlateValue,
-  //   vehicleColorValue,
-  //   vehicleCargoSize,
-  // });
+    next_button: {
+      // border: "solid #009737 1px",
+      backgroundColor: "#000",
+      color: "#fff",
+      fontSize: "18px",
+      width: "50%",
+    },
+    button_box: {
+      // border: "solid red 2px",
+      display: "flex",
+      flexDirection: "row",
+      gap: "15px",
+      justifyContent: "center",
+      marginTop: "20px",
+    },
+  };
 
   const handleNextButton = () => {
     const newState = "submit-page";
@@ -1054,12 +1134,130 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
     onPageChangeVehicle(newState);
   };
 
+  const handleChangeVehicleColor = (event) => {
+    // setVehicleColorValue(event.target.value);
+  };
+
   return (
     <>
-      <Box>
-        <Typography>Register Vehicle Form</Typography>
+      <Box sx={styles.parent_box}>
+        <Typography sx={styles.typo_heading}>
+          Welcome to GreenPath | Vehicle Info
+        </Typography>
+        <Box sx={styles.input_form_box}>
+          <Box sx={styles.input_box}>
+            <FormControl fullWidth sx={styles.textField1} size="small">
+              <InputLabel id="vehicle-type-select-label">
+                Vehicle Type
+              </InputLabel>
+              <Select
+                labelId="vehicle-type-select-label"
+                id="vehicle-type"
+                value={vehicleTypeValue}
+                label="Vehicle Type"
+                // onChange={handleChangeVehicleType}
+              >
+                <MenuItem value="van">Van</MenuItem>
+                <MenuItem value="mini-van">Mini Van</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl fullWidth sx={styles.textField1} size="small">
+              <InputLabel id="vehicle-make-select-label">
+                Vehicle Make
+              </InputLabel>
+              <Select
+                labelId="vehicle-make-select-label"
+                id="vehicle-make"
+                value={vehicleMakeValue}
+                label="Vehicle Make"
+                // onChange={handleChangeVehicleMake}
+              >
+                {vehicleMakes.map((item) => (
+                  <MenuItem value={item} key={item}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl fullWidth sx={styles.textField1} size="small">
+              <InputLabel id="vehicle-model-select-label">
+                Vehicle Model
+              </InputLabel>
+              <Select
+                labelId="vehicle-model-select-label"
+                id="vehicle-model"
+                value={vehicleModelValue}
+                label="Vehicle Model"
+                // onChange={handleChangeVehicleModel}
+              >
+                {vehicleModels.map((item) => (
+                  <MenuItem value={item} key={item}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl fullWidth sx={styles.textField1} size="small">
+              <InputLabel id="vehicle-year-select-label">
+                Vehicle Year
+              </InputLabel>
+              <Select
+                labelId="vehicle-year-select-label"
+                id="vehicle-year"
+                value={vehicleYearValue}
+                label="Vehicle Year"
+                // onChange={handleChangeVehicleYear}
+              >
+                {vehicleYears.map((item) => (
+                  <MenuItem value={item} key={item}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Plate Number"
+              variant="outlined"
+              sx={styles.text_input}
+            />
+            <FormControl fullWidth sx={styles.textField1} size="small">
+              <InputLabel id="vehicle-color-select-label">
+                Vehicle Color
+              </InputLabel>
+              <Select
+                labelId="vehicle-color-select-label"
+                id="vehicle-color"
+                value={vehicleColorValue}
+                label="Vehicle Color"
+                // onChange={handleChangeVehicleColor}
+              >
+                {vehicleColors.map((item) => (
+                  <MenuItem value={item} key={item}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box sx={styles.document_box}>
+            <Button sx={styles.vehicle_doc_button}>
+              Police Background Check
+            </Button>
+            <Button sx={styles.vehicle_doc_button}>Vehicle Insurance</Button>
+            <Button sx={styles.vehicle_doc_button}>Vehicle Inspection</Button>
+          </Box>
+          <Box sx={styles.button_box}>
+            <Button sx={styles.next_button} onClick={handleBackButton}>
+              Back
+            </Button>
+            <Button sx={styles.next_button} onClick={handleNextButton}>
+              Next
+            </Button>
+          </Box>
+        </Box>
       </Box>
-      ;
     </>
   );
 }
@@ -1075,27 +1273,67 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
   const screenGreaterThan768LessThan1024 = useMediaQuery(
     "(min-width: 769px) and (max-width: 1024px)"
   );
-  const screenGreaterThan1024LessThan1366 = useMediaQuery(
-    "(min-width: 1025px) and (max-width: 1366px)"
+  const screenGreaterThan1024LessThan1440 = useMediaQuery(
+    "(min-width: 1025px) and (max-width: 1440px)"
   );
-  const screenGreaterThan1366LessThan1400 = useMediaQuery(
-    "(min-width: 1367px) and (max-width: 1400px)"
+  const screenGreaterThan1440LessThan2560 = useMediaQuery(
+    "(min-width: 1441px) and (max-width: 2560px)"
   );
-  const screenGreaterThan1400 = useMediaQuery("(min-width: 1401px)");
+  const screenGreaterThan2560LessThan3840 = useMediaQuery(
+    "(min-width: 2560px) and (max-width: 3840px)"
+  );
 
-  const styles_2 = {
-    headingContent: {
+  const styles = {
+    parent_box: {
+      border: "solid #000 1px",
+      boxShadow: "0 0 10px #009737",
+      display: "flex",
+      flexDirection: "column",
+      gap: "30px",
       width: screenLessThan430
         ? "90%"
         : screenGreaterThan430LessThan768
         ? "80%"
         : screenGreaterThan768LessThan1024
         ? "70%"
-        : screenGreaterThan1024LessThan1366
-        ? "90%"
-        : screenGreaterThan1400
-        ? "90%"
-        : "",
+        : screenGreaterThan1024LessThan1440
+        ? "60%"
+        : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
+        ? "25%"
+        : "80%",
+      paddingBottom: "40px",
+      margin:
+        screenLessThan430 || screenGreaterThan1024LessThan1440
+          ? "25px auto"
+          : "50px auto",
+    },
+    child_box: {
+      // border: "solid red 2px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "7px",
+      width: screenLessThan430 ? "90%" : "100%",
+      alignSelf: "center",
+      padding: "20px",
+    },
+    update_button: {
+      // border: "solid #009737 1px",
+      backgroundColor: "#000",
+      color: "#fff",
+      fontSize: "18px",
+      width: "50%",
+      alignSelf: "end",
+    },
+    submit_button: {
+      // border: "solid #009737 1px",
+      backgroundColor: "#000",
+      color: "#fff",
+      fontSize: "18px",
+      width: "90%",
+      alignSelf: "center",
+    },
+    typo_info: {
+      fontWeight: "bold",
     },
   };
   const handleUpdateFormButton = () => {
@@ -1109,8 +1347,66 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
   };
 
   return (
-    <Box>
-      <Typography>This is Update Form Page</Typography>
-    </Box>
+    <>
+      <Box sx={styles.parent_box}>
+        <Box sx={styles.child_box}>
+          <Typography sx={styles.typo_info}>
+            Name: <span style={{ color: "green" }}>Bruce Wills</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Email: <span style={{ color: "green" }}>brucewills@email.com</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Phone Number: <span style={{ color: "green" }}>(888) 888-8888</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Home Address:{" "}
+            <span style={{ color: "green" }}>100 Main St West</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            City:{" "}
+            <span style={{ color: "green" }}>Toronto, Canada, M1L1L1</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Driving License Front:{" "}
+            <span style={{ color: "green" }}>uploaded successful</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Driving License Back:{" "}
+            <span style={{ color: "green" }}>uploaded successful</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Vehicle Type: <span style={{ color: "green" }}>Cargo Van</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Vehicle Make: <span style={{ color: "green" }}>Ford</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Vehicle Model: <span style={{ color: "green" }}>Transit</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Vehicle Year: <span style={{ color: "green" }}>2024</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            License Plate Number:{" "}
+            <span style={{ color: "green" }}>CYCD 676</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Background Check:{" "}
+            <span style={{ color: "green" }}>uploaded successful</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Vehicle Inspection:{" "}
+            <span style={{ color: "green" }}>uploaded successful</span>
+          </Typography>
+          <Typography sx={styles.typo_info}>
+            Vehicle Insurance:{" "}
+            <span style={{ color: "green" }}>uploaded successful</span>
+          </Typography>
+          <Button sx={styles.update_button}>Update</Button>
+        </Box>
+        <Button sx={styles.submit_button}>Submit</Button>
+      </Box>
+    </>
   );
 }
