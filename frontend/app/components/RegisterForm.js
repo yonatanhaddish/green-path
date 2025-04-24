@@ -364,6 +364,8 @@ export function RegisterUserForm({ onPageChange }) {
         ? "80%"
         : screenGreaterThan1024LessThan1440
         ? "70%"
+        : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
+        ? "80%"
         : "100%",
       alignSelf: "center",
       display: "flex",
@@ -380,40 +382,42 @@ export function RegisterUserForm({ onPageChange }) {
       flexWrap: "wrap",
     },
     text_input: {
-      border: "solid green 1px",
+      // border: "solid green 1px",
       width:
         screenLessThan430 ||
         screenGreaterThan430LessThan768 ||
         screenGreaterThan768LessThan1024
           ? "100%"
           : screenGreaterThan1024LessThan1440
-          ? "45%"
+          ? "48%"
           : "100%",
     },
     d_license_box: {
       // border: "solid green 2px",
       display: "flex",
-      flexDirection: "column",
+      flexDirection: screenGreaterThan1024LessThan1440 ? "row" : "column",
       gap: "15px",
       // width: screenLessThan430 ? "100%" : "90%",
     },
     front_button: {
-      border: "solid #000 1px",
+      // border: "solid #000 1px",
       backgroundColor: "#009737",
       color: "#000",
       width: "100%",
+      height: "30px",
     },
     back_button: {
-      border: "solid #000 1px",
+      // border: "solid #000 1px",
       backgroundColor: "#009737",
       color: "#000",
       width: "100%",
+      height: "30px",
     },
     next_button: {
       // border: "solid #009737 1px",
       backgroundColor: "#000",
       color: "#fff",
-      fontSize: "18px",
+      // fontSize: "18px",
       marginTop: "20px",
     },
   };
@@ -555,7 +559,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
         : screenGreaterThan768LessThan1024
         ? "65%"
         : screenGreaterThan1024LessThan1440
-        ? "90%"
+        ? "60%"
         : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
         ? "25%"
         : "80%",
@@ -581,8 +585,10 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
         ? "90%"
         : screenGreaterThan430LessThan768
         ? "75%"
-        : screenGreaterThan768LessThan1024
+        : screenGreaterThan768LessThan1024 || screenGreaterThan1440LessThan2560
         ? "80%"
+        : screenGreaterThan1024LessThan1440
+        ? "70%"
         : "100%",
       alignSelf: "center",
       display: "flex",
@@ -594,8 +600,9 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
       // border: "solid purple 2px",
       // width: screenLessThan430 ? "90%" : "100%",
       display: "flex",
-      flexDirection: "column",
-      gap: "15px",
+      flexDirection: "row",
+      gap: "12px",
+      flexWrap: "wrap",
     },
     text_input: {
       // border: "solid green 1px",
@@ -604,27 +611,30 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
         screenGreaterThan430LessThan768 ||
         screenGreaterThan768LessThan1024
           ? "100%"
-          : "50%",
+          : screenGreaterThan1024LessThan1440
+          ? "48%"
+          : "100%",
     },
     document_box: {
       // border: "solid green 2px",
       display: "flex",
       flexDirection: "column",
-      gap: "15px",
+      gap: "10px",
       // width: screenLessThan430 ? "80%" : "100%",
     },
     vehicle_doc_button: {
-      border: "solid #000 1px",
+      // border: "solid #000 1px",
       backgroundColor: "#009737",
       color: "#000",
       width: "100%",
+      height: "30px",
     },
 
     next_button: {
       // border: "solid #009737 1px",
       backgroundColor: "#000",
       color: "#fff",
-      fontSize: "18px",
+      // fontSize: "18px",
       width: "50%",
     },
     button_box: {
@@ -633,7 +643,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
       flexDirection: "row",
       gap: "15px",
       justifyContent: "center",
-      marginTop: "20px",
+      marginTop: "15px",
     },
   };
 
@@ -660,7 +670,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
         </Typography>
         <Box sx={styles.input_form_box}>
           <Box sx={styles.input_box}>
-            <FormControl fullWidth sx={styles.textField1} size="small">
+            <FormControl fullWidth sx={styles.text_input} size="small">
               <InputLabel id="vehicle-type-select-label">
                 Vehicle Type
               </InputLabel>
@@ -675,7 +685,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
                 <MenuItem value="mini-van">Mini Van</MenuItem>
               </Select>
             </FormControl>
-            <FormControl fullWidth sx={styles.textField1} size="small">
+            <FormControl fullWidth sx={styles.text_input} size="small">
               <InputLabel id="vehicle-make-select-label">
                 Vehicle Make
               </InputLabel>
@@ -693,7 +703,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
                 ))}
               </Select>
             </FormControl>
-            <FormControl fullWidth sx={styles.textField1} size="small">
+            <FormControl fullWidth sx={styles.text_input} size="small">
               <InputLabel id="vehicle-model-select-label">
                 Vehicle Model
               </InputLabel>
@@ -711,7 +721,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
                 ))}
               </Select>
             </FormControl>
-            <FormControl fullWidth sx={styles.textField1} size="small">
+            <FormControl fullWidth sx={styles.text_input} size="small">
               <InputLabel id="vehicle-year-select-label">
                 Vehicle Year
               </InputLabel>
@@ -736,7 +746,7 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
               variant="outlined"
               sx={styles.text_input}
             />
-            <FormControl fullWidth sx={styles.textField1} size="small">
+            <FormControl fullWidth sx={styles.text_input} size="small">
               <InputLabel id="vehicle-color-select-label">
                 Vehicle Color
               </InputLabel>
@@ -811,7 +821,7 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
         : screenGreaterThan768LessThan1024
         ? "65%"
         : screenGreaterThan1024LessThan1440
-        ? "60%"
+        ? "70%"
         : screenGreaterThan1440LessThan2560 || screenGreaterThan2560LessThan3840
         ? "25%"
         : "80%",
@@ -824,12 +834,17 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
     child_box: {
       // border: "solid red 2px",
       display: "flex",
-      flexDirection: "column",
+      flexDirection: "row",
+      flexWrap: "wrap",
       gap: "7px",
       width: screenLessThan430
         ? "90%"
-        : screenGreaterThan430LessThan768 || screenGreaterThan768LessThan1024
-        ? "70%"
+        : screenGreaterThan430LessThan768 ||
+          screenGreaterThan768LessThan1024 ||
+          screenGreaterThan1024LessThan1440
+        ? "90%"
+        : screenGreaterThan1440LessThan2560
+        ? "80%"
         : "100%",
       alignSelf: "center",
       paddingTop: screenLessThan430
@@ -839,27 +854,33 @@ export function GetUserVehicleInfo({ onPageUpateButton }) {
         : "40px",
     },
     update_button: {
-      // border: "solid #009737 1px",
+      // border: "solid #009737 2px",
       backgroundColor: "#000",
       color: "#fff",
-      fontSize: "18px",
-      width: "50%",
+      // fontSize: "18px",
+      width: screenGreaterThan1024LessThan1440 ? "30%" : "50%",
       alignSelf: "end",
     },
     submit_button: {
       // border: "solid #009737 1px",
       backgroundColor: "#000",
       color: "#fff",
-      fontSize: "18px",
+      // fontSize: "18px",
       width: screenLessThan430
         ? "90%"
-        : screenGreaterThan430LessThan768 || screenGreaterThan768LessThan1024
+        : screenGreaterThan430LessThan768 ||
+          screenGreaterThan768LessThan1024 ||
+          screenGreaterThan1440LessThan2560
         ? "70%"
+        : screenGreaterThan1024LessThan1440
+        ? "50%"
         : "100%",
       alignSelf: "center",
     },
     typo_info: {
       fontWeight: "bold",
+      // border: "solid red 2px",
+      width: screenGreaterThan1024LessThan1440 ? "45%" : "100%",
     },
   };
   const handleUpdateFormButton = () => {
