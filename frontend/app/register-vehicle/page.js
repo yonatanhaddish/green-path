@@ -19,7 +19,7 @@ import {
 } from "../components/RegisterForm";
 
 function page() {
-  const [viewForm, setViewForm] = useState("submit-page");
+  const [viewForm, setViewForm] = useState("user-page");
 
   const handleUserPageChange = (data) => {
     setViewForm(data);

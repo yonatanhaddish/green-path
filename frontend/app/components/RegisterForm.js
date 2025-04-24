@@ -935,7 +935,6 @@ export function RegisterVehicleForm({ onPageChangeVehicle }) {
       <Box>
         <Typography>Register Vehicle Form</Typography>
       </Box>
-      ;
     </>
   );
 }
