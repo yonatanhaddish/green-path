@@ -1,6 +1,6 @@
 import { verifyToken } from "@/jwt.mjs";
-import { unAccept } from "@/app/service/jobService";
 import { NextResponse } from "next/server";
+import { deleteJobLoad } from "@/app/service/jobService";
 
 export async function POST(req) {
   try {
@@ -17,24 +17,23 @@ export async function POST(req) {
     }
 
     const job_id = await req.json();
-    const van_driver_id = decoded.id;
-    const data = { ...job_id, van_driver_id };
+    const load_owner_id = decoded.id;
+    const data = { ...job_id, load_owner_id };
 
-    const updatedJob = await unAccept(data);
+    const deletedJob = await deleteJobLoad(data);
 
-    if (!updatedJob) {
+    if (!deletedJob) {
       return NextResponse.json(
-        { error: "Unauthorized to un-accept" },
-        { status: 400 }
+        { error: "Job not found or unauthorized" },
+        { status: 404 }
       );
     }
-    return new Response(JSON.stringify(updatedJob), { status: 200 });
+
+    return NextResponse.json({ success: true, deletedJob });
   } catch (err) {
-    console.error("UnAccept Job Error", err);
-    return new Response(
-      JSON.stringify({
-        error: "Server error",
-      }),
+    console.error("Delete Job Error", err);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }

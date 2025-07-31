@@ -52,15 +52,26 @@ export async function acceptJob(data) {
   return result.rows[0];
 }
 
+// un-accept a job that has already accepted by driver
 export async function unAccept(data) {
-  const { job_id } = data;
+  const { job_id, van_driver_id } = data;
+
   const result = await pool.query(
     `UPDATE job
       SET status = 'pending', accepted_by_id = NULL
-      WHERE id = $1 AND accepted_by_id IS NOT NULL
+      WHERE id = $1 AND accepted_by_id = $2
       RETURNING *`,
-    [job_id]
+    [job_id, van_driver_id]
   );
+  return result.rows[0];
+}
 
+// delete a job that load_owner has posted by load_owner it self
+export async function deleteJobLoad(data) {
+  const { job_id, load_owner_id } = data;
+  const result = await pool.query(
+    `DELETE FROM job WHERE id = $1 AND load_owner_id = $2 RETURNING *`,
+    [job_id, load_owner_id]
+  );
   return result.rows[0];
 }
