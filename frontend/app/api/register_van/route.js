@@ -1,4 +1,3 @@
-import { pool } from "../../../lib/db.js";
 import { verifyToken } from "../../../jwt.mjs";
 import { NextResponse } from "next/server";
 import { registerVan } from "@/app/service/vanService.js";
@@ -23,7 +22,6 @@ export async function POST(req) {
         }
       );
     }
-    console.log("555555", decoded);
 
     const van_driver_id = decoded.id;
     const body = await req.json();
