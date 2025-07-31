@@ -6,6 +6,8 @@ export async function POST(req) {
   try {
     const { email, password_hash } = await req.json();
 
+    console.log({ email, password_hash });
+
     if (!email || !password_hash) {
       return new Response(
         JSON.stringify({

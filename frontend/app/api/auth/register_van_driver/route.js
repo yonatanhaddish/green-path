@@ -10,11 +10,28 @@ export async function POST(req) {
       password_hash,
       phone_number,
       home_address,
-      apartment_number,
+      apt_number,
       country,
       city,
       postal_code,
+      status,
+      driving_license,
     } = await req.json();
+
+    console.log({
+      first_name,
+      last_name,
+      email,
+      password_hash,
+      phone_number,
+      home_address,
+      apt_number,
+      country,
+      city,
+      postal_code,
+      status,
+      driving_license,
+    });
 
     if (
       !first_name ||
@@ -23,10 +40,12 @@ export async function POST(req) {
       !password_hash ||
       !phone_number ||
       !home_address ||
-      !apartment_number ||
+      !apt_number ||
       !country ||
       !city ||
-      !postal_code
+      !postal_code ||
+      !status ||
+      !driving_license
     ) {
       return new Response(
         JSON.stringify({
@@ -53,9 +72,9 @@ export async function POST(req) {
 
     const hashedPassword = await bcrypt.hash(password_hash, 10);
     await pool.query(
-      `INSERT INTO van_driver (first_name, last_name, email, password_hash, phone_number, home_address, apartment_number, country, city, postal_code) 
+      `INSERT INTO van_driver (first_name, last_name, email, password_hash, phone_number, home_address, apt_number, country, city, postal_code, status, driving_license) 
         VALUES
-                ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+                ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
       `,
       [
         first_name,
@@ -64,10 +83,12 @@ export async function POST(req) {
         hashedPassword,
         phone_number,
         home_address,
-        apartment_number,
+        apt_number,
         country,
         city,
         postal_code,
+        status,
+        driving_license,
       ]
     );
     return new Response(

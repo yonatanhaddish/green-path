@@ -1,8 +1,8 @@
-import { getAllDrivers } from "../../../lib/dirverService";
+import { registerJob } from "../../../lib/jobService";
 
-export async function GET() {
+export async function GET(req) {
   try {
-    const drivers = await getAllDrivers();
+    const drivers = await registerJob();
     return Response.json(drivers);
   } catch (err) {
     console.log(`Error fetching drivers: ${err}`);
