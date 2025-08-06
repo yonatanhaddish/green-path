@@ -23,11 +23,9 @@ export async function POST(req) {
 
     const updatedJob = await acceptJob(data);
 
-    console.log("444", updatedJob);
-
     if (!updatedJob) {
       return NextResponse.json(
-        { error: "Job already accepted" },
+        { error: "Unauthorized to accept" },
         { status: 400 }
       );
     }

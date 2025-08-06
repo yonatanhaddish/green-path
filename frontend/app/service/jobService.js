@@ -44,15 +44,14 @@ export async function acceptJob(data) {
 
   console.log("56666", data);
 
-  // const result = await pool.query(
-  //   `UPDATE job
-  //     SET status = 'accepted', accepted_by_id = $1
-  //     WHERE id = $2 AND accepted_by_id IS NULL
-  //     RETURNING *`,
-  //   [driver_id, jobId]
-  // );
-  // return result.rows[0];
-  return data;
+  const result = await pool.query(
+    `UPDATE job
+      SET status = 'accepted', accepted_by_id = $1
+      WHERE id = $2 AND accepted_by_id IS NULL
+      RETURNING *`,
+    [driver_id, jobId]
+  );
+  return result.rows[0];
 }
 
 // un-accept a job that has already accepted by driver

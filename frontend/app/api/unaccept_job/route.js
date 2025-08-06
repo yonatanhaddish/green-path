@@ -1,5 +1,6 @@
 import { verifyToken } from "@/jwt.mjs";
 import { unAccept } from "@/app/service/jobService";
+import { updateVanOwnerIdJobAssignmentUnAccept } from "@/app/service/jobAssignmentService";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -28,6 +29,9 @@ export async function POST(req) {
         { status: 400 }
       );
     }
+
+    await updateVanOwnerIdJobAssignmentUnAccept(updatedJob.id);
+
     return new Response(JSON.stringify(updatedJob), { status: 200 });
   } catch (err) {
     console.error("UnAccept Job Error", err);
