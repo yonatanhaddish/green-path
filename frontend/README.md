@@ -53,12 +53,15 @@
 ); -->
 <!--
 
+<!-- CREATE TABLE job_assignment (
 CREATE TABLE job_assignment (
   id SERIAL PRIMARY KEY,
-  job_id INTEGER REFERENCES job(id),
-  van_driver_id INTEGER REFERENCES van_driver(id),
-  assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  status VARCHAR(50) DEFAULT 'assigned' -- assigned / rejected / completed
+  job_id INTEGER UNIQUE NOT NULL REFERENCES job(id),
+  van_driver_id INTEGER NULL,
+  load_owner_id INTEGER NULL REFERENCES load_owner(id),
+  status TEXT DEFAULT 'pending',
+  assigned_at TIMESTAMP NULL,
+  updated_at TIMESTAMP DEFAULT NOW()
 ); -->
 
 <!-- CREATE TABLE payment (

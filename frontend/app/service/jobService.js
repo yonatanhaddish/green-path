@@ -42,14 +42,17 @@ export async function getAllLoadJobs() {
 export async function acceptJob(data) {
   const { jobId, driver_id } = data;
 
-  const result = await pool.query(
-    `UPDATE job
-      SET status = 'accepted', accepted_by_id = $1
-      WHERE id = $2 AND accepted_by_id IS NULL
-      RETURNING *`,
-    [driver_id, jobId]
-  );
-  return result.rows[0];
+  console.log("56666", data);
+
+  // const result = await pool.query(
+  //   `UPDATE job
+  //     SET status = 'accepted', accepted_by_id = $1
+  //     WHERE id = $2 AND accepted_by_id IS NULL
+  //     RETURNING *`,
+  //   [driver_id, jobId]
+  // );
+  // return result.rows[0];
+  return data;
 }
 
 // un-accept a job that has already accepted by driver
@@ -73,5 +76,43 @@ export async function deleteJobLoad(data) {
     `DELETE FROM job WHERE id = $1 AND load_owner_id = $2 RETURNING *`,
     [job_id, load_owner_id]
   );
+  return result.rows[0];
+}
+
+// update a job (only by load_owner)
+export async function updateJob(data) {
+  const {
+    job_id,
+    load_owner_id,
+    pickup_address,
+    dropoff_address,
+    pickup_date,
+    item_name,
+    description,
+    weight,
+  } = data;
+
+  const result = await pool.query(
+    `UPDATE job
+     SET pickup_address = $1,
+         dropoff_address = $2,
+         pickup_date = $3,
+         item_name = $4,
+         description = $5,
+         weight = $6
+     WHERE id = $7 AND load_owner_id = $8 AND accepted_by_id IS NULL
+     RETURNING *`,
+    [
+      pickup_address,
+      dropoff_address,
+      pickup_date,
+      item_name,
+      description,
+      weight,
+      job_id,
+      load_owner_id,
+    ]
+  );
+
   return result.rows[0];
 }

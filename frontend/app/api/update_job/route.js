@@ -1,6 +1,5 @@
 import { verifyToken } from "@/jwt.mjs";
-import { acceptJob } from "@/app/service/jobService";
-import { updateVanOwnerIdJobAssignment } from "@/app/service/jobAssignmentService";
+import { updateJob } from "@/app/service/jobService";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -17,34 +16,23 @@ export async function POST(req) {
       return NextResponse.json({ error: "Invalid token" }, { status: 403 });
     }
 
-    const driver_id = decoded.id;
-    const job_id = await req.json();
-    const data = { ...job_id, driver_id };
+    const body = await req.json();
+    const load_owner_id = decoded.id;
 
-    const updatedJob = await acceptJob(data);
-
-    console.log("444", updatedJob);
+    const updatedJob = await updateJob({ ...body, load_owner_id });
 
     if (!updatedJob) {
       return NextResponse.json(
-        { error: "Job already accepted" },
+        { error: "Unauthorized or job not found" },
         { status: 400 }
       );
     }
 
-    await updateVanOwnerIdJobAssignment(
-      updatedJob.id,
-      updatedJob.accepted_by_id,
-      new Date()
-    );
     return new Response(JSON.stringify(updatedJob), { status: 200 });
   } catch (err) {
-    console.error("Accepted Job Error", err);
-    return new Response(
-      JSON.stringify({
-        error: "Server error",
-      }),
-      { status: 500 }
-    );
+    console.error("Update Job Error", err);
+    return new Response(JSON.stringify({ error: "Server error" }), {
+      status: 500,
+    });
   }
 }

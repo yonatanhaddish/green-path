@@ -1,6 +1,7 @@
 import { verifyToken } from "@/jwt.mjs";
 import { NextResponse } from "next/server";
 import { registerLoadJob } from "@/app/service/jobService";
+import { createJobAssignment } from "@/app/service/jobAssignmentService";
 
 export async function POST(req) {
   try {
@@ -35,6 +36,10 @@ export async function POST(req) {
     const data = { ...body, load_owner_id };
 
     const load_owner = await registerLoadJob(data);
+
+    // this will create a new record into job_assignment table with job_id and load_owner_id
+    await createJobAssignment(load_owner.id, load_owner.load_owner_id);
+
     return new Response(JSON.stringify(load_owner), { status: 200 });
   } catch (err) {
     console.error("Error creating load owner:", err);
